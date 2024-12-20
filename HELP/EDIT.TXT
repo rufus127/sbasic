@@ -1,0 +1,24 @@
+EDIT [num-ligne]
+Permet de modifier une ligne du programme.
+num-ligne : Numéro de ligne (entre 1 et 2147483647).
+
+Exemple
+EDIT 10
+Cette commande affiche la ligne 10 avec le curseur placé en début de ligne.
+
+Action
+La commande EDIT permet de placer la ligne num-ligne en mode édition de manière à pouvoir la modifier. La valeur par défaut de num-ligne est celle de la dernière ligne créée, introduite ou listée. Le mode édition offre les fonctions suivantes :
+Touche du clavier	Action
+Ctrl-R		Déplace le curseur en début ou en fin de ligne (bascule).
+Ctrl-C		Abandon de la modification.
+Ctrl-X		Valide la ligne jusqu’au curseur.
+(Retour-Chariot)	Valide la ligne complète.
+(Flèche à gauche)	Recule le curseur d’un caractère.
+(Flèche à droite)	Avance le curseur d’un caractère.
+Echap		Efface la ligne.
+Ins		Bascule le mode insertion.
+Eff		Efface le caractère placé sous le curseur (sans effet en fin de ligne).
+(Retour arrière)	Efface le caractère précédant le curseur.
+
+Lorsqu’on entre une nouvelle ligne de programme ou que l’on effectue une saisie par l’intermédiaire des instructions INPUT ou INPUT LINE, on utilise également l’éditeur.
+La commande EDIT n’est utilisable qu’en mode direct.

@@ -1,0 +1,32 @@
+RENUM ou RENUMBER [num-ligne-1] [,[num-ligne-2] [,[num-ligne-3] [,[num-ligne-4]]]
+Cette commande effectue la renumérotation totale ou partielle du programme en mémoire.
+num-ligne-1 : Nouveau numéro de la première ligne à numéroter.
+num-ligne-2 : Pas de la numérotation.
+num-ligne-3 : Ancien numéro de la première ligne à renuméroter.
+num-ligne-4 : Ancien numéro de la dernière ligne à renuméroter.
+
+Exemple 1
+RENUMBER
+Le programme est renuméroté en totalité, de 10 en 10 ; le nouveau numéro de la première ligne est également 10.
+
+Exemple 2
+RENUMBER 100
+Le programme est renuméroté en totalité, de 10 en 10 ; le nouveau numéro de la première ligne est 100.
+
+Exemple 3
+RENUM ,1,100,200
+Le programme est renuméroté de la ligne 100 à la ligne 200 ; le nouveau numéro de la première ligne est 10 (valeur par défaut) et le pas est de 1.
+
+Action
+L’utilitaire RENUMBER (RENUM) permet de renuméroter en partie ou en totalité le programme présent en mémoire. La renumérotation affecte les lignes comprises entre num-ligne-3 et num-ligne-4 ; le nouveau numéro de la première ligne est num-ligne-1 et le pas est num-ligne-2.
+Ces arguments ont les valeurs par défaut suivantes :
+num-ligne-1 10
+num-ligne-2 10
+num-ligne-3 1
+num-ligne-4 2147483647
+
+Comme l’indique la syntaxe, lorsque les arguments omis ne sont pas les derniers dans la liste, leur emplacement doit être marqué par des virgules tel que dans l’exemple 3.
+
+Remarques :
+* Lorsqu’un programme est renuméroté en partie, il peut se produire une tentative de chevauchement des numérotations anciennes et nouvelles. Dans ce cas, une erreur est signalée.
+* Cette commande doit être utilisée avec précautions dans les programmes comportant des tests sur le contenu de la variable ERL.

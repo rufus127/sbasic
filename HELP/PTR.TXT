@@ -1,0 +1,35 @@
+PTR(var)
+Retourne l’adresse d’une variable.
+var : Nom de variable.
+
+Exemple 1
+10 K%=200
+20 P=PTR(K%)
+30 PRINT PEEK(P),PEEK(P+1),PEEK(P+2),PEEK(P+3)
+P contient l’adresse de la variable entière K% ; la lecture directe du contenu de cette adresse donne 200, valeur de K%, pour l’octet de poids faible et 0 pour 1es trois autres octets de l'entier.
+
+Exemple 2
+10 A$="CECI EST UN ESSAI"
+20 P = PTR(A$)
+30 DEBUT = DPEEK(P)
+40 LONGUEUR = DPEEK(P+4)
+50 FOR X = DEBUT TO DEBUT+LONGUEUR-1
+60 PRINT CHR$(PEEK(X))
+70 NEXT X
+Ce programme détermine l’adresse de la variable A$ ainsi que sa longueur et accède directement aux octets contenant la valeur de la chaîne. En effet, le descripteur en mémoire de la chaîne A$ dont l’adresse est retournée dans la variable P, est constitué de 4 octets : les 2 premiers octets, affectés à la variable DEBUT, pointent sur la zone de mémoire ou est stockée la chaîne de caractères proprement dite et les 2 derniers affectés à la variable LONGUEUR comportent la longueur de la chaîne.
+
+Action
+La fonction PTR retourne, selon le type d’argument, son adresse en mémoire ou celle de son descripteur.
+var peut être une variable, un élément de tableau ou un tableau. Un tableau, quel que soit le nombre de ses dimensions, doit être spécifiée sous la forme : nom du tableau(*).
+* Si var est une variable ou un élément de tableau numérique, l’adresse retournée est celle du premier octet ou est rangée sa valeur.
+  Les valeurs entières sont mémorisées sur 4 octets.
+  Les valeurs réelles occupent 8 octets : 52 chiffres binaires pour la mantisse, 11 pour l’exposant et 1 pour le signe.
+* Si var est une variable, ou un élément de tableau, chaîne de caractères, l’adresse retournée est celle de son descripteur. Un descripteur de chaîne est constitué de 8 octets :
+  les 4 premiers contiennent l’adresse où commence la chaîne,
+  les 4 octets suivants contiennent la longueur de la chaîne.
+* Si var(*) est un tableau, l’adresse retournée est celle du descripteur du tableau. Un descripteur de tableau est constitué de 6 octets :
+  Les 4 premiers contiennent l’adresse où est rangée la valeur de l’élément 0, s’il s’agit d’un tableau numérique, ou l’adresse du descripteur de l’élément 0 s’il s’agit d’un tableau chaîne de caractères. Les valeurs ou les descripteurs des éléments d’un tableau sont rangés « par lignes »,
+  Le 5e octet contient le nombre de dimensions du tableau,
+  La valeur du dernier octet indique s’il s’agit d’un tableau ordinaire (0) ou d’un tableau virtuel (1).
+
+Voir aussi : PEEK, DPEEK, POKE, DPOKE.

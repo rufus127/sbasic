@@ -1,0 +1,14 @@
+MASK exp-num-1, exp-num-2, exp-num-3
+Permet de masquer une ou plusieurs composantes de base des couleurs.
+exp-num-1 : Masquage (1) ou non-masquage (0) de la composante rouge.
+exp-num-2 : Masquage (1) ou non-masquage (0) de la composante verte.
+exp-num-3 : Masquage (1) ou non-masquage (0) de la composante bleu.
+
+Exemple
+10 MASK 0,1,0
+Après exécution de cette ligne, la composante verte de la couleur est masquée.
+
+Action
+L’instruction MASK n’a d’intérêt que seulement si les couleurs de 0 à 15 sont utilisées. Elle permet de masquer une ou plusieurs composantes de base de ces couleurs.
+Chacune des trois expressions numériques exp-num-1, exp-num-2 et exp-num-3 est évaluée modulo 2 et peut prendre la valeur 1 ou 0 suivant que la couleur de base correspondante doit être masquée ou non.
+Ce masque de couleurs n’est pas pris en compte par les instructions CLRG et FILL.

@@ -1,0 +1,18 @@
+END
+Termine l’exécution d’un programme.
+
+Exemple
+10 PRINT "DEBUT"
+20 GOSUB ESSAI
+30 END
+40 LABEL ESSAI
+50 PRINT "ESSAI"
+60 RETURN
+Le programme exécute les lignes 10 et 20 puis s’achève en ligne 30 lorsque l’instruction END est rencontrée.
+
+Action
+L’instruction END marque la fin d’un programme. Elle peut être placée n’importe où dans un programme.
+Après une instruction END, les fichiers sont fermés et une commande CONT ne permet pas de redémarrer le programme.
+Il n’est pas indispensable qu’une instruction END figure dans un programme.
+
+Voir aussi : STOP.

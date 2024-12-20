@@ -1,0 +1,18 @@
+TAB(exp-num)
+Déplace la position d’affichage ou d’impression à un emplacement spécifié.
+exp-num : Position (entre 0 et 255).
+
+Exemple
+10 PRINT TAB(10); "DEBUT"; TAB(20); "SUITE"; TAB(40); "FIN"
+Les mots « DEBUT », « SUITE » et « FIN » s’affichent respectivement à partir des colonnes 10, 20 et 40 de la fenêtre SBASIC.
+
+Action
+La fonction TAB déplace la position d’affichage ou d’impression à l’emplacement indiqué par exp-num.
+
+Le cas échéant, exp-num est tronquée à sa partie entière. Si celle-ci est négative ou supérieure à 255, une erreur 74 est signalée.
+
+Cette fonction ne permet pas de déplacer la position d’affichage en arrière sur la même ligne.
+
+La fonction TAB ne peut être utilisée que dans un ordre PRINT
+
+Voir aussi : SPC.

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SBASIC", "SBASIC.vcxproj", "{F4009AD4-DEBB-40E0-BE3C-EBBE8EB0E4A8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SB32", "SB32.vcxproj", "{1AE3D1F1-51A8-40A4-A7B5-0F847F185F31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4009AD4-DEBB-40E0-BE3C-EBBE8EB0E4A8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F4009AD4-DEBB-40E0-BE3C-EBBE8EB0E4A8}.Debug|Win32.Build.0 = Debug|Win32
+		{F4009AD4-DEBB-40E0-BE3C-EBBE8EB0E4A8}.Release|Win32.ActiveCfg = Release|Win32
+		{F4009AD4-DEBB-40E0-BE3C-EBBE8EB0E4A8}.Release|Win32.Build.0 = Release|Win32
+		{1AE3D1F1-51A8-40A4-A7B5-0F847F185F31}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1AE3D1F1-51A8-40A4-A7B5-0F847F185F31}.Debug|Win32.Build.0 = Debug|Win32
+		{1AE3D1F1-51A8-40A4-A7B5-0F847F185F31}.Release|Win32.ActiveCfg = Release|Win32
+		{1AE3D1F1-51A8-40A4-A7B5-0F847F185F31}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

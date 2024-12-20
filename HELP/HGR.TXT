@@ -1,0 +1,12 @@
+HGR
+Initialise la fenêtre graphique en 800x600 points.
+
+Exemple
+10 HGR
+20 PLOT 10,10 TO 790,590
+
+Action
+L’instruction HGR initialise l’affichage graphique dans une fenêtre de 800 par 600 points. Si cette fenêtre a déjà été ouverte par l’instruction HGR, elle est seulement mise en avant plan. Si une fenêtre graphique a été ouverte avec l’instruction GR, celle-ci est préalablement fermée.
+La couleur 15 est automatiquement sélectionnée lors de l’ouverture d’une fenêtre graphique.
+
+Voir aussi : GR, TEXT.

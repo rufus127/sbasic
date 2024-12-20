@@ -1,0 +1,11 @@
+TRIVAR
+Affiche la table des références croisées du programme.
+
+Exemple
+TRIVAR
+La table des symboles s’affiche dans la fenêtre SBASIC.
+
+Action
+L’instruction TRIVAR permet d’afficher la table des symboles du programme, triée dans l’ordre alphabétique : noms de variables, noms de sous-programmes, noms de tableaux et étiquettes existant dans le programme. Chaque nom est suivi de la liste des numéros des lignes dans lesquelles il apparaît : ce sont les références croisées du programme.
+
+Voir aussi : TASVAR.

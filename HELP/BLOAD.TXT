@@ -1,0 +1,42 @@
+BLOAD nom-fich [,,num-ligne]
+Charge en mémoire un programme sauvegardé sous forme compilée, avec une translation éventuelle des numéros de lignes.
+nom-fich	: Nom du programme à charger.
+,,	: Séparateurs.
+num-ligne	: Translation.
+
+Exemple 1
+10 BLOAD "ESSAI"
+Le programme « ESSAI.BAC » est chargé, sans modification de sa numérotation.
+
+Exemple 2
+10 BLOAD "ESSAI",,100
+Le programme « ESSAI.BAC » est chargé avec une translation de 100 dans la numérotation (chaque numéro de ligne est augmenté de 100).
+
+Action
+L’instruction BLOAD charge en mémoire le programme compilé nom-fich, en ajoutant éventuellement num-ligne à chaque numéro de ligne chargée.
+nom-fich doit avoir été compilé préalablement au moyen de la commande COMPILE ; son extension par défaut est « BAC ».
+Si num-ligne est omise, le programme chargé conserve la numérotation initiale. num-ligne ne peut être spécifié que si le programme a été compilé avec au moins une option C, S, O ou L ou un numéro de ligne en paramètre.
+Les virgules « ,, » assurent la conformité syntaxique avec les commandes LOAD et SAVE.
+
+BLOAD s’utilise en mode programme ou en mode direct.
+En mode programme, BLOAD n’est autorisé que si le programme a été compilé avec au moins une option C, S, O ou L ou un numéro de ligne en parametre. Lors de son chargement, les lignes de ce programme s’ajoutent aux lignes déjà présentes. Seules les lignes dont le numéro se trouve entre la première ligne et la dernière ligne du programme compilé sont effacées. Une erreur 89 est signalée si une de ces lignes est référencée (ligne courante ou CALL, GOSUB ou FOR en cours).
+En mode direct, si le programme n’a pas été compilé avec une option C, S, O ou L ou un numéro de ligne en paramètre, le programme se retrouve, une fois rechargé, dans son état d’origine. Toutes les lignes déjà présentes sont effacées.
+
+Voir aussi : LOAD, COMPILE.
+
+
+BLOAD nom-fich var-chaine
+Charge dans une variable chaine le contenu d’un fichier.
+nom-fich : Nom du fichier dont le contenu est à charger.
+var-chaine : Variable chaîne recevant le contenu du fichier. 
+
+Exemple
+10 DIM B$(5)
+20 FOR I% = 0 TO 4
+30 BLOAD "BOUTON"+LTRIM$(RTRIM$(STR$(I%)))+".BMP" B$(I%)
+40 NEXT I% 
+Le contenu des fichiers BOUTON0.BMP, BOUTON1.BMP, BOUTON2.BMP, BOUTON3.BMP et BOUTON4.BMP est chargé dans chacun des éléments du tableau de chaines B$. Si ces fichiers contiennent des images au format bitmap, celles-ci peuvent être affichées avec l’instruction GPUT.
+
+Action
+L’instruction BLOAD charge dans une variable chaine le contenu complet d’un fichier.
+Voir aussi : BSAVE, GPUT.

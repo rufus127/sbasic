@@ -1,0 +1,17 @@
+INT(exp-num)
+Renvoie la partie entière d’une expression numérique.
+exp-num : Expression numérique quelconque.
+
+Exemple
+10 FOR X = -1.5 TO 1.5 STEP 0.5
+20 PRINT X, INT(X)
+30 NEXT X
+Ce programme affiche la valeur prise par la variable X ainsi que sa partie entière :
+1.5	2
+1	1
+0	0
+1	1
+1.5	1
+
+Action
+La fonction INT retourne la partie entière de exp num, c’est-à-dire le plus grand entier qui lui est inférieur ou égal.

@@ -1,0 +1,40 @@
+INCH$(exp-num-l [,exp-num-2])
+Permet l’entrée d’un ou plusieurs caractères du clavier ou d’un fichier séquentiel.
+exp-num-1 : Numéro de canal compris entre 0 et 12.
+exp-num-2 : Nombre de caractères à lire sur le canal.
+
+Exemple 1
+10 A$=INCH$(0)
+20 PRINT A$
+Ce programme attend qu’un caractère soit frappé au clavier (ligne 10) puis l’affiche (ligne 20).
+
+Exemple 2
+10 OPEN OLD "ESSAI.TXT" AS 1
+20 FOR X%=1 TO 20
+30 A$=INCH$(1)
+40 PRINT A$ ;
+50 NEXT X%
+60 CLOSE 1
+Ce programme lit (ligne 30) puis affiche (ligne 40) les 20 premiers caractères du fichier ESSAI.TXT, préalablement ouvert sur le canal 1.
+
+Action
+Cette fonction permet d’affecter à une variable chaîne, suivant la valeur de exp num-1, soit un ou plusieurs caractères entrés au clavier soit des caractères lus dans un fichier séquentiel.
+Après l’exécution, si exp-num-2 n’est pas spécifié, la variable chaîne ne contient qu’un seul caractère ; lors d’une saisie au clavier, aucun Retour-Chariot n’est nécessaire pour valider ce caractère.
+* Si exp-num-2 est spécifié, après l’exécution la variable chaîne contient exp-num-2 caractères. exp-num-2 doit être supérieur ou égal à 1.
+* Si exp-num-1 est égale à 0, l’entrée se fait depuis le clavier ;
+* Si exp-num-1 est comprise entre 1 et 12, l’entrée se fait depuis le fichier séquentiel ouvert sur le canal exp num-1. Si le numéro de canal indiqué ne correspond à celui d’aucun fichier ouvert, une erreur 43 est signalée.
+* Si exp-num-1 est supérieure à 12, une erreur 40 est signalée.
+Voir aussi : INPUT, INPUT #, INPUT LINE, INPUT LINE #.
+
+
+INCH$(-1)
+Permet de savoir si une touche du clavier a été tapée.
+
+Exemple
+10 A$ = INCH$(-1)
+20 IF ASC(A$) = 0 THEN I = I + 1: GOTO 10
+30 PRINT I
+Ce programme ne s’arrête que lorsqu’une touche du clavier est tapée.
+
+Action
+Cette fonction teste le clavier sans interrompre l’exécution du programme : si une touche est tapée, elle renvoie le caractère correspondant ; sinon, elle retourne le caractère NUL, CHR$(0).

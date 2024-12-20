@@ -1,0 +1,46 @@
+FIELD exp-num-1 AS var-chaîne-1 [,exp-num-2 AS var-chaîne-2] ...
+Permet de définir la longueur et le nom d’une ou plusieurs zones de mémoire tampon.
+exp-num-n : Longueur du tampon.
+var-chaîne-n : Variable chaîne de caractères.
+
+Exemple
+10 FIELD 100 AS A$, 150 AS B$, 100 AS C$
+Cette ligne de programme crée en mémoire un tampon d’une longueur de 350 caractères, répartis en trois zones. La première zone est référencée par la variable A$ et a pour longueur 100, la seconde est référencée par la variable B$ et a pour longueur 150, et la troisième est référencée par la variable C$ et a pour longueur 100 octets.
+
+Action
+L’instruction FIELD permet de définir la longueur et le nom de zones tampon.
+exp-num-n indique la longueur de la zone affectée à var-chaîne-n.
+L’affectation d’une valeur à une variable déclarée par une instruction FIELD ne peut être faite que par les instructions SET, LSET ou RSET. Toute affectation par une instruction LET (implicite ou explicite) détruit le lien entre la variable et le tampon.
+
+Voir aussi : FIELD#, SET, LSET, RSET.
+
+
+FIELD #exp-num-1, exp-num-2 AS var-chaîne-2 [,exp-num-3 AS var-chaîne-3] ...
+Permet de définir la longueur et le nom des zones de mémoire tampon d’un fichier à accès direct.
+exp-num-1	Numéro de canal compris entre 1 et 12.
+exp-num-2	Longueur de la première zone du tampon.
+var-chaîne-2	Nom de la première zone du tampon.
+exp-num-3	Longueur de la deuxième zone du tampon.
+var-chaîne-3	Nom de la deuxième zone du tampon.
+...
+
+Exemple
+10 OPEN "PERSON" AS 1, LEN 50
+20 FIELD #1, 30 AS NOM$, 12 AS PRE$, 8 AS SAL$
+30 INPUT "Numéro (0=fin) ";N%
+40 IF N% = 0 THEN 100
+50 GET #1, RECORD N%
+60 PRINT "Nom: "; NOM$
+70 PRINT "Prénom: "; PRE$
+80 PRINT "Salaire: "; CVT$F (SAL$) : PRINT
+90 GOTO 30
+100 CLOSE 1
+La ligne 20 découpe en trois zones le tampon d’entrée-sortie du fichier à accès direct « PERSON.DAT » précédemment ouvert sur le canal 1 : NOM$ a une longueur de 30 caractères ; PRE$ de 12 caractères et SAL$ de 8 caractères.
+
+Action
+L’instruction FIELD# permet de définir la longueur et le nom des zones constituant le tampon d’entrée-sortie d’un fichier à accès direct ouvert sur le canal exp-num-1.
+Cette instruction doit être exécutée avant toute lecture (GET) ou écriture (PUT) dans le fichier correspondant.
+exp-num-n indique la longueur du tampon affecté à var-chaîne-n.
+L’affectation d’une valeur à une variable déclarée par une instruction FIELD# ne peut être faite que par les instructions SET, LSET ou RSET. Toute affectation par une instruction LET (implicite ou explicite) détruit le lien entre la variable et le tampon.
+
+Voir aussi : FIELD, SET, LSET, RSET.

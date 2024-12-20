@@ -1,0 +1,19 @@
+GGET var-chaîne, exp-num-1, exp-num-2, exp-num-3, exp-num-4
+Range dans une variable chaine l’image bitmap d’un rectangle de la fenêtre graphique.
+var-chaîne : Variable chaine recevant la bitmap.
+exp-num-1 : Abscisse du coin inférieur gauche.
+exp-num-2 : Ordonnée du coin inférieur gauche.
+exp-num-3 : Abscisse du point supérieur droit.
+exp-num-4 : Ordonnée du supérieur droit.
+
+Exemple
+10 GGET B$,100,50,109,59
+20 BSAVE “ICONE.BMP” B$
+Ce programme crée le fichier ICONE.BMP contenant l’image bitmap du rectangle de 10 x 10 pixels dont l’angle inférieur gauche se trouve à l’abscisse 100 et l’ordonnée 50 de la fenêtre graphique.
+
+Action
+L’instruction GGET permet de générer l’image bitmap du contenu d’un rectangle de la fenêtre graphique. exp-num-1 et exp-num-2 sont les coordonnées du coin inférieur gauche du rectangle. exp-num-3 et exp-num-4 sont les coordonnées du coin supérieur droit. L’image bitmap est rangée dans la variable chaîne var-chaîne. Elle est au format BMP 256 couleurs.
+
+Les parties du rectangle extérieures à la fenêtre graphique prennent la couleur 0.
+
+Voir aussi : GPUT, BSAVE.

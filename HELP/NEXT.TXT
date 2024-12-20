@@ -1,0 +1,16 @@
+NEXT var-num
+Indique la fin d’une boucle.
+var-num : Variable numérique.
+
+Exemple 1
+10 FOR X= 1 TO 10
+20 PRINT " essai ";
+30 PRINT X
+40 NEXT X : PRINT "FIN"
+Dans cet exemple, les lignes 20 et 30 sont exécutées pour toutes les valeurs de X comprises entre 1 et 10. Chaque fois que l’instruction NEXT de la ligne 40 est rencontrée, la valeur de la variable X est incrémentée de 1. Tant que cette valeur ne dépasse pas 10, l’exécution reprend à l’instruction 20. Lorsque X dépasse cette valeur, le programme passe à l’instruction suivant NEXT.
+
+Action
+L’instruction NEXT marque la fin d’une boucle initiée par une instruction FOR.
+La variable var-num doit correspondre au nom de la variable de contrôle de l’instruction FOR qui précède, à défaut une erreur 62 est signalée.
+
+Voir aussi : FOR.

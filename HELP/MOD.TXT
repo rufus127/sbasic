@@ -1,0 +1,11 @@
+exp-num-1 MOD exp-num-2
+Operateur arithmétique modulo.
+exp-num-1 : Expression numérique
+exp-num-2 : Expression numérique
+
+Exemple
+10 PRINT 10 MOD 3
+Affiche 10 modulo 3, soit 1.
+
+Action
+Evalue exp-num-1 modulo exp-num2.

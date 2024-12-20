@@ -1,0 +1,18 @@
+ERL
+Variable système contenant le numéro de la ligne à laquelle s’est produite la dernière erreur.
+
+Exemple
+10 ON ERROR GOTO 60
+20 PRINT " ENTREZ UNE CHAINE EXECUTABLE : "
+30 INPUT LINE L$
+40 EXECUTE L$
+50 GOTO 20
+60 IF ERL=40 THEN RESUME 20
+70 PRINT "Erreur : ";ERR, "Ligne :" ;ERL
+Ce programme demande la saisie d’une chaîne de caractères contenant des instructions exécutables. Si une erreur 30 (types de données non concordants) se produit lors de l’exécution (ligne 30) de la chaîne saisie, le programme reprend en ligne 20.
+
+Action
+ERL est une variable système (de même que ARGC, ARGV$, ERR, DATE$, PI, XPEN et YPEN), contenant le numéro de la ligne à laquelle s’est produite la dernière erreur survenue.
+ERL ne peut pas figurer à gauche du signe égal « = » dans un ordre d’affectation (LET implicite ou explicite).
+
+Voir aussi : ERR, ON ERROR GOTO, RESUME.

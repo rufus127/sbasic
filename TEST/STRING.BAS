@@ -1,0 +1,59 @@
+   10 FOR I%=2 TO 15
+   20 FOR J%=0 TO 15
+   30 PRINT CHR$(I%*16+J%);
+   40 NEXT J%
+   50 PRINT
+   60 NEXT I%
+  110 A% = 1200
+  120 A$ = CVT%$(A%)
+  130 B% = CVT$%(A$)
+  140 IF B% <> 1200 THEN PRINT "Erreur CVT!": STOP
+  150 A = 1200
+  160 A$ = CVTF$(A)
+  170 B = CVT$F(A$)
+  180 IF B <> 1200 THEN PRINT "Erreur CVTF!": STOP
+  210 C$ = "0123456789"
+  220 S$ = "34"
+  230 A% = INSTR (1,C$,S$)
+  240 IF A% <> 4 THEN PRINT "Erreur INSTR!": STOP
+  250 B% = INSTR (5,C$,S$)
+  260 IF B% <> 0 THEN PRINT "Erreur INSTR!": STOP
+  310 I% = 1 : N% = 0 : C$ = "IL ETAIT UNE FOIS DANS L'OUEST"
+  320 A% = INSTR (I%,C$,"E")
+  330 IF A%>0 THEN N% = N% + 1 : I% = A% + 1 : GOTO 320
+  335 PRINT C$
+  340 PRINT " LA LETTRE 'E' APPARAIT " ; N% ; " FOIS"
+  350 IF N%<>3 THEN PRINT "Erreur INSTR!":STOP
+  410 A$="0123456"
+  420 IF LEFT$(A$,3) <> "012" THEN PRINT "Erreur LEFT$": STOP
+  430 IF RIGHT$(A$,3) <> "456" THEN PRINT "Erreur RIGHT$": STOP
+  510 A$ = "   CECI EST UN ESSAI   "
+  520 L$ = LTRIM$(A$)
+  530 IF L$ <> "CECI EST UN ESSAI"+"   " THEN PRINT "Erreur LTRIM$!": STOP
+  570 R$ = RTRIM$(A$)
+  580 IF R$ <> "   "+"CECI EST UN ESSAI" THEN PRINT "Erreur RTRIM$!": STOP
+  600 A$="ABCDEF"
+  610 IF MID$(A$,3) <> "CDEF" OR MID$(A$,2,3) <> "BCD" THEN PRINT "Erreur MID$!": STOP
+  660 I% = 4
+  670 A$ = "123456789"
+  680 B$ = "--"
+  690 SET I%+1, A$ = B$
+  700 IF A$ <> "1234--789" THEN PRINT "Erreur SET!": STOP
+  710 A = 123.45
+  720 A$ = STR$ (A) + "FF"
+  730 IF A$ <> " 123.45 FF" THEN PRINT "Erreur STR$!": STOP
+  750 A$ = "123"
+  760 A = VAL (A$)
+  770 B = VAL (A$+".25")
+  780 IF A <> 123 OR B <> 123.25 THEN PRINT "Erreur VAL!": STOP
+  800 DATA JANVIER,31,FEVRIER,28,MARS,31
+  810 DATA AVRIL,30,MAI,31,JUIN,30
+  820 DATA JUILLET,31,AOUT,31,SEPTEMBRE,30
+  830 DATA OCTOBRE,31,NOVEMBRE,30,DECEMBRE,31
+  840 DIM M$(12),M%(12),SEC$(6),SEC%(6)
+  850 FOR X%=1 TO 12: READ M$(X%),M%(X%): NEXT X%
+  860 RESTORE 820
+  870 FOR X%=1 TO 6: READ SEC$(X%),SEC%(X%): NEXT X%
+  890 FOR X%=1 TO 12: PRINT "En ";M$(X%);" il y a ";M%(X%);"jours": NEXT X%
+  900 PRINT
+  910 FOR X%=1 TO 6: PRINT "En ";SEC$(X%);" il y a ";SEC%(X%);"jours": NEXT X%

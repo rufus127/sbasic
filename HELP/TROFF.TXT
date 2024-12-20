@@ -1,0 +1,19 @@
+TROFF ou TRACE OFF
+Désactive La fonction TRACE.
+
+Exemple
+10 PRINT " DEBUT "
+20 TRON
+30 PRINT " PHASE II "
+40 PRINT " PHASE III "
+50 TROFF
+60 PRINT " PHASE IV "
+70 END
+L’instruction TROFF de la ligne 50 met fin à la fonction TRACE activée à la ligne 20.
+
+Action
+L’instruction TROFF désactive la fonction trace mise en œuvre par l’instruction TRON. Elle s’utilise aussi bien en mode programme qu’en mode direct.
+
+La notation alternative TRACE OFF n’est utilisable qu’en mode direct.
+
+Voir aussi : TRON.

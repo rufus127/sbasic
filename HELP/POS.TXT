@@ -1,0 +1,18 @@
+POS(exp-num)
+Retourne la position courante sur le canal spécifié.
+exp-num : Numéro de canal.
+
+Exemple 1
+10 PRINT TAB(10);"ESSAI";
+20 PRINT POS(0)
+La valeur 15 est affichée, correspondant à la position du curseur dans la fenêtre SBASIC.
+
+Exemple 2
+10 OPEN NEW "ESSAI.DAT" AS 1
+20 PRINT #1 "ESSAI";
+30 PRINT POS(1)
+40 CLOSE 1
+La valeur 5 est affichée, correspondant à la position dans le fichier ouvert sur le canal 1.
+
+Action
+La fonction POS retourne la position de colonne courante sur le canal exp-num.

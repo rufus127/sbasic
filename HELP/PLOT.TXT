@@ -1,0 +1,33 @@
+PLOT exp-num-1, exp-num-2
+Affiche un point dans la fenêtre graphique.
+exp-num-1 : Abscisse du point.
+exp-num-2 : Ordonnée du point.
+
+Exemple
+10 HGR
+20 COLOR 15
+30 PLOT 10,20
+Le point de coordonnées 10, 20 est affiché dans la couleur logique courante 15.
+
+Action
+L’instruction PLOT permet d’afficher le point de coordonnées (exp-num-1,exp-num-2) dans le fenêtre graphique.
+Les coordonnées du point peuvent être comprises entre -2147483648 et 2147483647 ; il s’agit d’un point virtuel éventuellement situé hors de 1a fenêtre graphique.
+
+
+PLOT exp-num-1, exp-num-2 TO exp-num-3, exp-num-4
+Trace un segment de droite dans la fenêtre graphique.
+exp-num-1 : Abscisse de l’origine.
+exp-num-2 : Ordonnée de l’origine.
+exp-num-3 : Abscisse de la fin.
+exp-num-4 : Ordonnée de la fin.
+
+Exemple
+10 HGR
+20 COLOR 4
+30 PLOT 10,20 TO 200,300
+40 PLOT TO 400,400
+Ce programme trace, en rouge, un segment de droite du point (10,20) au point (200,300), puis un autre segment du point courant (200,300) au point (400,400).
+
+Action
+L’instruction PLOT TO permet d’afficher un segment de droite du point de coordonnées (exp-num-1, exp-num-2) au point (exp-num-3, exp-num-4) dans la fenêtre graphique. Si les coordonnées du point de départ sont omises, ce sont celles du point courant qui sont prises en compte.
+Si les coordonnées prennent des valeurs supérieures à celles permises par les dimensions de la fenêtre graphique, l’instruction est exécutée jusqu’aux limites, mais aucune erreur n’est signalée.

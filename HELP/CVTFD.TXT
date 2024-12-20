@@ -1,0 +1,14 @@
+CVTF$(exp-réelle)
+Transfère la valeur d’une expression numérique réelle dans une chaîne de caractères.
+exp-réelle : Expression numérique réelle.
+
+Exemple
+10 A = 1200.56
+20 A$ = CVTF$(A)
+Après l’exécution de ce programme, la variable A$ se compose des huit octets correspondant à la représentation binaire de la variable réelle A.
+
+Action
+La fonction CVTF$ transfère le contenu de exp-réelle dans une variable chaîne de caractères.
+Cette fonction ne réalise pas une conversion binaire - décimale, comme c’est le cas avec la fonction STR$, car la donnée numérique conserve sa représentation binaire dans la chaîne.
+La fonction CVTF$ est surtout utilisée en liaison avec les instructions LSET, RSET et SET pour placer des nombres réels dans une mémoire tampon (définie au moyen des instructions FIELD ou FIELD#).
+Voir aussi : CVT%$, CVT$%, CVT$F.

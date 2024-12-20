@@ -1,0 +1,16 @@
+RND(exp-num)
+Permet générer un nombre aléatoire compris entre 0 et 1.
+exp-num : Argument positif, négatif ou nul.
+
+Exemple
+10 ROUL% = 37*RND(0)
+Après l’exécution la variable ROUL% contient un nombre compris entre 0 et 36.
+
+Action
+La fonction RND renvoie un nombre aléatoire compris entre 0 et 1. Le nombre aléatoire créé dépend de la valeur de exp-num :
+* Si exp-num est négative, le même nombre aléatoire est retourné pour les mêmes valeurs de exp-num,
+* Si exp-num est nulle, un nouveau nombre aléatoire est renvoyé à chaque appel de la fonction. C’est le mode d’utilisation habituel,
+* Si exp-num est supérieure à 0, le dernier nombre engendré est répété.
+
+Pour obtenir un nombre aléatoire A compris entre une limite inférieure MIN et une limite supérieure MAX, on utilise la formule suivante :
+A = (MAX - MIN) * RND(0) + MIN

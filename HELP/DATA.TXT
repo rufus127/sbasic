@@ -1,0 +1,24 @@
+DATA const-1 [,const-2], ...
+L’instruction DATA introduit des données destinées à être lues ultérieurement par une instruction READ.
+const-n : Constante numérique ou chaîne de caractères
+
+Exemple
+10 DATA JANVIER,31,FEVRIER,28,MARS,31
+20 DATA AVRIL,30,MAI,31,JUIN,30
+30 DATA JUILLET,31, AOUT,31, SEPTEMBRE,30
+40 DATA OCTOBRE,31,NOVEMBRE,30,DECEMBRE,31
+Les données placées après l’instruction DATA contiennent le nom de chaque mois et le nombre de jours qu’il comporte (les années non bissextiles).
+
+Action
+L’instruction DATA est destinée à placer à l’intérieur du programme des données de type alphabétique ou numérique pouvant être affectées ultérieurement à des variables de type correspondant au moyen de l’instruction READ.
+Les données placées après une instruction DATA sont lues séquentiellement par des ordres READ ; l’affectation des données DATA aux variables des instructions READ est réalisée au moyen d’un pointeur de DATA :
+* Au lancement du programme le pointeur de DATA pointe la première donnée de la première ligne DATA.
+* Chaque fois qu’une instruction READ est exécutée, les éléments apparaissant dans la ligne DATA sont affectées aux variables associées à l’instruction READ, à partir de l’emplacement donné par le pointeur de DATA ; ce dernier avance alors du nombre de données lues.
+* Si l’instruction READ n’exploite pas toutes les données de la ligne DATA, les données suivantes sont affectées aux futures instructions READ.
+* Lorsque tout le contenu d’une ligne DATA a été lu, le pointeur de DATA passe à la ligne de DATA suivante et ainsi de suite.
+* Le pointeur de DATA peut être réinitialisé au moyen de l’instruction RESTORE.
+Si une chaîne de caractères contenant des espaces ou des virgules est nécessaire, elle doit être placée entre guillemets ou apostrophes.
+L’instruction DATA doit être la première et la seule instruction dans une ligne de programme. Elle n’est pas utilisable en mode direct. Les lignes contenant l’instruction DATA peuvent être placées après l’instruction READ ; il n’est pas nécessaire que le déroulement du programme passe par ces lignes.
+L’instruction DATA ne réalise aucune opération effective.
+
+Voir aussi : READ, RESTORE.

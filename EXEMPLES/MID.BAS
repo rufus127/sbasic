@@ -1,0 +1,2 @@
+10 A$="ABCDEF"
+20 PRINT MID$(A$,3)

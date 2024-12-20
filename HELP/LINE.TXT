@@ -1,0 +1,44 @@
+INPUT LINE var-chaîne
+Permet d’entrer au clavier une ligne complète dans une variable chaîne.
+var-chaîne : Variable chaîne de caractères.
+
+Exemple
+10 INPUT LINE A$
+Cette instruction permet d’entrer au clavier une ligne complète de texte contenant éventuellement des signes de ponctuation, des apostrophes ou des guillemets. La touche Retour-Chariot valide la saisie.
+
+Action
+L’instruction INPUT LINE est utilisée pour entrer au clavier une ligne complète dans une variable de type chaîne de caractères.
+* La ligne entière est acceptée telle quelle, y compris les espaces et les signes de ponctuation éventuels, mais sans le Retour-Chariot. Aucun texte hormis le point d’interrogation « ? » n’est affiché préalablement comme c’est le cas avec l’instruction INPUT.
+* Une chaîne vide peut être introduite.
+Il est possible de taper Ctrl-C pour interrompre le programme ; la commande CONT permet alors de reprendre l’exécution à l’instruction INPUT LINE elle-même.
+Voir aussi : INPUT, CONT.
+
+INPUT LINE #exp-num, var-chaîne
+Permet de lire dans une variable chaîne une ligne complète à partir d’un fichier séquentiel.
+exp-num : Numéro de canal compris entre 0 et 12.
+var-chaîne : Variable de chaîne de caractères.
+
+Exemple
+10 DIM LIGNE$(100)
+20 ON ERROR GOTO 1000
+30 OPEN OLD "FICHIER.TXT" AS 1
+35 I%=0
+40 INPUT LINE #1,LIGNE$(I%)
+50 I%=I%+1
+60 IF I%<=100 GOTO 40
+70 CLOSE 1
+80 FOR J%=0 TO I%-1
+90 PRINT LIGNE$(J%)
+100 NEXT J%
+110 END
+1000 IF ERR = 8 THEN PRINT I% ;"lignes lues": RESUME 70
+1010 PRINT "Erreur";ERR;"à la ligne";ERL
+
+Ce programme range les lignes du fichier « FICHIER.TXT » dans le tableau LIGNE$(*) puis affiche le nombre de lignes et le contenu du tableau.
+
+Action
+L’instruction INPUT LINE # est utilisée pour lire, à partir d’un fichier séquentiel, une ligne complète dans une variable de type chaîne de caractères.
+* Une ligne entière est acceptée telle quelle, y compris les espaces et les signes de ponctuation éventuels, mais pas le Retour-Chariot.
+* Si exp-num est 0, la lecture est effectuée depuis le clavier. L’instruction INPUT LINE #0 est en tous points identique à l’instruction INPUT LINE à la différence près qu’elle n’affiche pas un point d’interrogation avant la saisie des données.
+
+Voir aussi : INPUT, INPUT #.

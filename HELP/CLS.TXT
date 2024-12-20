@@ -1,0 +1,8 @@
+CLS
+Efface la fenêtre SBASIC.
+
+Exemple
+CLS
+
+Action
+Après l’exécution de cette commande, la fenêtre SBASIC s’efface et le curseur se positionne en haut à gauche de la fenêtre.

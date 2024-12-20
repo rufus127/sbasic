@@ -1,0 +1,31 @@
+PLIST {[num-ligne-1] [,num-ligne-2] | num-ligne-1,}
+Liste simultanément dans la fenêtre SBASIC et dans le tampon d’impression tout ou partie du programme en mémoire.
+num-ligne-1 : Première ligne à lister.
+num-ligne-2 : Dernière ligne à lister.
+
+Exemple 1
+PLIST
+Liste dans la fenêtre SBASIC et dans le tampon d’impression tout le programme.
+
+Exemple 2
+PLIST 10
+Liste dans la fenêtre SBASIC et dans le tampon d’impression la ligne 10.
+
+Exemple 3
+PLIST 50,80
+Liste dans la fenêtre SBASIC et dans le tampon d’impression les lignes 50 à 80.
+
+Exemple 4
+PLIST ,60
+Liste dans la fenêtre SBASIC et dans le tampon d’impression de la première ligne jusqu’à la ligne 60.
+
+Exemple 5
+PLIST 100,
+Liste dans la fenêtre SBASIC et dans le tampon d’impression de la ligne 100 à la dernière ligne.
+
+Action
+La commande PLIST fonctionne de même manière que la commande LIST, à cette différence que le programme est listé simultanément dans la fenêtre SBASIC et dans le tampon d’impression.
+
+Le programme est listé de num-ligne-1 à num-ligne-2. La valeur par défaut de num-ligne-1 est 1 et celle de num-ligne-2 est 2147483647.
+
+Voir aussi : LIST.

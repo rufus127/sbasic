@@ -1,0 +1,21 @@
+REM [chaîne]
+Introduit des remarques dans un programme.
+chaîne : Commentaire.
+
+Exemple
+10 REM ***CALCUL DE MOYENNE ***
+20 SUB MOY(A(*),N%,M): LOCAL SOM, X%
+30 REM Boucle: somme des N% éléments du tableau
+40 FOR X%=1 TO N%
+50 SOM = SOM + A(X%) : REM Mise à jour de la somme
+60 NEXT X%
+70 M=SOM/N% : REM M = MOYENNE
+80 RETURN
+Ce sous-programme de calcul d’une moyenne contient divers commentaires placés soit sur des lignes isolées (lignes 10 et 30) soit en fin de ligne contenant une autre instruction (lignes 50 et 70).
+
+Action
+REM est utilisé pour introduire des remarques et des commentaires à l’intérieur du programme, mais ne réalise aucune opération.
+* Tout ce qui suit l’instruction REM est ignoré, y compris une instruction qui serait placée sur la même ligne.
+* En revanche, les instructions précédant l’instruction REM sur la même ligne sont prises en compte.
+* Il est possible de se brancher à une ligne ne contenant qu’une instruction REM.
+Pour des raisons de performances, il est déconseillé d’inclure de nombreuses lignes de commentaires dans des boucles très fréquemment utilisées.

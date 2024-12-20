@@ -1,0 +1,5 @@
+   10 GR
+   20 COLOR 15
+   30 PLOT 0,0 TO 99,99
+   40 GGET B$,95,95,104,104
+   50 BSAVE "B.BMP" B$

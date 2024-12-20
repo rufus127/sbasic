@@ -1,0 +1,18 @@
+DPOKE exp-num-1, exp-num-2
+Écrit quatre octets à une adresse mémoire.
+exp-num-1 : Adresse mémoire.
+exp-num-2 : Données.
+
+Exemple
+10 DPOKE 1000,3300
+20 DPOKE L,X
+30 DPOKE HEX('0123'),65000
+Ce programme présente quelques utilisations possibles de l’instruction DPOKE.
+
+Action
+L’instruction DPOKE écrit la valeur de exp-num-2 dans les 4 octets d’adresse exp-num-1, exp-num-1+1, exp-num-1+2 et exp-num-1+3. L’octet d’adresse exp-num-1 reçoit l’octet de poids faible de cette valeur et l’octet d’adresse exp-num-1+3 reçoit l’octet de poids fort.
+* exp-num-1 doit être comprise entre 0 et 2147483647.
+* exp-num-2 doit être comprise entre -2147483648 et 2147483647.
+Cette instruction doit être utilisée avec beaucoup de précautions car elle peut influer sur le fonctionnement de SBASIC.
+
+Voir aussi : POKE, DPEEK, PEEK.

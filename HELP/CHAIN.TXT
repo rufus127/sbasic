@@ -1,0 +1,19 @@
+CHAIN nom-fich [num-ligne]
+Charge en totalité un programme et l’exécute, éventuellement à partir d’une ligne donnée.
+nom-fich   : Nom du programme à exécuter.
+num-ligne : Numéro de la ligne où débute l’exécution
+
+Exemple 1
+1000 CHAIN "ESSAI"
+Le programme « ESSAI » est chargé puis exécuté.
+
+Exemple 2
+1000 P$="ESSAI"
+1010 CHAIN P$ 100
+Le programme « ESSAI » est chargé et exécuté à partir de la ligne 100.
+
+Action
+L’instruction CHAIN effectue le chargement complet du programme nom fichier puis l’exécute, soit à partir du début, si aucun numéro de ligne n’est spécifié, soit à partir de la ligne num-ligne.
+Lors de l’exécution d’une instruction CHAIN, le programme initial est effacé, toutes les variables sont remises à zéro et les fichiers ouverts sont fermés.
+Si nom-fich ne comporte pas d’extension, l’extension « BAC » est utilisée ; un programme source peut également être chaîné, à condition de préciser son extension (« BAS »). Bien entendu, le temps de chargement est plus long dans ce cas.
+Voir aussi : BLOAD, LOAD, RUN.

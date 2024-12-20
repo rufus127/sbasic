@@ -1,0 +1,10 @@
+FRE(exp-num)
+Retourne le nombre d’octets encore disponibles en mémoire.
+exp-num : Identifiant mémoire.
+
+Exemple
+10 PRINT FRE(0)
+Le nombre d’octets encore utilisables en mémoire données est affiché.
+
+Action
+La fonction FRE(exp-num) renvoie le nombre d’octets encore disponibles dans la mémoire spécifiée. Si exp-num est égale à 0 la mémoire données est identifiée. exp-num  valant 1 identifie la mémoire symboles. Toute autre valeur de exp-num identifie la mémoire programme.

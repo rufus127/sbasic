@@ -1,0 +1,9 @@
+EXIT
+Permet de quitter SBASIC.
+
+Exemple
+EXIT
+Dès la saisie de cette commande, on quitte SBASIC.
+
+Action
+La commande EXIT permet de quitter SBASIC. Elle n’est utilisable qu’en mode direct.

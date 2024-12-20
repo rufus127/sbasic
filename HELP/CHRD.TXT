@@ -1,0 +1,36 @@
+CHR$(exp-num)
+Renvoie une chaîne d’un caractère dont le code ASCII est celui spécifié.
+exp-num : Code ASCII (compris entre 0 et 255).
+
+Exemple
+10 PRINT CHR$(65)
+Cette instruction affiche la lettre « A » dans la fenêtre SBASIC.
+
+Action
+La fonction CHR$ retourne une chaîne d’un seul caractère dont le code ASCII a pour valeur celui de exp num.
+exp num est tronquée à une valeur entière. Si cette valeur est négative ou supérieure à 255, une erreur 74 est renvoyée.
+
+Les codes ASCII de 0 à 31 ne sont pas affichables. Ce sont les caractères de contrôle. Les codes suivants sont gérés dans la fenêtre SBASIC :
+Décimal	Hexadécimal	Action
+7	07		Emission d’un bip
+8	08		Déplacement du curseur à gauche
+9	09		Déplacement du curseur vers la tabulation suivante
+10	0A		Déplacement du curseur vers le bas
+11	0B		Déplacement du curseur vers le haut
+12	0C		Positionnement du curseur en haut à gauche
+13	0D		Retour en début de ligne
+27	1B		Caractère d’échappement ’Esc’
+29	1D		Déplacement curseur vers la droite
+Esc 0	1B 30		Sélection couleur de fond pour le texte
+Esc 1	1B 31		Sélection couleur rouge pour le texte
+Esc 2	1B 32		Sélection couleur verte pour le texte
+Esc 3	1B 33		Sélection couleur jaune pour le texte
+Esc 4	1B 34		Sélection couleur bleue pour le texte
+Esc 5	1B 35		Sélection couleur magenta pour le texte
+Esc 6	1B 36		Sélection couleur cyan pour le texte
+Esc 7	1B 37		Sélection couleur blanche pour le texte
+Esc 8	1B 38		Sélection couleur par défaut pour le texte
+Esc H	1B 48		Inversion couleurs caractère et fond
+Esc I	1B 49		Rétablissement couleurs caractère et fond
+Esc p	1B 70		Effacement ligne sous le curseur
+Esc q	1B 71		Effacement écran

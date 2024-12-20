@@ -1,0 +1,16 @@
+KILL nom-fich
+Supprime un fichier disque.
+nom-fich : Nom de fichier.
+
+Exemple 1
+10 KILL "ESSAI"
+Cette ligne détruit le fichier « ESSAI.BAS » Cette ligne détruit le fichier « ESSAI.BAS » dans le répertoire courant.
+
+Exemple 2
+10 KILL "LETTRE.TXT"
+Le fichier « LETTRE.TXT » est supprimé du répertoire courant.
+
+Action
+L’instruction KILL détruit le fichier désigné. L’extension « BAS » est affectée par défaut à nom-fich et le répertoire par défaut est le répertoire courant.
+
+Voir aussi : RENAME, OPEN NEW.

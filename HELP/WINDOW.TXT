@@ -1,0 +1,57 @@
+WINDOW exp-num-1, exp-num-2, exp-num-3, exp-num-4
+Définit la sous-fenêtre rectangulaire d’affichage dans la fenêtre SBASIC.
+exp-num-1 : Ligne du coin supérieur gauche.
+exp-num-2 : Colonne du coin supérieur gauche.
+exp-num-3 : Ligne du coin inférieur droit.
+exp-num-4 : Colonne du coin  inférieur droit.
+
+Exemple 1
+WINDOW 5,20,15,60
+L’affichage du texte dans la fenêtre SBASIC s’effectue dans un rectangle délimité par les lignes 5 et 15 et par les colonnes 20 et 60.
+
+Exemple 2
+WINDOW 0,1,24,80
+L’affichage se fait du texte utilise l’intégralité de la fenêtre SBASIC.
+
+Action
+L’instruction WINDOW permet de définir une sous-fenêtre rectangulaire d’affichage du texte dans la fenêtre SBASIC.
+
+(exp-num-1, exp-num-2) et (exp-num-3, exp-num-4) sont la ligne et la colonne de deux points diagonaux dans la fenêtre SBASIC. La valeur de chaque expression doit être comprise entre -32758 et 32757. Si les valeurs dépassant les limites de la fenêtre SBASIC, à savoir 0-24 pour les lignes et 1-80 pour les colonnes, elles sont ramenées à ces limites. Notez que les numéros de ligne et de colonne du caractère en haut à gauche de la fenêtre SBASIC sont respectivement 0 et 1.
+Si la fenêtre SBASIC est redimensionnée par l’instruction TEXT, les valeurs maximales de exp-num-1 et exp-num-2 évoluent en conséquence.
+
+L’instruction WINDOW permet de travailler en mode multifenêtre, à la fois en mode graphique et en mode texte, en redéfinissant une fenêtre chaque fois qu’on l’utilise. Elle agit sur la fenêtre graphique si l’instruction TEXT n’a pas été exécutée après l’une des instructions GR et HGR. Elle agit sur la fenêtre SBASIC si, ni l’instruction GR, ni l’instruction HGR, n’ont été exécutées depuis le lancement de SBASIC ou l’exécution d’une commande RUN, NEW ou CLEAR.
+
+L’instruction WINDOW s’applique aux ordres CLS et CURSOR ainsi qu’aux variables système XPEN et YPEN. Si le curseur est hors de la fenêtre lors de sa définition, il est positionné sur le bord le plus proche.
+
+Les valeurs XPEN et YPEN sont données par rapport aux bords de la fenêtre.
+
+Voir aussi : CLS, CURSOR, XPEN, YPEN.
+
+
+WINDOW exp-num-1, exp-num-2, exp-num-3, exp-num-4 [,exp-num-5]
+Définit la sous-fenêtre rectangulaire de tracé dans la fenêtre graphique ou la fenêtre SBASIC.
+exp-num-1 : Abscisse du coin inférieur gauche.
+exp-num-2 : Ordonnée du coin inférieur gauche.
+exp-num-3 : Abscisse du point supérieur droit.
+exp-num-4 : Ordonnée du supérieur droit.
+exp-num-5 : Option texte ou graphique (0 ou 1).
+
+Exemple
+10 HGR
+20 COLOR 15
+25 WINDOW 0,0,150,175,1
+30 PLOT 10,20 TO 100,150
+40 PLOT TO 200,200
+Après avoir défini une sous-fenêtre allant du point de coordonnées (0,0) jusqu’au point de coordonnées (150,175) de la fenêtre graphique, ce programme trace, dans la couleur logique 15, un segment de droite du point (10,20) au point (100,150), puis un autre segment du point courant (100,150) au point (200,200), sans que le tracé puisse sortir de la sous-fenêtre définie.
+
+Action
+L’instruction WINDOW permet de définir une sous-fenêtre rectangulaire de tracé graphique.
+* (exp-num-1, exp-num-2) et (exp-num-3, exp-num-4) sont les coordonnées de deux points diagonaux dans la fenêtre graphique. La valeur de chaque expression doit être comprise entre -32758 et 32757. Si les valeurs dépassant les limites de la fenêtre graphique, à savoir 0-799 et 0-599 en mode HGR, ou 0-319 et 0-199 en mode GR, elles sont ramenées à ces limites.
+* exp-num-5 est optionnel et vaut :
+   0 pour indiquer une redéfinition de la fenêtre texte,
+   1 pour indiquer une redéfinition de la fenêtre graphique.
+Cette option permet de travailler en mode multifenêtre, à la fois en mode graphique et en mode texte, en redéfinissant une fenêtre chaque fois qu’on l’utilise. Si cette option n’est pas précisée, l'instruction WINDOW agit sur la fenêtre graphique si l’instruction TEXT n’a pas été exécutée après l’une des instructions GR et HGR. Elle agit sur la fenêtre texte si, ni l’instruction GR, ni l’instruction HGR, n’ont été exécutées depuis le lancement de SBASIC, l’exécution d’une commande RUN, NEW ou CLEAR.
+
+L’instruction WINDOW s’applique aux ordres PLOT, SYMBOL, DRAW, ARC, FILL et GPUT. Tout tracé qui sort de la fenêtre est ignoré et n’apparaît pas dans la fenêtre graphique.
+
+Voir aussi : ARC, DRAW, FILL, GPUT, PLOT, SYMBOL TEXT.

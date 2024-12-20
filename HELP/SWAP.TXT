@@ -1,0 +1,13 @@
+SWAP var-1, var-2
+Permet d’échanger le contenu de deux variables de même type.
+var-1 : Variable numérique ou chaîne.
+var-2 : Variable numérique ou chaîne.
+
+Exemple
+10 IF A<B THEN SWAP A,B
+Si la valeur de A est inférieure à celle de B, le contenu des deux variables est échangé.
+
+Action
+L’instruction SWAP échange les valeurs de var-1 et de var-2. Les deux variables doivent être de même type et ne peuvent pas être des éléments de tableau virtuel.
+
+Son intérêt est de gagner du temps lors des tris (20 à 30% de gain). Elle est particulièrement avantageuse lors du tri de chaînes de caractères, car elle provoque uniquement l’échange des pointeurs les repérant. C’est la raison pour laquelle SWAP ne permet pas d’échanger des éléments de tableau virtuel.

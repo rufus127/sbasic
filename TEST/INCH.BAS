@@ -1,0 +1,4 @@
+   10 A$=INCH$(0)
+   20 IF ASC(A$)=13 GOTO 40
+   30 PRINT A$;: GOTO 10
+   40 END

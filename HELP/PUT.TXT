@@ -1,0 +1,29 @@
+PUT #exp-num-1 [, RECORD exp-num-2]
+Permet d’écrire un enregistrement dans un fichier à accès direct.
+exp-num-1 : Numéro de canal compris entre 1 et 12.
+exp-num-2 : Numéro d’enregistrement.
+
+Exemple
+10 OPEN "PERSON" AS 1 LEN 50
+20 FIELD #1, 30 AS NOM$, 12 AS PRE$, 8 AS SAL$
+30 INPUT "Numéro (0=fin) "; N%
+40 IF N% = 0 THEN 100
+50 INPUT "Nom : "; N$
+60 INPUT "Prénom: "; P$
+70 INPUT "Salaire: "; S
+75 LSET NOM$ = N$ : LSET PRE$ = P$ : LSET SAL$ = CVTF$(S)
+80 PUT #1 RECORD N%
+90 GOTO 30
+100 CLOSE 1
+L’instruction PUT de la ligne 80 permet d’écrire l’enregistrement N% du fichier à accès direct « PERSON.DAT », précédemment ouvert en canal 1.
+
+Action
+L’instruction PUT permet d’écrire un enregistrement dans fichier à accès direct.
+* exp-num-1 représente le numéro de canal, compris entre 1 et 12, sur lequel le fichier à accès direct est ouvert. Toute valeur hors de ces limites provoque une erreur 40.
+Si aucun fichier n’est ouvert sur le canal spécifié, une erreur 43 est signalée.
+Si le fichier n’est pas ouvert en accès direct, une erreur 44 est provoquée.
+* exp-num-2 définit le numéro de l’enregistrement à écrire, arrondi, si nécessaire, à une valeur entière. Les enregistrements sont numérotés de 1 à 2147483647.
+Par défaut, l’enregistrement écrit est celui qui suit le dernier enregistrement lu ou écrit par une instruction GET# ou PUT#. Après une instruction OPEN, le numéro implicite est 1.
+Une erreur 7 est provoquée si l’enregistrement ne peut être écrit faute de place sur le disque.
+
+Voir aussi : GET.

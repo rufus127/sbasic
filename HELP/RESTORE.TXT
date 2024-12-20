@@ -1,0 +1,23 @@
+RESTORE [adresse]
+Permet à des instructions READ de relire les données des instructions DATA.
+num-ligne : Numéro de ligne ou adresse optionnel.
+
+Exemple 1
+10 DATA JANVIER,31,FEVRIER,28,MARS,31
+20 DATA AVRIL,30,MAI,31,JUIN,30
+30 DATA JUILLET,31,AOUT,31,SEPTEMBRE,30
+40 DATA OCTOBRE,31,NOVEMBRE,30,DECEMBRE,31
+50 DIM M$(12),M%(12),SEC$(6),SEC%(6)
+60 FOR X%=1 TO 12: READ M$(X%),M%(X%): NEXT X%
+70 RESTORE 30
+80 FOR X%=1 TO 6: READ SEC$(X%),SEC%(X%): NEXT X%
+Après l’exécution de ce programme, les tableaux M$(*) et M%(*) contiennent les caractéristiques (nom et nombre de jours) des douze mois de l’année, tandis que les six éléments des tableaux SEC$(*) et SEC%(*) contiennent celles du second semestre.
+En effet, l’instruction RESTORE 30 de la ligne 50 a repositionné le pointeur de « prochaine entrée disponible » sur le premier élément de la ligne 20, de sorte que les lectures ultérieures (ligne 60) ont repris à ce niveau.
+
+Action
+L’instruction RESTORE permet à des instructions READ de relire les données des instructions DATA. La prochaine donnée disponible est alors la première donnée de l’instruction DATA dont le numéro de ligne est supérieur ou égal au numéro spécifié ou après l'étiquette.
+* Si adresse est omise, toutes les données du programme sont à nouveau disponibles et la prochaine à être lue est la première donnée de la première instruction DATA
+* Si adresse ne correspond à aucune ligne du programme, une erreur 60 est signalée.
+L’instruction RESTORE peut être utilisée même si les données des lignes contenant l’instruction DATA concernée n’ont jamais été lues. Il est donc possible - et prudent -, d’exécuter une instruction RESTORE au début d’un sous-programme SUB contenant des instructions DATA.
+
+Voir aussi : DATA, READ.

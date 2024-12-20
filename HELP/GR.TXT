@@ -1,0 +1,21 @@
+GR [exp-num-1, exp-num-2]
+Initialise la fenêtre graphique.
+exp-num-1 : Largeur de la fenêtre graphique.
+exp-num-2 : Hauteur de la fenêtre graphique.
+
+Exemple 1
+10 GR
+20 PLOT 10,10 TO 100,100
+Ce programme initialise ouvre une fenêtre graphique de 320 par 200 points et trace une droite du point (10,10) au point (100,100).
+
+Exemple 2
+10 GR XPEN,YPEN
+20 PLOT 0,0 TO XPEN-1,YPEN-1
+Ce programme initialise ouvre une fenêtre graphique à la taille de l’écran et trace sa diagonale.
+
+Action
+Si exp-num-1 et exp-num-2 ne sont pas spécifiés, l’instruction GR initialise l’affichage graphique dans une fenêtre de 320 par 200 points. Sinon exp-num-1 et exp-num-2 sont la largeur et la hauteur de la fenêtre graphique à initialiser. exp-num-1 doit être compris entre 320 et la largeur de l’écran. exp-num-2 doit être compris entre 200 et la hauteur de l’écran.
+Si une fenêtre graphique est déjà ouverte et que l’instruction GR est utilisée sans paramètre, cette fenêtre est seulement mise en avant plan. Même chose si les dimensions spécifiées sont égales à celles de la fenêtre graphique ouverte. Si une fenêtre graphique a été ouverte avec l’instruction HGR ou avec des dimensions différentes, celle-ci est préalablement fermée.
+La couleur 15 est automatiquement sélectionnée lors de l’ouverture d’une fenêtre graphique.
+
+Voir aussi : HGR, TEXT, XPEN, YPEN.

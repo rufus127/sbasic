@@ -1,0 +1,40 @@
+COMPILE nom-fich [,exp-chaîne,] [num-ligne-1, num-ligne-2, num-ligne-3]
+Sauvegarde sous une forme précompilée tout ou partie d’un programme.
+nom-fich : Nom de programme
+exp-chaîne : Chaîne de caractères contenant les options C, S, P, O ou L
+num-ligne-1 : Première ligne à compiler.
+num-ligne-2 : Dernière ligne à compiler.
+num-ligne-3 : Nouveau numéro de la première ligne.
+
+Exemple 1
+COMPILE "ESSAI"
+Le programme en mémoire est sauvegardé en totalité sous le nom « ESSAI.BAC », sous une forme précompilée, sans modification de sa numérotation.
+
+Exemple 2
+COMPILE "ESSAI" 2000,3000,2000
+Le programme en mémoire est précompilé sous le nom « ESSAI.BAC », de la ligne 2000 à la ligne 3000, sans modification de sa numérotation (le nouveau numéro de la ligne 2000 est également 2000).
+
+Exemple 3
+COMPILE "ESSAI", "C", 2000,,100
+Le programme en mémoire est précompilé sous le nom « ESSAI.BAC », de la ligne 2000 à la dernière ligne avec une renumérotation : la ligne 2000 porte désormais le numéro 100 et ainsi de suite. De plus, le programme est enregistré sous une forme compressée (option C).
+
+Exemple 4
+COMPILE "ESSAI", "CPS", ,1000,200
+Le programme en mémoire est précompilé sous le nom « ESSAI.BAC », du début à la ligne 1000, avec une renumérotation : la ligne 1 porte le numéro 200 et ainsi de suite. L’enregistrement est effectué sous une forme compressée (option C), protégée (P) et la table des symboles est supprimée (S).
+
+Action
+La commande COMPILE sauvegarde sous une forme précompilée la portion du programme nom fich, comprise entre num ligne 1 et num ligne 2, en commençant la numérotation du programme sauvegardé à num ligne 3.
+Les valeurs par défaut de chacun des trois numéros de lignes optionnels sont les suivantes :
+num-ligne-1 1
+num-ligne-2 2147483647
+num-ligne-3 num-ligne-1
+Une ou plusieurs des options suivantes peuvent être utilisées :
+* C (Compression) : les espaces et les remarques (REM) sont supprimées.
+* S (Symboles) : suppression de la table des symboles. Le programme devient illisible.
+* P (Protection) : le programme ne peut plus être listé ; il ne peut être qu’exécuté.
+* O (Overlay) ou L(Librairie) : lors de son chargement, les lignes de ce programme s’ajoutent aux lignes déjà présentes. Seules les lignes dont le numéro se trouve entre la première ligne et la dernière ligne du programme compilé sont effacées.
+Si l’option C, l’option S, l'option L ou un paramètre num-ligne est spécifiée, l’option O est forcée.
+Si aucune option n’est spécifiée ou seulement  l’option P, le programme se retrouve, une fois rechargé, dans son état d’origine. Les lignes déjà présentes sont effacées.
+L’utilisation de la commande COMPILE plutôt que la commande SAVE permet d’obtenir un chargement du programme (avec l’instruction BLOAD) beaucoup plus rapide qu’avec l’instruction LOAD.
+
+Voir aussi : SAVE, BLOAD.

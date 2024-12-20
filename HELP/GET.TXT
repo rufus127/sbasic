@@ -1,0 +1,25 @@
+GET #exp-num-1 [RECORD exp-num-2]
+Permet de lire un enregistrement dans un fichier à accès direct.
+exp-num-1 : Numéro de canal compris entre 1 et 12.
+exp-num-2 : Numéro d’enregistrement.
+
+Exemple
+10 OPEN "PERSON" AS 1, LEN 50
+20 FIELD #1, 30 AS NOM$, 12 AS PRE$, 8 AS SAL$
+30 INPUT "Numéro (0=fin) ";N%
+40 IF N% = 0 THEN 100
+50 GET #1, RECORD N%
+60 PRINT "Nom: "; NOM$
+70 PRINT "Prénom: "; PRE$
+80 PRINT "Salaire: "; CVT$F (SAL$) : PRINT
+90 GOTO 30
+100 CLOSE 1
+L’instruction GET de la ligne 50 permet de lire l’enregistrement N% du fichier à accès direct « PERSON.DAT », précédemment ouvert sur le canal 1.
+
+Action
+L’instruction GET permet de lire l’enregistrement exp-num-2 du fichier à accès direct ouvert sur le canal exp-num-1.
+* Si aucun fichier n’est ouvert sur le canal exp-num-1, une erreur 43 se produit.
+* Si exp-num-2 ne correspond pas à un numéro d’enregistrement existant, une erreur 24 est signalée.
+* Si exp-num-2 est omise, c’est l’enregistrement suivant l’enregistrement courant qui est lu.
+
+Voir aussi : PUT.

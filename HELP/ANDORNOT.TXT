@@ -1,0 +1,49 @@
+Opérateur logique AND, OR, NOT
+
+Lorsqu’ils relient des valeurs de type entier, les opérateurs logiques permettent de réaliser des opérations bit à bit, afin de former des expressions de type numérique.
+Si, par exemple, A% et B% contiennent respectivement les quantités binaires suivantes :
+A%	contient	 1100101111110110 (soit -13322 en décimal)
+B%	contient	 0111010111100100 (soit 30180 en décimal)
+Alors :
+A% AND B%	a pour valeur 0100000111100100 (soit 16868 en décimal) 
+A% OR B%	a pour valeur 1111111111110110 (soit -10 en décimal) 
+NOT A%		a pour valeur 0011010000001001 (soit 13321 en décimal) 
+
+De façon plus générale, les effets des opérateurs logiques sont décrits ci-dessous :
+Opérateur	Exemple		Action
+NOT	NOT X%		Cet opérateur transforme la valeur de chaque bit en son complément
+			(les 1 sont remplacés par des 0 et les 0 par des 1).
+AND	X% AND Y%	Le résultat de cette opération est d’affecter, à chaque bit du résultat,
+			un « 1 » si chacun des bits de même rang vaut « 1 » dans X% et Y%.
+OR	X% OR Y%	L’opération met à « 1 » chaque bit du résultat si l’un ou l’autre des
+			bits de même rang dans X% ou Y% vaut « 1 ». 
+
+On peut évidemment, dans chacun des trois exemples précédents, remplacer l’une ou l’autres des variables X% et Y% par une expression numérique.
+
+Dans la mesure où ces opérateurs sont définis par leur effet sur des quantités entières, la représentation interne en virgule flottante de certaines variables et constantes doit d’abord être convertie en entiers. Cette conversion est réalisée automatiquement par l’interpréteur SBASIC.
+
+Ces opérateurs peuvent s’utiliser conjointement aux opérateurs arithmétiques dans des expressions numériques.
+Si l’on veut par exemple, pour le contenu d’une variable A% faire la somme de son quotient par 16 et de son reste modulo 16, puis affecter la valeur correspondante à la variable B%, on pourra écrire :
+B% = (A%/16) + (A% AND 15)
+Remarque : Pour l’extraction d’un modulo, on ne peut utiliser la formule var num AND exp num que si la valeur de exp num est de 2n -1, n étant un entier compris entre 1 et 16.
+
+Les opérateurs logiques AND, OR, NOT peuvent aussi, et c’est en fait leur utilisation la plus fréquente, opérer sur des expressions logiques. Ils permettent alors de former des expressions logiques plus complexes, qui seront le plus souvent testées grâce à l’instruction IF.
+
+Si exp-logique-1 et exp-logique-2 représentent des expressions logiques, on peut former :
+Opération				Résultat
+NOT exp-logique-1			Vrai si et seulement si exp-logique-1 est fausse.
+exp-logique-1 AND exp-logique-2	Vrai si et seulement si exp-logique-1 et exp-logique-2 sont
+				simultanément vraies.
+exp-logique-1 OR exp-logique-2	Vrai dès que l’une au moins des deux expressions
+				exp-logique-1 ou exp-logique-2 est vraie.
+
+Dans l’exemple :
+40 IF (A$="FIN" AND I%=10) THEN GOTO 100
+le programme se branchera à la ligne 100 si la variable A$ contient la valeur « FIN » et si I% contient la valeur 10. Les parenthèses ne sont pas obligatoires, elles ont simplement été placées pour mieux mettre en évidence l’expression logique testée.
+
+Toutefois les deux utilisations des opérateurs logiques peuvent être combinées, car à chaque expression logique on peut, à un instant donné, associer une valeur numérique entière qui vaut 0 si sa valeur logique est FAUX et -1 si elle est VRAI.
+On pourra donc par exemple écrire :
+var num = exp logique 1 AND exp logique 2
+ce qui permettra d’affecter à var num la valeurs -1 si exp-logique-1 et exp-logique-2 sont toutes deux vraies. L’expression précédente permet évidemment de remplacer avantageusement :
+IF exp-logique-1=exp-logique-2 THEN var-num=-1 ELSE var-num=0,
+mais exp-logique-1 AND exp-logique-2 peut aussi s’utiliser de la même façon que n’importe quelle autre expression de type numérique.

@@ -1,0 +1,12 @@
+DATE$
+Fournit la date et l’heure courante.
+
+Exemple
+10 PRINT DATE$
+Cette ligne affiche la date courante. Par exemple : 25/08/13 15:30:09.00
+
+Action
+DATE$ est une variable système (de même que ARGC, ARGV$, DATE$, ERR, ERL, PI, XPEN, YPEN) contenant la date courante sous forme d’une chaîne de caractères ainsi constituée :
+JJ/MM/AA hh:mm:ss.cc
+Où « JJ » représente le jour, « MM » le mois, « AA » l’année, « hh » l’heure, « mm » les minutes, « ss » les secondes et « cc » les centièmes.
+DATE$ ne peut pas figurer à gauche du signe égal « = » dans un ordre d’affectation de données (LET explicite ou implicite).

@@ -1,0 +1,12 @@
+COS(exp-num)
+Retourne le cosinus d’un angle.
+exp-num : Angle exprimé en radians.
+
+Exemple
+10 PRINT COS (PI/3)
+La valeur retournée est égale à 0,5, correspondant au cosinus de PI/3.
+
+Action
+La fonction COS renvoie la valeur du cosinus de l’angle exp-num.
+exp-num représente un angle exprimé en radians.
+Voir aussi : SIN.

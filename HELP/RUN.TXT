@@ -1,0 +1,17 @@
+RUN [nom-fich] [num-ligne]
+Lance l’exécution du programme présent en mémoire ou d’un programme sauvegardé dans un fichier.
+nom-fich : Nom du programme à exécuter.
+num-ligne : Numéro de ligne.
+
+Action
+La commande RUN lance l’exécution du programme présent en mémoire ou d’un programme sauvegardé dans un fichier, après avoir réinitialisé toutes les variables, fermé tous les fichiers, fermé la fenêtre graphique et repositionné le pointeur des lignes DATA sur la première donnée.
+nom-fich spécifie le nom sous lequel le programme à exécuter a été sauvegardé sur disque. Son extension par défaut est « BAC ». Si cet argument est omis, le programme résidant en mémoire est lancé. S’il est présent, le programme résidant initialement en mémoire est effacé et le programme nom-fich est chargé puis lancé.
+adresse définit le numéro de la ligne où doit commencer l’exécution. Si elle est omise, l’exécution commence à la ligne portant le plus petit numéro.
+
+Une erreur 4 se produit si le fichier nom-fich n’existe pas.
+
+Une erreur 60 est provoquée si la ligne spécifiée n’existe pas.
+
+La commande RUN ne peut être utilisée qu’en mode direct.
+
+Voir aussi : CHAIN.

@@ -1,0 +1,19 @@
+LABEL étiquette
+Permet de désigner une ligne au moyen une étiquette.
+étiquette : Nom d’étiquette.
+
+Exemple
+10 INPUT X
+20 IF X=1 GOTO SUITE
+30 GOTO 10
+40 LABEL SUITE
+50 PRINT "suite "
+60 END
+Lors de l’exécution, si la variable X prend la valeur 1, le programme effectue un branchement à la ligne étiquetée « SUITE ».
+
+Action
+L’instruction LABEL permet de baptiser une ligne au moyen d’une étiquette de façon à pouvoir y accéder ultérieurement (par une instruction GOTO ou GOSUB) en indiquant ce nom plutôt que le numéro de la ligne.
+* Le nom de l’étiquette se construit de la même manière que le nom des variables.
+* L’instruction LABEL doit obligatoirement être la première d’une ligne à instructions multiples.
+
+Voir aussi : GOTO, GOSUB, ON GOTO, ON GOSUB, SUB.

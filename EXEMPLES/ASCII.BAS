@@ -1,0 +1,4 @@
+   10 FOR I%=128 TO 255
+   20 PRINT I%;CHR$(I%);
+   25 IF (I%-127) MOD 10 = 0 THEN PRINT
+   30 NEXT I%

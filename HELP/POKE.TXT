@@ -1,0 +1,18 @@
+POKE exp-num-1, exp-num-2
+Écrit un octet à une adresse mémoire.
+exp-num-1 : Adresse mémoire.
+exp-num-2 : Donnée.
+
+Exemple 1
+10 POKE 1000,33
+20 POKE L,X
+30 POKE HEX('0123'),200
+Ce programme présente quelques utilisations possibles de l’instruction POKE
+
+Action
+L’instruction POKE écrit la valeur de exp-num-2 dans l’octet d’adresse exp-num-1.
+exp-num-1 doit être comprise entre 0 et 2147483647.
+exp-num-2 doit être comprise entre 0 et 255.
+Cette instruction doit être utilisée avec beaucoup de précautions car elle peut influer sur le fonctionnement de SBASIC.
+
+Voir aussi : DPOKE, DPEEK, PEEK.

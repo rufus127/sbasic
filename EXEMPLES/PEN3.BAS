@@ -1,0 +1,8 @@
+    5 HGR
+   10 COLOR 15
+   15 PEN
+   20 X% = XPEN
+   25 Y% = YPEN
+   30 PEN
+   35 PLOT X%,Y% TO XPEN,YPEN
+   40 GOTO 20

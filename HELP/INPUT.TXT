@@ -1,0 +1,31 @@
+INPUT [const-chaîne;]var-1 [,var-2] ...
+Permet d’afficher un message dans la fenêtre SBASIC puis de saisir des données au clavier et de les affecter à des variables.
+const-chaîne : Constante chaîne de caractères.
+var-n : Variable quelconque.
+
+Exemple 1
+10 INPUT "QUEL EST TON NOM ";N$
+20 PRINT "BONJOUR ";N$
+30 END
+Lors de l’exécution de la ligne 10, le message « QUEL EST TON NOM » s’affiche, suivi d’un point d’interrogation engendré par l’instruction INPUT. Le programme attend que des données soient saisies puis validées par un Retour-Chariot. Les données sont alors affectées à la variable N$.
+
+Exemple 2
+10 PRINT " ENTREZ 5 NOMBRES "
+20 INPUT A,B,C,D,E
+L’ordre INPUT porte ici sur cinq variables. Chaque donnée introduite doit être séparée de la suivante par une virgule et la dernière doit être suivie d’un Retour-Chariot.
+
+Action
+L’instruction INPUT permet d’introduire au clavier des données qui sont affectées à des variables. Si une chaîne suit l’ordre INPUT, elle est d’abord affichée. L’instruction INPUT affiche ensuite un point d’interrogation et attend que l’utilisateur saisisse la ou les données demandées.
+Lorsque l’instruction INPUT attend plusieurs variables, chaque entrée au clavier doit être séparée de la suivante par une virgule. La dernière donnée doit être suivie d’un Retour-Chariot.
+
+* Si le nombre de données introduites avant le Retour-Chariot est inférieur au nombre de données demandées, SBASIC affichera à nouveau un point d’interrogation, demandant ainsi les données manquantes.
+
+* Si trop de données sont entrées, les données en trop sont ignorées.
+
+* Contrairement à ce qui se produit avec l’instruction INPUT LINE, il n’est pas possible de n’entrer aucune donnée lors de l’exécution d’un ordre INPUT ; si tel était le cas, un nouveau point d’interrogation serait affiché.
+
+* Les caractères point-virgule et virgule, entre les paramètres de l’instruction INPUT sont interchangeables. 
+
+L’utilisateur peut répondre à l’instruction INPUT par un appui sur Ctrl-C. Le programme est alors interrompu et SBASIC est prêt à recevoir d’autres commandes. Le programme reprendra son exécution à l’instruction INPUT si la commande CONT est frappée.
+
+Voir aussi : INPUT LINE, INPUT #.

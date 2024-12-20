@@ -1,0 +1,7 @@
+STACK
+Affiche la pile d’exécution du programme.
+
+Action
+La commande STACK est utilisée pour la mise au point d’un programme. Elle affiche la pile d’exécution du programme suspendue par l’instruction STOP, la frappe de Ctrl-C ou la détection d’une erreur. Elle précise les numéros de ligne des GOSUB, CALL, FOR, traitement d’erreur ou d’interruption ouverts.
+Cette commande n’est utilisable qu’en mode direct.
+Voir aussi : STOP.

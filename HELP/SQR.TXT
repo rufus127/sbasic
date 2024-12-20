@@ -1,0 +1,14 @@
+SQR(exp-num)
+Retourne la racine carrée d’une expression numérique.
+exp-num : Expression numérique positive ou nulle.
+
+Exemple
+10 X=100
+20 A=SQR(X)
+30 PRINT A
+Ce programme imprime la racine carrée de 100.
+
+Action
+La fonction SQR retourne la racine carrée de exp-num.
+
+Si exp-num est négative, une erreur 107 se produit.

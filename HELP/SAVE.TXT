@@ -1,0 +1,32 @@
+SAVE nom-fich [,num-ligne-1] [, num-ligne-2] [, num-ligne-3]
+Sauvegarde sous forme de texte tout ou partie d’un programme.
+nom-fich	Nom du fichier dans lequel le programme est sauvegardé.
+num-ligne-1	Première ligne à sauvegarder.
+num-ligne-2	Dernière ligne à sauvegarder.
+num-ligne-3	Translation
+
+Exemple 1
+SAVE "ESSAI"
+Le programme « ESSAI.BAS » est sauvegardé en totalité, sous une forme de texte, sans modification de sa numérotation.
+
+Exemple 2
+SAVE "ESSAI" 1000,
+Le programme « ESSAI.BAS » est sauvegardé de la ligne 1000 à la dernière ligne, sans modification de sa numérotation.
+
+Exemple 3
+SAVE "ESSAI" , ,10
+Le programme « ESSAI.BAS » est sauvegardé du début jusqu’à la fin avec soustraction de 1à de tous les numéros de ligne.
+
+Action
+L’instruction SAVE sauvegarde sous le nom de fichier nom-fich et sous forme de texte la portion du programme présent en mémoire, comprise entre num-ligne-1 et num-ligne-2, en retranchant de tous les numéros de lignes du programme la valeur num-ligne-3.
+
+Les lignes du programme conservées dans le fichier seront donc numérotées entre num-ligne-1-num-ligne-3 et num-ligne-2-num-ligne-3. Il faut évidemment que num-ligne-3 soit inférieure à num-ligne-1 pour que tous les numéros de lignes soient positifs.
+
+Les valeurs par défaut de chacun des 3 paramètres optionnels sont les suivantes :
+num-ligne-1 1
+num-ligne-2 2147483647
+num-ligne-3 0
+
+Remarque : l’instruction SAVE efface sans avertissement tout fichier de même nom déjà présent sur le disque.
+
+Voir aussi : COMPILE, LOAD.

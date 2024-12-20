@@ -1,0 +1,4 @@
+10 DIM B$(5)
+20 FOR I% = 0 TO 4
+30 BLOAD "BOUTON"+LTRIM$(RTRIM$(STR$(I%)))+".BMP" B$(I%)
+40 NEXT I%

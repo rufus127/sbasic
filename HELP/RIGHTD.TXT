@@ -1,0 +1,19 @@
+RIGHT$(exp-chaîne, exp-num)
+Renvoie la partie droite d’une chaîne de caractères.
+exp-chaîne : Chaîne de caractères.
+exp-num : Nombre de caractères.
+
+Exemple
+10 A$ = "0123456"
+20 PRINT RIGHT$(A$,3)
+Ce programme imprime les 3 derniers caractères de la chaîne A$, à savoir, « 456 ».
+
+Action
+La fonction RIGHT$ délivre une chaîne de caractères constituée des exp-num caractères de droite de la chaîne exp-chaîne.
+* Si exp-num est supérieure à 0 et inférieure à la longueur de la chaîne exp-chaîne, la partie droite de cette chaîne, composée du nombre de caractères spécifiés, est renvoyée,
+* Si exp-num est supérieure ou égale à la longueur de la chaîne exp-chaîne, celle-ci est retournée en totalité,
+* Si exp-num est nulle, une chaîne vide est renvoyée,
+* Si exp-num est négative, une erreur 52 est signalée,
+* Si exp-num est supérieure à 2147483647 une erreur 104 est signalée.
+
+Voir aussi : LEFT$, MID$.

@@ -1,0 +1,22 @@
+MOVE exp-num-1, exp-num-2
+Déplace les coordonnées du point courant dans la fenêtre graphique sans procéder à aucun tracé ni à aucun coloriage de points.
+exp-num-1	Abscisse du point de destination.
+exp-num-2 	Ordonnée du point de destination.
+
+Exemple
+10 HGR
+20 COLOR 2
+30 CLRG
+40 COLOR 1
+50 ZERO% = 300
+60 MOVE 0,ZERO%
+70 FOR I% = 0 TO 500
+80 X = I%*PI/500
+90 PLOT TO I%, ZERO%+200*SIN(X**2)
+100 NEXT I%
+110 END
+Ce programme permet de tracer par segments la courbe Y = SIN(X**2).
+
+Action
+L’instruction MOVE permet de déplacer le point courant au point de coordonnées (exp-num-1, exp-num-2) dans la fenêtre graphique, sans procéder à aucun tracé ou à aucun coloriage de points.
+Les coordonnées du point peuvent être comprises entre -2147483648 et 2147483647 ; il s’agit d’un point virtuel éventuellement situé hors de la fenêtre graphique.

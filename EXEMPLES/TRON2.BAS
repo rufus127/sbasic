@@ -1,0 +1,5 @@
+10 TRON PRINT "A=";A;"B=";B; : C=C+1 : PRINT "Trace:";C
+20 INPUT " A ET B"; A,B
+30 A=A*2: B=B*3
+40 A=A+50: B=B+120
+50 END

@@ -1,0 +1,13 @@
+LTRIM$(exp-chaîne)
+Retourne une chaîne de caractères épurée des espaces de tête.
+exp-chaîne : Expression chaîne de caractères.
+
+Exemple
+10 A$ = "   CECI EST UN ESSAI   "
+20 L$ = LTRIM$(A$)
+Après l’exécution, L$ contient « CECI EST UN ESSAI    »
+
+Action
+La fonction LTRIM$ renvoie le contenu de exp-chaîne débarrassé de ses espaces de tête.
+
+Voir aussi : RTRIM$.

@@ -1,0 +1,17 @@
+SGN(exp-num)
+Retourne le signe d’une expression numérique.
+exp-num : Expression numérique quelconque.
+
+Exemple
+10 A = 120 : C = 0 : B = -200
+20 PRINT SGN(A),SGN(B),SGN(C)
+Ce programme affiche les valeurs 1, 0 et -1 correspondant au signe, respectivement, des variables A, B et C.
+
+Action
+La fonction SGN retourne le signe de exp-num de la façon suivante :
+exp-num	SGN
+< 0	-1
+= 0	0
+> 0	1
+
+Voir aussi : ABS.

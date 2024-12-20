@@ -1,0 +1,18 @@
+ASC(exp-chaîne)
+Donne le code ASCII du premier caractère d’une chaîne.
+exp-chaîne : Expression chaîne de caractères.
+
+Exemple 1
+10 A% = ASC("1")
+20 PRINT A%
+Après exécution de ces lignes, la variable A% contient la valeur du code ASCII du caractère « 1 », à savoir 49.
+
+Exemple 2
+10 A$ = "ZORRO"
+20 PRINT ASC(A$)
+Ce programme affiche la valeur 90, correspondant au code ASCII de la lettre Z.
+
+Action
+La fonction ASC renvoie le code ASCII du premier caractère de exp-chaîne.
+Si exp-chaîne contient plus d’un caractère, seul le code ASCII du premier caractère est renvoyé ; si exp chaîne ne contient aucun caractère, la valeur 0 est retournée.
+Voir aussi : CHR$.

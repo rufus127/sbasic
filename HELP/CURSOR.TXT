@@ -1,0 +1,25 @@
+CURSOR exp-num-1, exp-num-2
+Positionne le curseur en un point quelconque de la fenêtre SBASIC.
+exp-num-1 : Numéro de ligne (0 à 24).
+exp-num-2 : Numéro de colonne (1 à 80).
+
+Exemple 1
+10 CURSOR 10,40
+20 PRINT "ESSAI"
+Le message « ESSAI » s’affiche à partir de la 40e colonne de la 11e ligne.
+
+Exemple 2
+10 CURSOR
+20 CURSOR 20,30
+30 PRINT "POSITION DU CURSEUR : LIGNE "; YPEN, "COLONNE :"; XPEN,
+40 CURSOR YPEN, XPEN
+La position du curseur est donnée à la suite du message « POSITION DU CURSEUR… », qui s’affiche à partir de la 30e colonne de la 21e ligne. Puis le curseur est repositionné à l’emplacement qu’il occupait avant que le message n’apparaisse.
+
+Action
+Si les paramètres exp-num-1 et exp-num-2 sont spécifiés, l’instruction CURSOR permet de positionner le curseur en ligne exp-num-1 et en colonne exp-num-2. Notez que les numéros de ligne et de colonne du caractère en haut à gauche de la fenêtre SBASIC sont respectivement 0 et 1. Ceci permet à SBASIC de supporter simplement les applications écrites pour un écran de 24 lignes de 80 caractères.
+Sinon, l’instruction CURSOR a pour effet d’affecter aux variables système XPEN et YPEN respectivement, le numéro de ligne et le numéro de colonne sur lesquels est placé le curseur.
+Le cas échéant, exp-num-1 et exp-num-2 sont tronquées à leur partie entière. Si la valeur entière de exp-num-1 est supérieure à 24 ou si celle de exp-num-2 est nulle ou supérieure à 80, une erreur 97 se produit.
+Si exp-num-1 ou exp-num-2 sont négatives, il se produit une erreur 74.
+Si la fenêtre SBASIC est redimensionnée par l’instruction TEXT, les valeurs maximales de exp-num-1 et exp-num-2 évoluent en conséquence.
+
+Voir aussi : XPEN, YPEN, TEXT.

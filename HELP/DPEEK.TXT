@@ -1,0 +1,16 @@
+DPEEK exp-num
+Retourne le contenu de quatre octets de la mémoire.
+exp-num : Adresse mémoire.
+
+Exemple 1
+10 A = DPEEK (HEX("24"))
+Après l’exécution de cette ligne, la variable réelle A contient la valeur des octets d’adresse hexadécimale 24 et 25.
+
+Action
+La fonction DPEEK retourne le contenu des octets d’adresse exp-num et exp-num+1.
+* Si exp-num est négative ou supérieure à 2147483647, une erreur 75 se produit.
+* La valeur retournée est la concaténation des octets d’adresse exp-num, d’adresse exp-num+1, d’adresse exp-num+2 et d’adresse exp-num+3, le premier étant le poids faible et le quatrième le poids fort.
+
+Valeur = (((PEEK(exp-num+3) * 256 + PEEK(exp-num+2)) * 256 + PEEK(exp-num+1)) * 256 + PEEK(exp-num)
+
+Voir aussi : PEEK, POKE, DPOKE.

@@ -1,0 +1,14 @@
+EXP(exp-num)
+Renvoie l’exponentielle d’une expression numérique.
+exp-num : Expression numérique.
+
+Exemple
+10 PRINT EXP(1)
+Ce programme affiche 2.718281828459, correspondant à la valeur de e, base du logarithme népérien.
+
+Action
+La fonction EXP retourne la valeur de l’exponentielle en base e de exp-num.
+e vaut approximativement 2.718281828459045...
+Si exp-num est supérieure à +355 ou inférieure à -355, une erreur 102 se produit.
+
+Voir aussi : LOG.

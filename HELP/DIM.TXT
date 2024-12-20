@@ -1,0 +1,59 @@
+DIM var (exp-num-1 [,exp-num-2] ... ) ...
+Permet de réserver l’espace mémoire des tableaux.
+var : Nom du tableau.
+exp-num-1 : Première dimension du tableau.
+exp-num-n : Enième dimension du tableau.
+
+Exemple 1
+10 DIM T$(10), A(100), A$(10,20), T%(4,4,3)
+Cette ligne dimensionne 4 tableaux : T$(*) pourra comprendre jusqu’à 11 éléments ; A(*) jusqu’à 101 A$(*) jusqu’à 11 x 21 et T%, quant à lui, est un tableau d’entiers à 3 indices comprenant 100 éléments.
+
+Exemple 2
+10 INPUT "NOMBRE D’ELEMENTS"; N%
+20 DIM B(N%)
+30 FOR X% = 0 TO N%
+40 PRINT "ELEMENT ";X%,
+50 INPUT B(X%)
+60 NEXT X%
+Le tableau B(*) est dimensionné à la valeur de la variable N% saisie. Tous les éléments du tableau de B(0) à B(N%) sont ensuite saisis.
+
+Action
+L’instruction DIM réserve l’espace mémoire des tableaux mentionnés :
+* Si plusieurs tableaux sont dimensionnés par une même instruction, leur nom doit être séparé par une virgule.
+* Les tableaux doivent obligatoirement être dimensionnés avant que leurs éléments puissent être utilisés dans un programme. Un tableau ne peut être dimensionné qu’une seule fois dans un programme, sinon une erreur 88 est renvoyée, sauf s’il a fait l’objet d’une instruction CLEAR. Dans ce cas, il doit de nouveau être dimensionné si l’on souhaite le réutiliser.
+* On peut utiliser 0 comme indice d’un tableau.
+* Le nombre d’indices d’un tableau n’est pas limité.
+* L’espace mémoire réservé pour chaque élément d’un tableau est fonction du type de la variable :
+Entier : deux octets.
+Réel : huit octets.
+Chaîne de caractères : quatre octets, plus un nombre d’octets égal à la longueur de la chaîne.
+Voir aussi : CLEAR.
+
+
+DIM #exp-num-1 var (exp-num-2 [,exp-num-3] ...) [= exp-num-4]
+Permet de dimensionner un tableau virtuel et éventuellement de préciser la longueur de chaque élément d’un tableau virtuel de chaînes de caractères.
+exp-num-1 : Numéro de canal compris entre 1 et 12.
+var : Nom du tableau.
+exp-num-2 : Première dimension du tableau.
+exp-num-3 : Deuxième dimension du tableau.
+exp-num-4 : Longueur de chaque élément d’un tableau de chaînes.
+
+Exemple 1
+10 OPEN "VIRT" AS 1
+20 DIM #1 A(100)
+Le fichier virtuel « VIRT » comprend jusqu’à 101 réels.
+
+Exemple 2
+10 OPEN "NOM" AS 1
+20 DIM #1 N$(500) = 30
+Le fichier virtuel « NOM » peut comprendre jusqu’à 501 chaînes ayant toutes une longueur de 30 caractères.
+
+Action
+L’instruction DIM# permet de dimensionner un tableau virtuel ouvert sur le canal exp-num-1 :
+* Un tel tableau doit obligatoirement être dimensionné avant que ses éléments puissent être utilisés dans le programme. Un tableau virtuel ne peut être dimensionné qu’une seule fois dans un programme, sinon une erreur 88 est renvoyée, sauf s’il a fait l’objet d’une instruction CLOSE suivie d’un nouvel ordre OPEN.
+* On peut utiliser 0 comme indice d’un tableau virtuel.
+* Un tableau virtuel peut comprendre une ou deux dimensions.
+Chaque élément d’un tableau virtuel d’entiers occupe sur disque un nombre d’octets qui dépend de son type :
+Entier : deux octets.
+Réel : huit octets.
+Chaîne de caractères : nombre d’octets défini par exp-num-4, ou à défaut 18.

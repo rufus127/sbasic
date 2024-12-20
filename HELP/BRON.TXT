@@ -1,0 +1,12 @@
+BRON ou BREAK ON
+Autorise l’arrêt d’un programme en cours d’exécution par appui sur Ctrl-C.
+
+Exemple
+BRON
+Après l’exécution de cette instruction, le programme peut être arrêté en cours d’exécution par une pression simultanée des touches Ctrl et C.
+
+Action
+La commande BRON (BREAK ON) valide la possibilité d’arrêter l’exécution d’un programme par appui sur Ctrl-C. Cette option est prise par défaut lors du chargement de SBASIC.
+Après l’arrêt, le programme n’est pas altéré. L’exécution peut reprendre en tapant CONT. Si le programme a été arrêté sur une instruction INPUT, la reprise s’effectue au début de la ligne contenant l’instruction INPUT.
+La notation alternative BREAK ON n’est utilisable qu’en mode commande.
+Voir aussi : BROFF.

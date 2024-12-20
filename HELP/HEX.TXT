@@ -1,0 +1,16 @@
+HEX(exp-chaîne)
+Convertit une chaîne de caractères hexadécimaux en la valeur correspondante.
+exp-chaîne : Chaîne de caractères hexadécimaux en majuscules (caractères 0 à 9 et A à F).
+
+Exemple 1
+10 PRINT HEX("100")
+Ce programme affiche la valeur 256, correspondant à 100 en hexadécimal.
+
+Exemple 1
+10 A$="100"
+20 PRINT HEX(A$)
+Ce programme est équivalent au précédent, sauf qu’ici l’argument chaîne n’est pas une constante mais une variable.
+
+Action
+La fonction HEX retourne la valeur de exp-chaîne contenant un nombre hexadécimal en majuscules constitué des caractères 0 à 9 et A à F. L’évaluation s’arrête au premier symbole non hexadécimal rencontré.
+Si exp-chaîne comporte plus de huit caractères, HEX ne prend en compte que les huit derniers.

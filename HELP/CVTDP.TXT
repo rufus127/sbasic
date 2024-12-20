@@ -1,0 +1,21 @@
+CVT$%(var-chaîne)
+Renvoie la valeur d’un entier stocké dans une variable chaîne de caractères.
+var-chaîne : Variable chaîne de caractères.
+
+Exemple
+10 OPEN "PERSON" AS 1 LEN 44
+20 FIELD #1, 30 AS NOM$, 12 AS PRE$, 2 AS AN$
+30 INPUT "Numéro (0=fin) ";N%
+40 IF N% = 0 THEN 100
+50 GET #1 RECORD N%
+60 PRINT "Nom: "; NOM$
+70 PRINT "Prénom: ";PRE$
+80 PRINT "Année de naissance: ";CVT$%(AN$) : PRINT
+90 GOTO 30
+100 CLOSE 1
+Ce programme lit un enregistrement donné du fichier à accès direct « PERSON.DAT », contenant le nom, le prénom et l’année de naissance d’un certain nombre de personnes. Dans le cas d’un fichier à accès direct, la communication entre le disque et la mémoire s’effectue obligatoirement par l’intermédiaire d’une mémoire tampon de type chaîne de caractères. L’année de naissance a donc été, lors de l’enregistrement, transférée au moyen de la fonction CVT%$. La fonction CVT$% (ligne 80) permet de la récupérer sous la forme d’un nombre entier.
+
+Action
+La fonction CVT$% renvoie le contenu de var-chaîne sous la forme d’un nombre entier.
+Cette fonction est l’inverse de la fonction CVT%$. Elle permet de récupérer la valeur de l’expression numérique entière stockée dans une var-chaîne.
+Voir aussi : CVTF$, CVT%$, CVT$F.

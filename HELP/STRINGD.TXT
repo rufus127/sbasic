@@ -1,0 +1,18 @@
+STRING$(exp-chaîne, exp-num)
+Renvoie une chaîne de caractères répétée plusieurs fois.
+exp-chaîne : Chaîne de caractères.
+exp-num : Expression numérique entière.
+
+Exemple 1
+10 TRAIT$ = STRING$("-",80)
+Après exécution de cette ligne, la variable TRAIT$ se compose de 80 tirets (-).
+
+Exemple 2
+10 A$ = "01"
+20 B$ = STRING$(A$+"2",5)
+Après l’exécution du programme la variable B$ contient 5 fois la chaîne « 012 ».
+
+Action
+La fonction STRING$ renvoie exp-num fois le contenu de exp-chaîne.
+* Si exp-num est négative, une erreur 52 est signalée.
+* Si exp-chaîne est vide ou si exp-num est nulle, une chaîne vide est renvoyée.

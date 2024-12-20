@@ -1,0 +1,17 @@
+POINT(exp-num-1, exp-num-2)
+Retourne le numéro de la couleur logique du point désigné.
+exp-num-1 : Abscisse du point.
+exp-num 2 : Ordonnée du point.
+
+Exemple
+10 HGR
+20 COLOR 1
+30 CLRG
+40 COLOR 12
+50 PLOT 10,10 TO 500,500
+60 I% = POINT(100,100)
+70 PRINT I%
+Après exécution de ce programme, la variable I% contient le numéro de la couleur logique dans laquelle est affiché le point (100,100).	 Ce point étant situé sur le segment précédemment tracé entre les points (10,10) et (500, 500), I% aura pour valeur 12.
+
+Action
+La fonction POINT retourne la couleur logique du point de coordonnées (exp-num-1, exp-num-2). exp-num-1 et exp-num-2 peuvent prendre valeurs comprises entre -32758 et 32757, mais si le point désigné est situé en dehors de la fenêtre graphique, la valeur 0 est retournée.

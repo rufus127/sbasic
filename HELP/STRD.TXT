@@ -1,0 +1,18 @@
+STR$(exp-num)
+Convertit une expression numérique en une chaîne de caractères.
+exp-num : Expression numérique quelconque.
+
+Exemple
+10 A = 123.45
+20 A$ = STR$(A) + "FF"
+30 PRINT A$
+Après l’exécution, la chaîne A$ contient «  123.45 FF ».
+
+Action
+La fonction STR$ retourne une chaîne de caractères représentant la valeur de exp-num.
+* La chaîne est identique à celle éditée par l’ordre PRINT, avec les espaces, le point décimal éventuel et le signe moins. Cette fonction utilise les paramètres définis par l’instruction DIGITS.
+* Lorsque le nombre de chiffres affichés dépasse celui prévu par l’instruction DIGITS, la représentation retournée est exprimée en notation scientifique.
+* Si exp-num est supérieur ou égale à 10^127, une erreur 101 est générée.
+* Si exp-num est inférieur ou égale à 10^-127, la chaine «  0  » est retournée.
+
+Voir aussi : VAL.

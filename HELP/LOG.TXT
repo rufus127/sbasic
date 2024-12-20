@@ -1,0 +1,13 @@
+LOG(exp-num)
+Retourne le logarithme népérien d’une expression numérique.
+exp-num : Expression numérique positive.
+
+Exemple
+10 PRINT LOG(EXP(1))
+La valeur retournée est égale à 1, correspondant au logarithme népérien de e.
+
+Action
+La fonction LOG renvoie la valeur du logarithme népérien de exp-num.
+Si exp-num est négative ou nulle, une erreur 105 est signalée.
+
+Voir aussi : EXP.

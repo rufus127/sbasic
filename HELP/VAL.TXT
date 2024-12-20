@@ -1,0 +1,17 @@
+VAL(exp-chaîne)	Fonction
+Convertit une chaîne de caractères numériques en la valeur correspondante.
+exp-chaîne : Chaîne de caractères numérique.
+
+Exemple
+10 A$ = "123"
+20 A = VAL (A$)
+30 B = VAL (A$+".25")
+40 PRINT A,B
+Après exécution, les variables A et B contiennent respectivement les valeurs 123 et 123.25.
+
+Action
+La fonction VAL est l’inverse de la fonction STR$. Elle convertit exp-chaîne en la valeur numérique correspondante.
+* exp-chaîne est une chaine de caractère représentant un nombre entier ou réel dont la valeur est comprise entre 10^-127 et 10^+127.
+* L’évaluation de exp-chaine s’arrête au premier symbole ne pouvant s’interpréter comme faisant partie du nombre analysé.
+
+Voir aussi : STR$.

@@ -1,0 +1,14 @@
+CVT%$(exp-entière)
+Transfère la valeur d’une expression numérique entière dans une chaîne de caractères.
+exp-entière : Expression numérique entière.
+
+Exemple
+10 A% = 1200
+20 A$ = CVT%$(A%)
+Après l’exécution de ce programme, la variable A$ se compose des deux octets correspondant à la représentation binaire de la variable entière A.
+
+Action
+La fonction CVT%$ transfère le contenu de exp-entière dans une variable chaîne de caractères.
+Cette fonction ne réalise pas une véritable conversion binaire - décimale, comme c’est le cas avec la fonction STR$, car la donnée numérique conserve sa représentation binaire dans la chaîne.
+La fonction CVT%$ est surtout utilisée en liaison avec les instructions LSET, RSET et SET pour placer des entiers dans une mémoire tampon (définie au moyen des instructions FIELD ou FIELD#).
+Voir aussi : CVTF$, CVT$%, CVT$F.

@@ -1,0 +1,1 @@
+10 PRINT "DEBUT" ; SPC(10); "SUITE"

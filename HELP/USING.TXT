@@ -1,0 +1,152 @@
+PRINT USING exp-chaîne, [exp-1] [{; | ,}exp-2] ... [{; | ,}]
+Permet de contrôler le format d’affichage.
+exp-chaîne : Chaîne décrivant le format d’affichage.
+exp-n : Expression numérique ou chaîne.
+; | , : « ; » ou « , »
+
+Exemple 1
+10 PRINT USING '! ET ! ET !' , "AX1","BCDE","C5"
+L’exécution de cette ligne affiche dans la fenêtre SBASIC : A ET B ET C
+
+Exemple 2
+10 PRINT USING '\12345\ \123\',"CECI EST UN TEST","DEVOIR"
+Affiche à l’exécution : CECI ES DEVOI
+
+Exemple 3
+10 PRINT USING '###.##' , 124.555
+Affiche à l’exécution : 124.55
+
+Exemple 4
+10 PRINT USING '#.##' , 10.3
+Affiche à l’exécution : %10.3
+
+Exemple 5
+10 PRINT USING '$$###.##' , 123.82
+Affiche à l’exécution : $123.82
+
+Exemple 6
+10 PRINT USING '**###.##' , 250.30
+Affiche à l’exécution : **250.30
+
+Exemple 7
+10 PRINT USING '#,###,###.##' ,1E6
+Affiche à l’exécution : 1,000,000.00
+
+Exemple 8
+10 PRINT USING '$$##.## -$$##.##', 10.23, -10.23
+Affiche à l’exécution : $10.23 -% -10.23
+
+Exemple 9
+10 PRINT USING '#.###########^^^', SIN(1)
+Affiche à l’exécution : 8.41470984808E-01
+
+Action
+PRINT USING est une forme très souple de 1’instruction PRINT qui donne à l’utilisateur le contrôle complet du format d’affichage.
+* exp-chaîne est une image fidèle de la ligne d’édition ; elle comporte du texte qui sera
+  affiché tel quel, et des spécificateurs de format qui seront remplacés par les valeurs des
+  expressions de la liste. Elle doit obligatoirement se terminer par un spécificateur de
+  format.
+  Les spécificateurs de formats sont constitués des caractères de format spéciaux décrits
+  plus loin et sont séparés par des espaces. Ils permettent de préciser sous quelle forme
+  doivent être exprimées les valeurs des expressions de la liste.
+  exp-chaîne est explorée autant de fois que nécessaire pour permettre l’affichage de tous
+  les éléments de la liste.
+
+* Les éléments de la liste sont du même type que ceux d’une instruction PRINT ; ce sont des
+  expressions quelconques séparées par des virgules ou des points-virgules. Une virgule
+  modifie la position d’affichage à la fin de chaque exploration de exp-chaîne, comme expliqué
+  plus loin. Une virgule ou un point-virgule placé en fin de liste inhibe le retour au début
+  de la ligne suivante qui est normalement effectué après l’affichage des données.
+
+Le traitement effectué par l’instruction PRINT USING est le suivant :
+1) exp-chaîne est explorée de gauche à droite. Une sous-chaîne de texte est affichée telle quelle.
+Lorsqu’un spécificateur de format est rencontré, l’élément suivant dans la liste exp-n est affiché conformément au format spécifié. En cas d’incompatibilité entre le spécificateur et le type de l’expression, une erreur 71 se produit.
+
+2) Lorsqu’on arrive à la fin de exp-chaîne, le curseur est déplacé au début de la position de tabulation suivante si le dernier élément traité est suivi d’une virgule. En effet, SBASIC partage chaque ligne d’édition en 5 champs de 16 caractères chacun. Ainsi, une virgule fait sauter l’affichage à la position 16, 32, 48 ou 64. A partir de la position 64, une virgule provoque un saut à la position 1 de la ligne suivante.
+Puis, si la liste des éléments à afficher n’est pas épuisée, l’étape 1 est réitérée.
+
+3) Le traitement est terminé lorsque le dernier élément de la liste a été affiché. La partie non exploitée de exp-chaîne est ignorée. En particulier, toute sous-chaîne de texte située après le dernier spécificateur de format utilisé n’est pas affichée.
+
+4) Si le dernier élément traité est suivi d’une virgule, ou d’un point-virgule, un retour à la ligne n’est pas effectué et le curseur conserve sa position.
+Remarque : le mot-clé PRINT peut être remplacé par un point d’interrogation « ? ».
+
+Les caractères de spécification de format sont décrits ci-après :
+* Signe Et commercial « & »
+  Le signe « & » spécifie un format chaîne de caractères. Il permet d’afficher telle quelle
+  une expression chaîne.
+
+* Point d’exclamation « ! »
+  Un point d’exclamation spécifie que seul le premier d’une chaîne de caractères est à
+  afficher.
+
+* Barre oblique inversée « \ »
+  Une paire de barres obliques inversées (backslash) encadrant n caractères quelconques
+  définit un champ de n+2 caractères permettant d’afficher les n+2 premiers caractères d’une
+  expression chaîne. Si la longueur de la chaîne est inférieure à n+2, elle est cadrée à 
+  gauche dans le champ et complétée par des espaces. Deux barres consécutives définissent un
+  champ de 2 caractères.
+  Les caractères placés entre les deux « \ » sont ignorés ; seul leur nombre est pris en
+  compte. Il est conseillé d’utiliser les chiffres de 0 à 9 afin d’en faciliter visuellement
+  le décompte.
+
+* Signe dièse « # »
+  Le signe dièse est utilisé pour définir un champ numérique.
+  Une suite de signes dièse est utilisée pour définir un champ numérique. Chaque signe dièse
+  représente un chiffre. Un point décimal peut être inclus dans la spécification ; il doit
+  alors être précédé d’au moins un caractère de spécification.
+  Si l’expression à afficher comporte un nombre de chiffres significatifs inférieur à la
+  longueur du champ spécifié, elle est cadrée à droite et complétée à gauche par des espaces.
+  La partie fractionnaire est arrondie selon le nombre de chiffres après la virgule spécifiés
+  dans le format.
+  Si la longueur du champ ne permet pas d’afficher correctement la valeur de l’expression,
+  celle-ci est précédée d’un signe « % » puis exprimée selon le format défini par
+  l’instruction DIGITS.
+  Une valeur négative est précédée du signe moins. Ce dernier occupe une position du champ.
+
+* Double signe dollar « $$ »
+  Une paire de signes « $ » placée en tête d’un champ numérique permet de faire précéder la
+  valeur affichée d’un signe dollar. Le double dollar spécifie deux positions d’affichage
+  supplémentaires dont la première sera occupée par le signe dollar lui-même. Si la longueur
+  du champ ne permet pas d’afficher le signe dollar, compte tenu de la valeur de l’expression,
+  le signe % est affiché puis l’affichage est effectué comme si le double dollar était
+  remplacé par deux dièses.
+  Pour afficher avec ce format des valeurs négatives, il faut utiliser le spécificateur moins
+  en fin de champ.
+
+* Double astérisque « ** »
+  Une paire de signes « * » placée en tête d’un champ numérique permet, à l’affichage, de
+  remplacer les espaces de tête par des astérisques. Ceci est particulièrement utile
+  lorsqu’on imprime un montant qui ne doit pas être altéré (chèque, traite etc.). Le double
+  astérisque spécifie deux positions d’affichage supplémentaires dont la première au moins
+  sera occupée par un astérisque.
+  Si la longueur du champ ne permet pas, compte tenu de la valeur de l’expression, d’afficher
+  au moins un astérisque, le signe % est affiché puis l’affichage est effectué comme si le
+  double astérisque était remplacé par deux dièses.
+  Pour afficher avec ce format des valeurs négatives, il faut utiliser le spécificateur moins
+  en fin de champ.
+
+* Virgule « , »
+  Une ou plusieurs virgules peuvent être spécifiées afin de permettre, lors de l’affichage,
+  l’insertion d’une virgule après le chiffre des milliers, des millions etc. Chaque virgule
+  spécifiée constitue une position d’affichage supplémentaire ; chaque virgule insérée occupe
+  une position d’affichage.
+  La position d’une virgule à l’intérieur de la spécification est sans importance ; elle
+  doit, toutefois, être précédée d’au moins un caractère de spécification, et apparaître à
+  gauche du point décimal si celui-ci est aussi spécifié.
+
+* Signe moins « - »
+  Le signe moins « - » est utilisé pour afficher des nombres négatifs quand une paire de
+  signes « $ » ou « * » sont placés en tête d’un champ numérique. Si le signe moins est placé
+  en tête du champ, une valeur négative sera à l’affichage précédée de ce signe, s’il est
+  placé à la fin du champ numérique, une valeur négative sera suivie de ce signe.
+
+* Signe flèche « ^ »
+  Le signe flèche « ^ » spécifie un format scientifique dans un champs numérique. Quatre
+  flèches, et quatre seulement, sont permises et peuvent être placées à la fin d’un champ
+  numérique. Ces quatre flèches « ^^^^ » sont utilisées pour représenter la notation « E+XX »
+  du format scientifique (quatre positions). Aucun autre format numérique ne peut être
+  utilisé avec le format scientifique, car celui-ci utilise toutes les positions d’affichage.
+  Ce format est particulièrement utile lorsqu’on affiche des tableaux de grands nombres ayant
+  plusieurs positions décimales.
+
+Voir aussi : LPRINT USING, PRINT, TAB, DIGITS.

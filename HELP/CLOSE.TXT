@@ -1,0 +1,16 @@
+CLOSE [exp-num-1, exp-num-2, …]
+Ferme un ou plusieurs fichiers et libère les canaux internes correspondants.
+exp-num-n	Numéro de canal compris entre 1 et 12.
+
+Exemple
+10 OPEN OLD "ESSAI.DAT" AS 1
+20 INPUT #1 A$
+30 PRINT A$
+40 CLOSE 1
+La ligne 40 ferme le fichier ESSAI.DAT, ouvert sur le canal 1 (ligne 10).
+
+Action
+L’instruction CLOSE ferme les fichiers préalablement ouverts sur les canaux exp-num….
+On peut fermer plusieurs fichiers dans un même ordre CLOSE, en spécifiant la liste des canaux, séparés par une virgule. Si l’un des canaux spécifiés n’est pas ouvert, l’instruction est sans effet, mais ne provoque aucune erreur. Lorsque l’instruction CLOSE est utilisée sans argument, tous les fichiers ouverts sont fermés.
+La fermeture d’un fichier est nécessaire avant de pouvoir réutiliser le canal associé dans un ordre OPEN.
+Voir aussi : OPEN, OPEN NEW, OPEN OLD.

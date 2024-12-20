@@ -1,0 +1,3 @@
+10 A$ = INCH$(-1)
+20 IF ASC(A$) = 0 THEN I = I + 1: GOTO 10
+30 PRINT I

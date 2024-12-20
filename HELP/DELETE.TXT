@@ -1,0 +1,26 @@
+DELETE [num-ligne-1] [,num-ligne-2]
+Supprime une zone du programme.
+num-ligne-1 : Première ligne à supprimer.
+num-ligne-2 : Dernière ligne à supprimer.
+
+Exemple 1
+10 DELETE 1000
+Cette instruction supprime la ligne 1000 du programme courant.
+
+Exemple 2
+10 DELETE 1000,1100
+Cette instruction efface les lignes 1000 à 1100 du programme courant.
+
+Exemple 3
+10 DELETE 2000,
+Dans cet exemple, toutes les lignes depuis 2000 jusqu’à la dernière sont supprimées.
+
+Exemple 4
+DELETE ,100
+Les premières lignes du programme sont effacées jusqu’à la ligne 100.
+
+Action
+L’instruction DELETE supprime les lignes comprises entre num-ligne-1 et num-ligne-2 du programme. Cette instruction s’utilise en mode direct ou en mode programme. Lorsqu’elle est utilisée en mode programme, une erreur 89 est signalée si une des lignes à effacer est référencée (ligne courante ou CALL, GOSUB ou FOR en cours).
+La valeur par défaut de num-ligne-1 est 1 ; celle de num-ligne-2 est 2147483647.
+DELETE est utilisée pour nettoyer la zone où l’on souhaite charger un nouveau sous-programme avec LOAD ou BLOAD.
+Voir aussi : NEW, LOAD, BLOAD.

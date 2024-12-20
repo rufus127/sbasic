@@ -1,0 +1,27 @@
+PORT exp-num [, exp-chaîne]
+Permet d’aiguiller les informations en entrée depuis un fichier ou en sortie vers un fichier.
+exp-num : Numéro de port, compris entre 0 et 19.
+exp-chaîne : Nom d’un fichier.
+
+Exemple
+10 PRINT "ECRAN"
+20 PORT 1,"FICHIER.TXT"
+30 PRINT "FICHIER"
+40 PORT 0
+50 PRINT "ECRAN"
+60 PORT 1,""
+L’instruction PORT 1 de la ligne 20 aiguille la sortie vers le fichier « FICHIER.TXT »; de ce fait, l’ordre PRINT suivant (ligne 30) enverra son message vers ce fichier. La ligne 40 aiguille de nouveau la sortie vers la fenêtre SBASIC.
+
+Action
+L’instruction PORT permet d’aiguiller l’entrée ou la sortie vers un fichier.
+exp-num est le numéro du port sélectionné ; il doit être compris entre 0 et 19.
+Numéro de port	Aiguillage
+	0 à 9	Affichage
+	10 à 19	Entrée
+exp-chaîne est un nom de fichier.
+
+Si exp-chaîne est spécifié, le port exp-num-est associé au fichier portant ce nom.
+Si exp-chaîne n’est pas présent, l’entrée ou la sortie est redirigé vers le fichier précédemment associé au port exp-num.
+Si exp-chaîne est une chaine vide, le fichier précédemment associé au port exp-num-est fermé et dissocié. 
+
+Les numéros 0 (affichage écran) et 10 (entrée clavier) sont fixés une fois pour toute et ne sont pas modifiables. Ils permettent de rediriger l’entrée ou la sortie vers le clavier ou la fenêtre SBASIC.

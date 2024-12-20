@@ -1,0 +1,18 @@
+STOP
+Provoque une interruption dans l’exécution du programme.
+
+Exemple
+10 PRINT" DEBUT "
+20 STOP
+30 PRINT " SUITE "
+40 END
+Ce programme est interrompu à la ligne 20. Son exécution peut être poursuivie en tapant la commande CONT.
+
+Action
+Une instruction STOP interrompt le programme en cours d’exécution et affiche un message indiquant la ligne à laquelle l’interruption s’est produite. Les variables conservent leur valeur courante et les fichiers ne sont pas fermés.
+
+Le programme peut ensuite être relancé par la commande CONT, sauf dans les cas suivants :
+* Si une erreur s’est produite au cours de l’exécution du programme.
+* Si une erreur de syntaxe ou une erreur 37 survient lors de l’entrée d’instructions en mode direct.
+
+Voir aussi : CONT, END.

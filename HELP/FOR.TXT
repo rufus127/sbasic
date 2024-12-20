@@ -1,0 +1,38 @@
+FOR var-num = exp-num-1 TO exp-num-2 [STEP exp-num-3]
+Marque le début d’une série d’instructions à exécuter en boucle.
+var-num : Variable numérique compteur de boucle
+exp-num-1 : Valeur de départ du compteur de boucle.
+exp-num-2 : Borne supérieure du compteur de boucle.
+exp-num-3 : Pas d’incrémentation du compteur de boucle.
+
+Exemple 1
+10 FOR X = 1 TO 10
+20 PRINT X
+30 NEXT X
+La ligne 10 marque le début d’une boucle : la variable X va prendre toutes les valeurs entières comprises entre 1 et 10 et la ligne 20 va être répétée autant de fois.
+
+Exemple 2
+10 FOR X = 10 TO 1 STEP -0.5
+20 PRINT X
+30 PRINT X/2
+40 NEXT X
+Ici, les instructions situées à l’intérieur de la boucle (lignes 20 et 30) seront exécutées pour les valeurs de X variant entre 10 et 1 avec un pas négatif de -0.5.
+
+Action
+Lorsqu’une instruction FOR est rencontrée, toutes les instructions comprises entre elle et l’instruction NEXT suivante sont exécutées pour toutes les valeurs de var-num comprises entre exp-num-1 et exp-num-2 avec un pas de exp-num-3.
+La valeur par défaut de exp-num-3 est 1.
+
+* Une boucle FOR ... NEXT se déroule de la façon suivante :
+1) Le compteur de la boucle var-num est initialisé à la valeur exp-num-1,
+2) Les instructions comprises entre l’instruction FOR et l’instruction NEXT suivante sont exécutées,
+3) La valeur du compteur de boucle var-num, augmentée de la valeur du pas exp-num-3, est comparée à la borne exp-num-2 : si le pas est positif (respectivement négatif) et que le résultat est supérieur (respectivement inférieur) à la borne, alors l’exécution se poursuit à l’instruction qui suit l’instruction NEXT. Sinon, le pas est ajouté à compteur de boucle var-num et le processus reprend à l’étape 3.
+
+* Le compteur de boucle ne doit normalement pas être modifié à l’intérieur de la boucle. Dans le cas contraire, c’est la nouvelle valeur qui serait utilisée à l’étape 3.
+
+* La même variable doit être spécifiée comme compteur de boucle dans l’instruction FOR et dans l’instruction NEXT qui lui est associée. A défaut, une erreur 62 est signalée.
+
+* Il est interdit de se brancher directement à l’intérieur d’une boucle sans passer par l’instruction FOR. A défaut, une erreur 62 serait détectée à l’exécution de l’instruction NEXT.
+  Il est toutefois possible de sortir d’une boucle et de s’y rebrancher. Dans ce cas, les instructions exécutées à l’extérieur de la boucle peuvent être considérées comme faisant partie de la boucle. C’est, en particulier, ce qui a lieu lorsqu’un sous-programme est appelé de l’intérieur d’une boucle.
+  Il est possible, et c’est un cas fréquent, de sortir définitivement d’une boucle avant avoir effectué toutes les itérations.
+
+* Il est possible d’imbriquer plusieurs boucles à condition qu’elles ne se chevauchent pas : une boucle interne doit être entièrement contenue dans la boucle externe. De plus, le compteur de chaque boucle doit être distinct des autres compteurs.

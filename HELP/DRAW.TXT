@@ -1,0 +1,47 @@
+DRAW exp-num-1, exp-num-2, exp chaîne [,exp-num-3]
+Dessine de petits motifs répétitifs.
+exp-num-1 : Abscisse du point de départ.
+exp-num-2 : Ordonnée du point de départ.
+exp chaîne : Couleur et déplacement relatif.
+exp-num-3 : Rotation en multiples de 45 degrés.
+
+Exemple
+10 HGR
+20 COLOR 0
+30 CLRG
+40 A$="3Xn2Nx3Dn2Nd"
+50 DRAW 130,130,A$
+60 DRAW 200,200,A$,1
+70 DRAW 50,50,A$
+Ce programme définit un petit rectangle dont deux côtés sont en jaune et deux autres en vert (variable A$). Cette figure est tracée en trois endroits de la fenêtre graphique. Elle subit une rotation de 45 degrés lorsqu’elle est dessinée au point de coordonnées 200,200 (ligne 60).
+
+Action
+L’instruction DRAW permet de dessiner de petits motifs répétitifs dans la fenêtre graphique.
+* Le tracé commence au point (exp-num-1, exp-num-2).
+* exp chaîne définit le tracé du dessin par une succession de segments de droite. Ceux-ci sont décrits par des chiffres et des lettres majuscules ou minuscules ayant la signification suivante :
+
+Chiffre
+0 à 7	définit la couleur logique du tracé
+8	supprime le tracé
+Par défaut, la couleur courante est utilisée.
+
+Majuscule de A à Z.
+Définit le déplacement relatif en X par rapport au point courant (voir tableau de correspondances).
+
+Minuscule de a à z.
+Définit le déplacement relatif en Y par rapport au point courant (voir tableau de correspondances).
+* exp-num-3 représente la rotation. Sa valeur est comprise entre 0 et 7. La rotation effectuée correspond à exp-num-x 45 degrés par rapport au point d’origine. Par défaut la rotation est nulle.
+
+Correspondance entre lettres et déplacements relatifs :
+A	B	C	D	E	F	G	H	I	J
+-13	-12	-11	-10	-9	-8	-7	-6	-5	-4
+
+K	L	M	N	0	P	Q	R	S	T
+-3	-2	-1	0	1	2	3	4	5	6
+
+U	V	W	X	Y	Z
+7	8	9	10	11	12
+
+Correspondance entre chiffre et angle de rotation en degrés :
+0	1	2	3	4	5	6	7
+0	45	90	135	180	225	270	315

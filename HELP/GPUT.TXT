@@ -1,0 +1,48 @@
+GPUT var-chaîne, exp-num-1, exp-num-2 [, exp-num-3 [, exp-num4, exp-num5, exp-num6, exp-num7]]
+Affiche dans la fenêtre graphique l’image bitmap contenue dans une variable chaîne.
+var-chaîne : Variable chaine contenant la bitmap.
+exp-num-1 : Abscisse du coin inférieur gauche.
+exp-num-2 : Ordonnée du coin inférieur gauche.
+exp-num-3 : Mode traitement couleur.
+exp-num-4 : Abscisse du coin inférieur gauche dans l’image.
+exp-num-5 : Ordonnée du coin inférieur gauche dans l’image.
+exp-num-6 : Abscisse du coin supérieur droit dans l’image.
+exp-num-7 : Ordonnée du coin supérieur droit dans l’image.
+
+Exemple 1
+10 GGET B$,100,40,109,59
+20 GPUT B$,50,40
+Ce programme recopie le contenu du rectangle de 10 x 20 pixels dont l’angle inférieur gauche se trouve à l’abscisse 100 et l’ordonnée 40 de la fenêtre graphique dans le rectangle de même taille dont l’angle inférieur gauche se trouve à l’abscisse 50 et l’ordonnée 40
+
+Exemple 2
+100 HGR
+110 BLOAD "IMAGE.BMP" I$
+120 GPUT I$,0,0
+130 H = 35 : W = 25
+140 PEN
+150 GGET BM$, XPEN - W, YPEN - H, XPEN + W - 1, YPEN + H - 1
+160 GGET BMSAVE$, XPEN - W, YPEN - H, XPEN + W - 1, YPEN + H - 1
+170 GPUT BM$, XPEN - W, YPEN - H, 1
+180 XCUR = XPEN : YCUR = YPEN
+190 PEN 2, A$
+200 IF A$=' ' THEN GOTO 230 ELSE IF XCUR = XPEN AND YCUR = YPEN GOTO 190
+210 GPUT BMSAVE$, XCUR - W , YCUR - H
+220 GOTO 160
+230 TEXT
+240 END
+Ce programme affiche une image. Suite à un clic de souris, le rectangle de 25 x 35 pixels, centré sur la position de la souris, suit le déplacement de la souris jusqu‘à ce que la barre d’espace soit appuyée.
+
+Action
+L’instruction GPUT permet d’afficher une image bitmap dans la fenêtre graphique. exp-num-1 et exp-num-2 sont les coordonnées du coin inférieur gauche du rectangle affiché. L’image bitmap est prise à partir de la variable chaîne var-chaîne. Cette image doit être au format BMP 256 couleurs. La palette de couleurs de l’image est ignorée.
+
+Si exp-num-3 est spécifié, il définit le mode de traitement de la couleur.
+
+exp-num-3	Traitement couleur 
+0		Pas de traitement
+1		Ignore la couleur de fond de l’image bitmap
+2		Inversion couleur (XOR)
+
+Optionnellement exp-num-4, exp-num-5, exp-num-6 et exp-num-7 définissent un rectangle à l’intérieur de l’image bitmap. C’est alors seulement l’image contenue dans ce rectangle qui est recopiée dans la fenêtre graphique. Si exp-num-6 ou exp-num-7 est négatif, l’abscisse ou l’ordonnée du coin supérieur droit du rectangle est définie relativement au coin supérieur droit de l’image bitmap. 
+Les parties de l’image bitmap qui sortent de la fenêtre graphique sont ignorées et aucune erreur n’est générée.
+
+Voir aussi : GGET, BLOAD.

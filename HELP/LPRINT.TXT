@@ -1,0 +1,9 @@
+LPRINT [exp-1] [{ , | ; } exp-2] ... [{ , | ; }]
+Écrit des données simultanément dans la fenêtre SBASIC et dans le tampon d’impression.
+exp-n : Expression chaîne ou numérique.
+{ , | ; } : Séparateur « , » ou « ; ».
+
+Exemple
+L’instruction LPRINT permet d’écrire simultanément dans la fenêtre SBASIC et dans le tampon d’impression. Elle est par ailleurs identique à l’instruction PRINT.
+
+Voir aussi : LPRINT USING, PRINT, PRINT USING, TAB, DIGITS.

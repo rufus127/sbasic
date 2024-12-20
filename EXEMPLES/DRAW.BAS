@@ -1,0 +1,7 @@
+   10 HGR
+   20 COLOR 0
+   30 CLRG
+   40 A$="7Xn2Nx7Dn2Nd"
+   50 DRAW 130,130,A$
+   60 DRAW 200,200,A$,1
+   70 DRAW 50,50,A$

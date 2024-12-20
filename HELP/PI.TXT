@@ -1,0 +1,11 @@
+PI
+Variable système contenant la valeur du nombre PI.
+
+Exemple
+10 INPUT "RAYON ";RAYON
+20 PRINT "CIRCONFERENCE = "; 2*PI*RAYON
+Ce programme permet de calculer la circonférence d’un cercle.
+
+Action
+PI est une variable système (de même que ARGC, ARGV$, ERR, ERL, DATE$, XPEN et YPEN), contenant la valeur du nombre PI. La valeur retournée est 3.1415925535897933
+PI ne peut pas figurer à gauche du signe égal (=) dans un ordre d’affectation (LET implicite ou explicite).

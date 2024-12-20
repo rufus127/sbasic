@@ -1,0 +1,11 @@
+ATN(exp-num)
+Retourne l’arc tangente, en radians, d’une expression numérique.
+exp-num : Expression numérique quelconque.
+
+Exemple
+10 PRINT PI - 4*ATN(1)
+La valeur retournée est égale à zéro, puisque l’arc tangente de 1 correspond à PI/4.
+
+Action
+La valeur retournée est comprise entre -PI/2 et PI/2, où PI/2 est approximativement égal à 1.5707963267948966.
+Voir aussi : TAN.

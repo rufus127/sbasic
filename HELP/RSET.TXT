@@ -1,0 +1,19 @@
+RSET var-chaîne = exp-chaîne
+Affecte une valeur à la partie droite d’une zone de mémoire tampon, au besoin en la tronquant ou en la complétant par des espaces.
+var-chaîne : Variable chaîne de caractères.
+exp-chaîne : Expression chaîne de caractères.
+
+Exemple
+10 FIELD 8 AS A$, 10 AS B$
+20 RSET A$="12345"
+30 RSET B$="CECI EST UN TEST"
+Après l’exécution la variable A$ contient «    12345 » et la variable B$ contient « ST UN TEST ». En effet, la chaîne affectée à A$ étant plus courte que la longueur du tampon, elle a été précédée par des espaces ; au contraire, la chaîne affectée à B$ étant supérieure à la taille du tampon, elle a été tronquée à gauche.
+
+Action
+L’instruction RSET permet d’affecter une valeur à la partie droite zone de mémoire tampon définie par une instruction FIELD.
+* exp-chaîne est placée dans le tampon associé à var-chaîne ; elle est justifiée à droite.
+* Si exp-chaîne est plus courte que la longueur du tampon, elle est précédée par des espaces ; si elle est plus longue, elle est tronquée à gauche.
+
+De même que les instructions SET et LSET, RSET est destinée à être utilisée avec des variables associées aux tampons d’entrée-sortie.
+
+Voir aussi : FIELD, FIELD#, LSET, SET.

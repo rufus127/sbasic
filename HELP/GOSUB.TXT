@@ -1,0 +1,28 @@
+GOSUB adresse
+Provoque un saut à un sous-programme.
+adresse : Numéro de ligne ou étiquette.
+
+Exemple 1
+10 RAYON = 10: GOSUB 50
+20 RAYON = 20: GOSUB 50
+30 END
+49 REM CALCUL DE LA CIRCONFERENCE D'UN CERCLE
+50 CIRCONF = 2*PI*RAYON
+60 PRINT "RAYON: "; RAYON,"CIRCONFERENCE: ";CIRCONF
+70 RETURN
+Les instructions GOSUB 50 des lignes 10 et 20 provoquent un saut au sous-programme débutant en ligne 50.
+
+Exemple 2
+10 RAYON = 10: GOSUB CERCLE
+20 RAYON = 20: GOSUB CERCLE
+30 END
+49 REM CALCUL DE LA CIRCONFERENCE D'UN CERCLE
+50 LABEL CERCLE: CIRCONF = 2*PI*RAYON
+60 PRINT "RAYON: "; RAYON,"CIRCONFERENCE: ";CIRCONF
+70 RETURN
+Ici, le sous-programme appelé aux lignes 10 et 20 n’est pas référencé par un numéro de ligne, mais par une étiquette.
+
+Action
+L’instruction GOSUB provoque un branchement à un sous-programme dont l’adresse est soit un numéro de ligne soit une étiquette.
+
+Voir aussi : CALL, SUB, LABEL, RETURN.

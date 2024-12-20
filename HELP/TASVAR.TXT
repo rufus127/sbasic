@@ -1,0 +1,11 @@
+TASVAR
+Met à jour la table des symboles.
+
+Exemple
+TASVAR
+Après l’exécution de cette commande, la table des symboles ne comprend plus les symboles inutiles ou générés par des fautes de frappe.
+
+Action
+L’instruction TASVAR permet de mettre à jour la table des symboles en supprimant les symboles inutiles ou résultant de fautes de frappe lors de l’introduction de lignes de programme ou d’instructions en mode direct. TASVAR est notamment utilisé avant d’effectuer un tri des variables au moyen de la commande TRIVAR.
+
+Voir aussi : TRIVAR.

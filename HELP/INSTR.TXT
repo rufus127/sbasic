@@ -1,0 +1,31 @@
+INSTR(exp-num, exp-chaîne-1, exp-chaîne-2)
+Recherche une sous-chaîne dans une chaîne, et renvoie sa position.
+exp-num	Rang du caractère où débute la recherche.
+exp-chaîne-1 : Chaîne dans laquelle s’effectue la recherche.
+exp-chaîne-2 : Sous-chaîne recherchée.
+
+Exemple 1
+10 C$ = "0123456789"
+20 S$ = "34"
+30 A% = INSTR (1,C$,S$)
+40 PRINT A%
+50 B% = INSTR (5,C$,S$)
+60 PRINT B%
+Après l’exécution de ce programme, la variable A% contient la position, dans C$, à laquelle commence la sous-chaîne S$, à savoir 4. La variable B% sera, elle, égale à 0, car la sous-chaîne S$ n’existe pas dans la portion de C$ commençant au 5e caractère.
+
+Exemple 2
+10 I% = 1 : N% = 0 : C$ = "IL ETAIT UNE FOIS DANS L’OUEST"
+20 A% = INSTR (I%,C$,"E")
+30 IF A%>0 THEN N% = N% + 1 : I% = A% + 1 : GOTO 20
+40 PRINT " LA LETTRE 'E' APPARAIT " ; N% ; " FOIS"
+Ce programme totalise les occurrences de la lettre « E » dans la chaîne « IL ETAIT UNE FOIS DANS L’OUEST ».
+
+Action
+La fonction INSTR recherche la première occurrence de la sous-chaîne exp-chaîne-2 dans la chaîne exp-chaîne-1 à partir de la position exp-num.
+* Si la valeur de exp-num est :
+  Inférieure ou égale à 0, une erreur 52 est signalée ;
+  Omise, la recherche commence à la position 1 ;
+  Supérieure ou égale à 1, la recherche commence à la position spécifiée ;
+  Supérieure à la longueur de la chaîne dans laquelle s’effectue la recherche, INSTR renvoie la valeur 0, mais aucune erreur n’est signalée.
+* Si exp-chaîne-2 est trouvée dans exp-chaîne-1, INSTR renvoie la position du premier caractère de exp-chaîne-2 dans exp-chaîne-1
+* Si exp-chaîne-2 n’est pas trouvée, la valeur 0 est renvoyée.

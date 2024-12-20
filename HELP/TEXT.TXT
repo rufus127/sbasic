@@ -1,0 +1,15 @@
+TEXT [exp-num-1, exp-num-2]
+Définit le nombre de lignes et de colonnes de la fenêtre SBASIC.
+exp-num-1 : Nombre de lignes de la fenêtre SBASIC (80 à 255).
+exp-num-2 : Nombre de colonnes de la fenêtre SBASIC (25 à 255).
+
+Exemple
+10 TEXT 50,200
+Ce programme redimensionne la fenêtre SBASIC avec 50 lignes de 200 caractères.
+
+Action
+Si exp-num-1 et exp-num-2 ne sont pas spécifiés ou s’ils sont égaux aux dimensions courantes de la fenêtre SBASIC, l’instruction TEXT met en avant plan cette fenêtre.
+
+Sinon la fenêtre SBASIC est redimensionnée et effacée. exp-num-1 doit être compris entre 25 et 255. exp-num-2 doit être compris entre 80 et 255. Au besoin exp-num-1 et exp-num-2 sont tronqués. Les effets des instructions WINDOW et SETCOLOR sur cette fenêtre SBASIC sont annulés.
+
+Voir aussi : WINDOW, SETCOLOR.

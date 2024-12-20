@@ -1,0 +1,80 @@
+   10 PRINT "DEBUT" ; SPC(10); "SUITE"
+   20 PRINT "--------------------"
+   30 PRINT TAB(10); "DEBUT"; TAB(20); "SUITE"; TAB(40); "FIN"
+   40 PRINT "         !         !                   !"
+   50 PRINT "V‚rification position curseur: ";
+   60 IF POS(0) = 31 THEN PRINT "OK" ELSE PRINT "Erreur POS(0)": STOP
+  100 LPRINT "‚Š‡…œ‹â—æ¤õ"
+  110 LPRINT "Liste des 5 premiers entiers"
+  120 FOR I%=1 TO 6: LPRINT I%: NEXT I%
+  130 LPRINT "leurs carr‚s"
+  140 FOR I%=1TO 6: LPRINT I%*I%: NEXT I%
+  240 OPEN NEW "CARRE" AS 1
+  250 PRINT #1,"Liste des 5 premiers entiers"
+  260 FOR I%=1 TO 6: PRINT #1, I%: NEXT I%
+  270 PRINT #1, "leurs carr‚s"
+  280 FOR I%=1TO 6: PRINT #1,I%*I%: NEXT I%
+  290 PRINT #1, "V‚rification position curseur: ";
+  300 IF POS(1) = 31 THEN PRINT #1, "OK" ELSE PRINT "Erreur POS(1)": STOP
+  310 PRINT #1
+  340 CLOSE 1
+  350 EXEC "fc /w carre.dat carre.txt"
+  400 OPEN OLD "CARRE" AS 2
+  410 INPUT #2, A$
+  420 DIM NOMBRE(6): FOR I%=1 TO 6: INPUT #2, NOMBRE(I%): NEXT I%
+  430 INPUT #2, B$
+  440 DIM CARRE(6): FOR I%=1 TO 6: INPUT #2, CARRE(I%): NEXT I%
+  500 CLOSE 2
+  510 FOR I%=1 TO 6: IF NOMBRE(I%) <> I% THEN PRINT "Erreur PRINT #!": STOP ELSE NEXT I%
+  520 FOR I%=1 TO 6: IF CARRE(I%) <> I%*I% THEN PRINT "Erreur PRINT #!": STOP ELSE NEXT I%
+  590 CLEAR NOMBRE(*), CARRE(*)
+  600 ON ERROR GOTO 760
+  610 OPEN OLD "CARRE" AS 3
+  620 INPUT #3, A$
+  630 DIM NOMBRE(6): FOR I%=1 TO 6: INPUT #3, NOMBRE(I%): NEXT I%
+  640 INPUT #3, B$
+  650 DIM CARRE(6): FOR I%=1 TO 6: INPUT #3, CARRE(I%): NEXT I%
+  660 INPUT #3, C$
+  710 CLOSE 3
+  720 GOTO 770
+  760 IF ERR<>8 THEN PRINT "Erreur INPUT fichier!": STOP
+  770 ON ERROR GOTO
+  800 PRINT USING '\12345\ \123\',"CECI EST UN TEST","DEVOIR"
+  805 PRINT "------- -----"
+  810 PRINT USING '###.##' , 124.555
+  820 PRINT USING '#.##' , 10.3
+  825 PRINT "%->OK"
+  830 PRINT USING '$$###.##' , 123.82
+  840 PRINT USING '**###.##' , 250.30
+  850 PRINT USING '#,###,###.##' ,1E6
+  860 PRINT USING '$$##.## -$$##.##', 10.23, -10.23
+  865 PRINT "%->OK"
+  870 PRINT USING '#.###########^^^^', SIN(1)
+  900 CURSOR
+  910 CURSOR 20,30
+  920 PRINT "POSITION DU CURSEUR : LIGNE "; YPEN, "COLONNE :"; XPEN,
+  930 CURSOR YPEN, XPEN
+ 1000 SETCOLOR 0,255,0,0: SETCOLOR 1,0,0,255
+ 1010 PRINT "Texte en bleu sur fond rouge";
+ 1020 CLEAR
+ 1030 PRINT
+ 1031 PRINT CHR$(27)+"H"+"Inversion couleurs texte"+CHR$(27)+"I"+"!"
+ 1032 PRINT CHR$(27)+"1Rouge"+CHR$(27)+"2Vert"+CHR$(27)+"3Jaune"+CHR$(27)+"4Bleu"
+ 1033 PRINT CHR$(27)+"5Magenta"+CHR$(27)+"6Cyan"+CHR$(27)+"7Blanc"+CHR$(27)+"8Texte"
+ 1040 PORT 1,"FICHIER.TXT"
+ 1050 PRINT "LIGNE 1"
+ 1060 PORT 0
+ 1070 PRINT "ECRAN"
+ 1080 PORT 1
+ 1090 PRINT "LIGNE 2"
+ 1095 PORT 1,""
+ 1100 EXEC "type fichier.txt"
+ 1200 ON ERROR GOTO 2000
+ 1210 INPUT "ENTREZ 3 NOMBRES", A, B, C
+ 1220 PRINT "LA SOMME EST "; A+B+C
+ 1240 IF A<>0 GOTO 1210
+ 1250 ON ERROR GOTO
+ 1260 END
+ 2000 IF ERR<>30 THEN GOTO 2030
+ 2010 PRINT " ENTREZ UNIQUEMENT DES NOMBRES"
+ 2020 RESUME

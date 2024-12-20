@@ -1,0 +1,26 @@
+GOTO adresse
+Provoque un branchement inconditionnel à une ligne spécifiée.
+adresse : Numéro de ligne ou étiquette.
+
+Exemple 1
+10 PRINT "DEBUT"
+20 GOTO 50
+30 REM LE PROGRAMME NE PASSE PAS ICI
+40 REM LE PROGRAMME NE PASSE PAS ICI NON PLUS
+50 PRINT "SUITE"
+Lors de l’exécution, le programme « saute » directement de la ligne 20 à la ligne 50, ignorant les lignes 30 et 40.
+
+Exemple 2
+10 PRINT "ICI"
+20 GOTO LABAS
+30 REM LE PROGRAMME NE PASSE PAS ICI
+40 REM LE PROGRAMME NE PASSE PAS ICI NON PLUS
+50 LABEL LABAS
+L’instruction GOTO LABAS de la ligne 20 provoque un branchement à la ligne référencée par l’étiquette LABEL.
+
+Action
+L’instruction GOTO effectue un branchement inconditionnel à l’adresse indiquée, qui peut être soit un numéro de ligne soit une étiquette.
+L’instruction GOTO doit toujours être placée en fin de ligne sur une ligne comportant plusieurs instructions, parce qu’elle provoque immédiatement le branchement et que les instructions qui la suivent sur la même ligne ne sont pas exécutées.
+Si l’adresse n’existe pas, une erreur 60 se produit.
+
+Voir aussi : IF GOTO, ON GOTO.

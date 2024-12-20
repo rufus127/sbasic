@@ -1,0 +1,23 @@
+TIME [{PRINT|var-num}]
+Permet de mesurer le temps d’exécution d’intructions.
+var-num : Variable dans laquelle est stockée le temps écoulé.
+
+Exemple 1
+10 TIME
+20 FOR I = 1 TO 1000000000
+30 NEXT I
+40 TIME PRINT
+La ligne 20 met à zéro le compteur de temps écoulé. La ligne 40 affiche le temps écoulé depuis la dernière exécution de l’instruction TIME sans argument. Le résultat affiché indique le temps nécessaire à l’exécution d’un milliard de boucles vides.
+
+Exemple 2
+10 I = 0
+20 TIME
+30 I = I + 1
+40 TIME T
+50 IF T < 60 GOTO 30
+60 PRINT "Nombre de boucles exécutées en 1 minute: ";I
+
+Action
+* L’instruction TIME sans argument met à zéro le compteur de temps écoulé.
+* TIME PRINT affiche le temps écoulé depuis la dernière exécution de l’instruction TIME sans argument.
+* TIME var-num affecte à la variable numérique le temps écoulé en secondes depuis la dernière exécution de l’instruction TIME sans argument.

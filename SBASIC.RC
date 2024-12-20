@@ -1,0 +1,47 @@
+// SBASIC Resource description
+
+#include "sb32.h"
+#include "windows.h"
+
+// Program Icon
+SBASIC ICON DISCARDABLE "SBASIC.ICO"
+
+// Print Dialog Box
+PRINT DIALOG DISCARDABLE  32768, 0, 110, 22
+STYLE WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "SBASIC"
+CLASS "PRINT"
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+// Menu
+PRINT MENU DISCARDABLE 
+BEGIN
+    MENUITEM "&Editer tampon impression", IDM_PRINT
+    MENUITEM "&Vider tampon impression", IDM_CLEARPRINT
+END
+
+// Help text
+HELP TEXT LISEZMOI.TXT
+
+// Messages
+STRINGTABLE
+BEGIN
+    IDS_DELPRINT, "Supression fichier impression?"
+    IDS_NOPRINT, "Tampon impression vide!"
+    IDS_PRINTERR, "Impossible d'imprimer le tampon impression!"
+    IDS_PRINTCLEARERR, "Impossible de supprimer le tampon d'impression!"
+    IDS_ZOOMF, "SBASIC (zoom %u%%)"
+    IDS_WRITE_AS, "Ecriture de l'image dans"
+    IDS_FILTER_BMP, "Fichier image (*.BMP)\0*.BMP\0Tous les fichiers\0*.*"
+    IDS_PICTUREF, "Image%u"
+    IDS_UCREATEIMAGE, "Impossible de créer le fichier image!"
+    IDS_UWRITEIMAGE, "Impossible d'écrire le fichier image!"
+    IDS_D3DDLL, "Dll Direct 3D DLL non disponible"
+    IDS_D3DPROC, "Point d'entrée Direct 3D non trouvé"
+    IDS_D3DOBJECT, "Erreur création object Direct 3D"
+    IDS_D3DFORMAT, "Format surface Direct 3D non supportée"
+    IDS_D3DDEVICE, "Erreur création périphérique Direct 3D"
+    IDS_D3DOBJECTS, "Erreur création objects Direct 3D"
+END

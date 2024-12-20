@@ -1,0 +1,25 @@
+MID$(exp-chaîne, exp-num-1 [, exp-num-2])
+Renvoie une portion d’une chaîne de caractères, commençant à une position donnée.
+exp-chaîne : Chaîne de caractères.
+exp-num-1 : Position dans la chaîne.
+exp-num-2 : Nombre de caractères demandés (optionnel).
+
+Exemple 1
+10 A$="ABCDEF"
+20 PRINT MID$(A$,3)
+Ce programme affiche la partie de la variable A$ comprise entre le troisième caractère et la fin, à savoir « CDEF ».
+
+Exemple 2
+10 A$="ABCDEF"
+20 PRINT MID$(A$,3,2)
+Dans cet exemple, la partie de A$ qui est affichée par le programme commence également en troisième position, mais elle ne comprend que deux caractères : « CD ».
+
+Action
+La fonction MID$ renvoie la partie de exp-chaîne commençant à la position exp-num-1 et comprenant exp-num-2 caractères.
+* Si exp-num-1 ou exp-num-2 est négative, une erreur 52 est signalée,
+* Si exp-num-1 est nulle ou supérieure à la longueur de exp-chaîne, une chaîne vide est renvoyée,
+* Si exp-num-2 est omise, la partie droite de exp-chaîne débutant à la position exp-num-1 est renvoyée,
+* Si exp-num-2 est nulle, une chaîne vide est renvoyée,
+* Si exp-num-2 est supérieure à la taille de la portion située à droite de la position exp-num-1, toute cette portion est renvoyée.
+
+Voir aussi : LEFT$, RIGHT$, LEN.

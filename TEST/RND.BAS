@@ -1,0 +1,6 @@
+   10 DIM N%(200)
+   20 FOR I=1 TO 100000000
+   30 I%=200*RND(0)
+   40 N%(I%)=N%(I%)+1
+   50 NEXT I
+   60 FOR I=0 TO 200:PRINT I;"=";N%(I);:NEXT I

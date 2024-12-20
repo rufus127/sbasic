@@ -1,0 +1,29 @@
+CONT ou CONTINUE
+Lance la poursuite d’un programme arrêté par une instruction STOP ou les touches Ctrl-C.
+
+Exemple 1
+10 PRINT "PREMIER": STOP: PRINT "DEUXIEME"
+Lors de l’exécution de cette ligne, le mot « PREMIER » s’affiche, puis un message indique que le programme est arrêté :
+STOP A LA LIGNE 10
+Dès que l’on tape « CONT », l’exécution se poursuit et le mot « DEUXIEME » s’affiche à son tour.
+
+Exemple 2
+10 INPUT A$
+20 PRINT A$
+Si l’on tape Ctrl-C lors de l’exécution de l’instruction INPUT, un message signale l’arrêt du programme :
+BREAK A LA LIGNE 10
+La commande CONT permet de reprendre l’exécution à l’instruction INPUT.
+
+Action
+La commande CONTinue permet de reprendre l’exécution d’un programme interrompu soit par une instruction STOP, soit par appui sur Ctrl-C.
+
+Si le programme est arrêté par une instruction STOP, la commande CONT fait reprendre l’exécution à l’instruction suivante ; s’il est arrêté par Ctrl-C alors qu’une instruction de type INPUT attend une entrée de données, CONT provoque la reprise de l’exécution à l’instruction INPUT elle-même.
+
+La commande CONT ne peut pas faire redémarrer le programme dans les cas suivants :
+* Si une erreur s’est produite au cours de l’exécution du programme ;
+* Si la commande CLEAR est exécutée après l’interruption ;
+* Si des lignes de programme référencées (ligne courante ou CALL, GOSUB ou FOR en cours) ont été modifiées ou supprimées après l’arrêt.
+
+La commande CONT n’est utilisable qu’en mode direct.
+
+Voir aussi : STOP.

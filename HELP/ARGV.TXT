@@ -1,0 +1,28 @@
+ARGV$(exp-num)
+Variable système contenant les arguments de la ligne de commande SBASIC.
+exp-num : Indice argument.	.
+
+Exemple (fichier ARG.BAS)
+10 PRINT "Nombre d'arguments ="; ARGC
+20 IF ARGC = 0 THEN 60
+30 FOR I=0 TO ARGC-1
+40 PRINT "Argument";I;" : ";ARGV$(I)
+50 NEXT I
+60 END
+Ce programme affiche le nombre d'arguments et les arguments de la ligne de commande.
+Si la ligne de commande est:
+SBASIC ARG.BAS ARG1 "ARG 2" 3
+il affiche:
+Nombre d'arguments = 4
+Argument 0 : TEST.BAS
+Argument 1 : ARG1
+Argument 2 : ARG 2
+Argument 3 : 3
+
+Action
+ARGV$ est une variable système (de même que ARGC, YPEN, XPEN, YPEN, ERR, ERL, PI ou DATE$).
+C'est un tableau de chaines de caractères de dimension ARGC. Chaque élément est un argument de la ligne de commande utilisée lors de l'invocation de SBASIC. Le premier argument (indice 0) est le nom du fichier SBASIC.
+
+ARGV$(exp_num) ne peut pas figurer à gauche du signe égal « = » dans un ordre d’affectation de données (LET explicite ou implicite).
+
+Voir aussi : ARGC.

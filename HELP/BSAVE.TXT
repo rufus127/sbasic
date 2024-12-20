@@ -1,0 +1,14 @@
+BSAVE nom-fich var-chaine
+Copie le contenu d’une variable chaine dans un fichier.
+nom-fich : Nom du fichier à écrire.
+var-chaine : Variable chaîne dont le contenu est écrit dans le fichier. 
+
+Exemple
+10 GGET B$,100,50,109,59
+20 BSAVE “ICONE.BMP” B$
+Ce programme crée le fichier ICONE.BMP contenant l’image bitmap du rectangle de 10 x 10 pixels dont l’angle inférieur gauche se trouve à l’abscisse 100 et l’ordonnée 50 de la fenêtre graphique.
+
+Action
+L’instruction BLOAD charge dans une variable chaine le contenu complet d’un fichier.
+
+Voir aussi : BLOAD, GGET.

@@ -1,0 +1,26 @@
+FILL exp-num-1, exp-num-2 [,exp-num-3]
+Permet de remplir une zone de la fenêtre graphique avec la couleur logique courante.
+exp-num-1 : Abscisse d’un point.
+exp-num-2 : Ordonnée d’un point.
+exp-num-3 : Couleur.
+
+Exemple
+100 HGR
+110 COLOR 0
+120 CLRG
+130 COLOR 15
+200 PLOT 100,100: REM origine
+209 REM *** tracé d'un rectangle ***
+210 PLOT TO 160,100
+220 PLOT TO 160,160
+230 PLOT TO 100,160
+240 PLOT TO 100,100
+299 REM *** tracé d'un cercle ***
+300 COLOR 2
+310 ARC 130,130,2*PI,140,140
+315 REM *** le cercle est "rempli" avec la couleur 2 ***
+320 FILL 130,130
+Ce programme trace un rectangle (lignes 210 à 240) à l’intérieur duquel un petit cercle est ensuite dessiné (ligne 310). Enfin, l’instruction FILL de la ligne 320 permet de remplir ce petit cercle de la couleur courante définie en ligne 300.
+
+Action
+L’instruction FILL permet de remplir de la couleur courante la zone colorée à laquelle appartient le point de coordonnées (exp-num-1, exp-num-2). La zone colorée peut être éventuellement délimitée par la couleur exp-num-3.

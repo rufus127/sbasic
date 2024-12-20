@@ -1,0 +1,39 @@
+RETURN [CLEAR]
+Provoque le retour d’un sous-programme.
+CLEAR : Retour au programme appelant de plus haut niveau.
+
+Exemple 1
+10 PRINT "DEBUT DU PROGRAMME PRINCIPAL"
+20 GOSUB 50
+30 PRINT "FIN DU PROGRAMME PRINCIPAL"
+40 END
+50 PRINT "SOUS-PROGRAMME"
+60 RETURN
+Le programme principal appelle (ligne 20) un sous-programme (ligne 50) qui se termine (ligne 60) en retournant au programme principal (ligne 30)
+
+Exemple 2
+10 PRINT "DEBUT DU PROGRAMME PRINCIPAL"
+20 GOSUB 50
+30 PRINT "FIN DU PROGRAMME PRINCIPAL"
+40 END
+50 PRINT "SOUS-PROGRAMME 1 AVANT SOUS-PROGRAMME 2"
+60 GOSUB 90
+70 PRINT "SOUS-PROGRAMME 1 APRES SOUS-PROGRAMME 2"
+80 RETURN
+90 PRINT "SOUS-PROGRAMME 2"
+95 RETURN CLEAR
+Le programme principal appelle (ligne 20) un sous-programme, qui à son tour appelle (ligne 20) un nouveau un sous-programme. Lorsqu’il se termine, ce dernier retourne directement au programme principal.
+Les messages suivants s’affichent dans la fenêtre SBASIC :
+DEBUT DU PROGRAMME PRINCIPAL
+SOUS-PROGRAMME 1 AVANT SOUS-PROGRAMME 2,
+SOUS-PROGRAMME 2
+FIN DU PROGRAMME PRINCIPAL
+
+Action
+L’instruction RETURN termine l’exécution d’un sous-programme et provoque le retour au programme appelant, à la première instruction qui suit l’appel.
+* Le sous-programme peut être appelé par une instruction CALL, GOSUB ou ON GOSUB.
+* Dans le cas de sous-programmes s’appelant en cascade, le mot-clé CLEAR provoque un retour au programme appelant de niveau le plus élevé sans repasser par les sous-programmes intermédiaires.
+
+Si une instruction RETURN est rencontrée sans avoir été précédée par une instruction d’appel, une erreur 61 se produit.
+
+Voir aussi : CALL, GOSUB, ON GOSUB.

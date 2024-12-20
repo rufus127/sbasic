@@ -1,0 +1,4 @@
+   10 DELETE 40
+   20 DELETE 10
+   30 DELETE 30
+   40 PRINT "Erreur"

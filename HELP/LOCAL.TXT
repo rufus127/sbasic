@@ -1,0 +1,21 @@
+LOCAL var-1 [,var-2, ...]
+Permet, dans un sous-programme, de rendre certaines variables distinctes des variables de même nom utilisées dans le programme appelant.
+var-n : Variable numérique ou chaîne de caractères.
+
+Exemple
+10 A% = 10 : CALL ESSAI
+20 PRINT A%
+30 END
+40 SUB ESSAI: LOCAL A%
+50 FOR A% = 1 TO 3
+60 PRINT A%
+70 NEXT A%
+80 RETURN
+La valeur 10 est affectée à la variable A%. Cette variable est utilisée comme variable d’une boucle dans le sous-programme ESSAI et prend des valeurs comprises entre 1 et 3. Cependant, du fait de l’instruction LOCAL placée au début du sous-programme, la variable A% retrouve sa valeur initiale (10) après le retour (RETURN) au programme appelant.
+
+Action
+La déclaration LOCAL s’utilise uniquement dans un sous-programme pour rendre une ou plusieurs variables, distinctes des variables pouvant porter le même nom dans le programme appelant.
+* LOCAL ne doit être exécutée qu’une fois à chaque passage dans le sous-programme, et ce, avant toute référence à l’une quelconque des variables qu’elle déclare. Une utilisation ne respectant pas ces règles est susceptible de donner des résultats imprévisibles.
+* Une fois effectué le retour au programme appelant, le contenu des variables de même nom du programme appelant redevient accessible alors que celui des variables déclarées locales ne l’est plus.
+
+Voir aussi : CALL, SUB.

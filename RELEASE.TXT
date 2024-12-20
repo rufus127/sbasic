@@ -1,0 +1,43 @@
+Note de release SBASIC
+Version 4.0 du 06/01/21
+- Version BETA
+Version 4.1 du 20/02/21
+- Correction: Ctrl-C pour abandon édition ligne
+- Correction: Instruction X86 FPREM au lieu de FPREM1 dans le calcul du modulo (MOD et RND)
+- Correction: Effacement possible de la ligne candidate à la commande CONTINUE (continuation alors impossible)
+- Correction: Sélection canal dans INCH$(channel)
+- Correction: Commande CONTINUE après les commandes TRON et BRKON
+- Correction: Etat boutons dans PEN(1) et PEN(2)
+- Correction: Paramètres hors fenêtre graphique dans l'instruction WINDOW.
+- Amélioration significative de l'affichage graphique (netteté et niveaux couleurs)
+- Ajout des commandes STEP et STACK pour la mise au point
+- Ajout des instructions BSAVE, GPUT, GGET
+- Extension de l'instruction BLOAD (pendant de BSAVE)
+- Ajout d'un indicateur d'attente fin jeu son dans l'instruction PLAY et support nom de fichier vide.
+- L'option /Q provoque la sortie de SBASIC à la fin d'exécution d'un programme.
+Version 4.2 du 31/03/21
+- Correction: RETURN d'un CALL après édition programme et CONTINUE
+- Correction: pas de pas à pas entre CALL et SUB
+- Correction: erreur programme lors de la fermeture de la fenêtre SBASIC par [X] avec fenêtre graphique ouverte
+- Support étiquette comme paramètre de RESTORE
+- Support étiquette comme paramètre de ON ERROR GOTO
+- Support image au format BMP avec entête étendu
+- Ajout OPEN LIBRARY
+- Ajout CALL#
+Version 4.3 du 04/06/21
+- Ajout ARGC et ARGV$
+- Version fenêtre (SB32.EXE) et version ligne de commande (SBASIC.EXE)
+- Suppression de l'option /Q. Sortie de SBASIC en fin d'exécution si source protégé ou nom programme spécifié sur la ligne de commande
+Version 4.4 du 25/11/21
+- Correction STRING$
+- Correction +ARGV$
+- Sortie de SBASIC en cas d'erreur si source protégé ou nom programme spécifié sur la ligne de commande
+- Colorisation des mots clé
+- Support des caractères de code >= 128 dans les noms de fichier et la ligne de commande
+- Modification passage parametres à la fonction d'une DLL dans CALL# : nombre de parametres, types des parametres
+Version 4.5 du 21/05/23
+- Affichage d'une fenetre pour acquiter la fermeture de la fenètre SBASIC en fin d'exécution si source protégé ou nom programme spécifié sur la ligne de commande
+- Sortie SBASIC en cas d'erreur si source protégé ou nom programme spécifié sur la ligne de commande 
+- Support des caractères accentués et spéciaux dans les noms de fichiers
+- Correction (SB32.EXE) : effet de bord lors de l'affichage de ligne programme en couleurs
+- Correction : constante considérée comme réelle si supérieure à 2147483647 au lieu de 32767

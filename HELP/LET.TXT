@@ -1,0 +1,23 @@
+LET var = exp
+Affecte une valeur à une variable.
+var : Variable numérique (ou chaîne) à affecter.
+exp : Expression numérique (ou chaîne).
+
+Exemple
+10 LET JOUR$ = "LUNDI"
+20 LET A% = B% * 2 + 20
+30 BB (1) = A
+40 Z% = Z% + 1
+Ce programme donne quelques exemples d’affectations possibles :
+* Affectation d’une constante chaîne à une variable chaîne (ligne 10)
+* Affectation d’une expression numérique à une variable entière (ligne 20)
+* Affectation d’une variable réelle à un élément d’un tableau préalablement déclaré (ligne 30)
+* Incrémentation d’une variable entière (ligne 40).
+
+Action
+L’instruction LET affecte une valeur à une variable.
+* Toute variable peut se faire affecter une valeur par l’utilisation de cette instruction à l’exception des variables associées à une zone tampon et déclarées au moyen d’une instruction FIELD ou FIELD#, sous peine de voir détruit le lien entre ces variables et le tampon.
+L’expression à droite du signe égal est évaluée puis affectée à la variable dont le nom est indiqué à gauche du signe égal.
+La valeur peut être une constante, une variable ou une expression complexe.
+* L’instruction LET peut être omise.
+* Dans le cas où une expression réelle est affectée à une variable entière, elle est convertie, sauf si elle est trop grande, auquel cas une erreur 104 se produit.

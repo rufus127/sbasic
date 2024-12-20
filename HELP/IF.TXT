@@ -1,0 +1,67 @@
+IF exp-logique GOTO adresse
+Provoque un branchement conditionnel à une adresse spécifiée.
+exp-logique : Expression logique à évaluer.
+adresse : Numéro de ligne ou étiquette.
+
+Exemple 1
+100 IF Z%>B% GOTO 400
+200 PRINT "Z% EST INFERIEUR OU EGAL A B%"
+300 END
+400 PRINT "Z% EST SUPERIEUR A B%"
+Si la valeur de la variable Z% est supérieure à celle de la variable B%, le programme effectue un branchement à la ligne 400 ; sinon, l’exécution se poursuit à la ligne suivante (ligne 200).
+
+Exemple 2
+100 INPUT "VOULEZ-VOUS CONTINUER O/N "; A$
+200 IF A$="O" GOTO SUITE
+300 END
+400 LABEL SUITE
+500 PRINT"SUITE DU PROGRAMME"
+Si la variable A$, saisie au clavier, contient la lettre « O » (en majuscule), l’exécution du programme se poursuit à l’adresse « SUITE », sinon le programme s’arrête à la ligne 300 (END).
+
+Action
+exp-logique est évaluée. Si elle est vraie, le programme se branche à l’adresse qui suit le mot-clé GOTO ; si elle est fausse, l’exécution se poursuit en séquence à la ligne suivante.
+adresse est soit un numéro de ligne, soit une étiquette.
+
+
+IF exp-logique THEN instr-comp
+Exécute les instructions qui suivent la clause THEN si l’expression exp-logique est vraie.
+exp-logique : Expression logique à évaluer.
+instr-comp : Instruction(s) à exécuter.
+
+Exemple
+100 IF A=10 THEN 400
+200 IF C+A<20 THEN C=C+10 : A=A+10
+300 END
+400 PRINT "A=10"
+Si A est égal à 10, le programme effectue un branchement à la ligne 400 ; si A est différent de 10, l’exécution se poursuit en ligne 200 où un nouveau test est réalisé : si C+A est inférieur à 20, les variables A et C sont augmentées de 10.
+
+Action
+L’instruction IF permet d’orienter le déroulement d’un programme en fonction de la valeur, vraie ou fausse, d’une expression logique.
+* exp-logique est évaluée. Si elle est vraie, instr-comp est exécutée ; si elle est fausse, l’exécution se poursuit en séquence à la ligne suivante.
+* instr-comp est une instruction composée pouvant consister en plusieurs instructions séparées par le caractère « : ». Si elle comporte une instruction GOTO, celle-ci doit toujours être placée à la fin, car les autres instructions seraient ignorées.
+Si instr-comp se limite à « GOTO num ligne », le mot-clé GOTO peut être omis.
+Les instructions IF THEN peuvent être imbriquées entre elles ou avec des instructions IF THEN ELSE.
+
+
+IF exp-logique THEN instr-comp-1 ELSE instr-comp-2
+Si l’expression logique est vraie, exécute les instructions suivant le mot-clé THEN ; si elle ne l’est pas, exécute les instructions suivant le mot-clé ELSE.
+exp-logique : Expression logique à évaluer.
+instr-comp-1 : Instruction(s) à exécuter (expression vraie).
+instr-comp-2 : Instruction(s) à exécuter (expression fausse).
+
+Exemple
+100 IF H / (Y+5) < 8 THEN A = 5: GOTO LABAS ELSE PRINT "MAUVAIS"
+200 END
+300 LABEL LABAS
+400 PRINT A
+500 END
+Lors de l’exécution de la ligne 100, l’expression logique « H/(Y+5)<8 » est évaluée : si elle est vraie, la valeur 5 est affectée à la variable A puis un branchement est effectué à l’étiquette LABAS ; si l’expression est fausse, le programme imprime « MAUVAIS » puis poursuit son exécution à la ligne suivante (END).
+
+Action
+L’instruction IF THEN ELSE permet d’orienter le déroulement d’un programme en fonction de la valeur, vraie ou fausse, d’une expression logique.
+* exp-logique est évaluée. Si exp-logique est vraie, instr-comp-1 est exécutée ; si exp-logique est fausse, instr-comp-2 est exécutée.
+* instr-comp-1 et instr-comp-2 sont des instructions composées pouvant consister en plusieurs instructions séparées par le caractère « : ». Si elles comportent une instruction GOTO, celle-ci doit toujours être placée à la fin, car les autres instructions seraient ignorées.
+
+Dans le cas où instr-comp-1 ou instr-comp-2 se limite à une instruction GOTO num ligne, il est possible d’omettre le mot-clé GOTO.
+
+Les instructions IF THEN ELSE peuvent être imbriqués entre elles ou avec des instructions IF THEN.

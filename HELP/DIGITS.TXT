@@ -1,0 +1,24 @@
+DIGITS exp-num-1 [,exp-num-2] [,exp-num-3]
+Précise le nombre de chiffres significatifs que l’on veut obtenir en édition.
+exp-num-1 : Nombre total de chiffres significatifs (entre 1 et 17).
+exp-num-2 : Nombre de chiffres après la virgule (optionnel).
+exp-num-3 : Nombre de zéros après la virgule, pour un nombre réel inférieur à 1 en valeur absolue, déclenchant l’affichage scientifique (optionnel).
+
+Exemple 1
+10 DIGITS 4,3
+20 PRINT PI
+PI est affiché sous la forme : 3.142
+
+Exemple 2
+10 DIGITS 1
+20 PRINT 10
+Lors de l’exécution, le nombre 10 apparaîtra sous la forme : 1E+1
+
+Action
+L’instruction DIGITS précise le nombre de chiffres significatifs que l’on veut obtenir en édition avec l’ordre PRINT ou lorsque l’on utilise l’instruction STR$. Elle n’a pas d’effet sur les résultats obtenus avec l’instruction PRINT USING.
+exp-num-1 correspond au nombre total de chiffres significatifs, exp-num-2 au nombre de chiffres après la virgule et exp-num-3 au nombre de zéros après la virgule, pour un nombre réel inférieur à 1 en valeur absolue, déclenchant l’affichage scientifique. Le maximum de chiffres significatifs est 17 et le minimum est 1. Dans certains cas, l’utilisation du maximum 17 peut produire une 17e décimale erronée du fait de la conversion binaire - décimal. Il est donc déconseillé de demander le maximum de chiffres significatifs.
+Le nombre de chiffres après la virgule doit toujours être inférieur au nombre total de chiffres significatifs, sinon une erreur 73 se produit.
+Le nombre de zéros après la virgule, pour un nombre réel inférieur à 1 en valeur absolue, déclenchant l’affichage scientifique doit toujours être inférieur au nombre de chiffres après la virgule, sinon une erreur 73 se produit.
+L’instruction DIGITS n’est pas modifiée par une commande NEW ou RUN. Pour revenir aux valeurs par défaut au lancement de SBASIC, tapez ;
+DIGITS 13,,2
+Voir aussi : PRINT USING, STR$.

@@ -1,0 +1,13 @@
+RENAME nom-fich-1, nom-fich-2
+Permet de renommer un fichier disque.
+nom-fich-1 : Ancien nom du fichier.
+nom-fich-2 : Nouveau nom du fichier.
+
+Exemple
+10 RENAME "VIEUX", "NEUF"
+Cette ligne renomme le fichier « VIEUX.BAS » en « NEUF.BAS ».
+
+Action
+L’instruction RENAME permet de renommer nom-fich-1 en nom-fich-2. L’extension par défaut est .BAS, et le répertoire par défaut, le répertoire courant.
+Si nom-fich-1 n’existe pas, une erreur 4 est signalée ; si nom-fich-2 existe déjà, il se produit une erreur 3.
+RENAME peut s’utiliser aussi bien en mode direct qu’en mode programme.

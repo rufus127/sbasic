@@ -1,0 +1,47 @@
+SETCOLOR exp-num-1, exp-num-2, exp-num-3, exp-num-4
+Modifie la couleur du fond et la couleur du texte affiché dans la fenêtre SBASIC.
+exp-num-1 : Couleur de fond (0) ou couleur du texte (1).
+exp-num-2 : Niveau composante rouge compris entre 0 et 256.
+exp-num-3 : Niveau composante verte compris entre 0 et 256.
+exp-num-4 : Niveau composante bleue compris entre 0 et 256.
+
+Exemple
+10 PRINT "    ";
+20 SETCOLOR 0,255,0,0: SETCOLOR 1,0,0,255
+30 PRINT "Texte en bleu sur fond rouge";
+40 SETCOLOR 0,255,255,255: SETCOLOR 1,0,0,0
+50 PRINT
+Après avoir modifié la couleur de fond et la couleur du texte, ce programme affiche un texte en bleu sur fond rouge puis rétablit les couleurs d’affichage par défaut.
+
+Action
+L’instruction SETCOLOR permet de spécifier la couleur de fond et la couleur du texte affiché dans la fenêtre SBASIC.
+* Si exp-num-1 est égal à 0, c’est la couleur du fond qui est spécifiée. La valeur 1 spécifie la couleur du texte. Pour toute autre valeur, cette instruction est ignorée.
+* exp-num-2, exp-num-3 et exp-num-4 définissent les niveaux des composantes rouge, verte et bleue de la couleur spécifiée. Si celles-ci sont négatives ou supérieures à 255, une erreur 74 est signalée.
+
+L’instruction SETCOLOR agit sur la fenêtre texte si, ni l’instruction GR, ni l’instruction HGR, n’ont été exécutées depuis le lancement de SBASIC ou l’exécution d’une commande RUN, NEW ou CLEAR. Elle agit sur la fenêtre graphique si l’instruction TEXT n’a pas été exécutée après l’une des instructions GR et HGR. La nouvelle couleur de fond ou de texte n’est prise en compte que pour le texte affiché après l’invocation de l’instruction SETCOLOR. Elle demeure jusqu’à l’invocation d’une nouvelle instruction SETCOLOR ou l’exécution d’une commande RUN, NEW ou CLEAR.
+
+Voir aussi : PRINT, LPRINT, RUN, NEW, CLEAR.
+
+
+SETCOLOR exp-num-1, exp-num-2, exp-num-3, exp-num-4
+Modifie la palette de couleurs de la fenêtre graphique.
+exp-num-1 : Numéro de la couleur logique compris entre 0 et 256.
+exp-num-2 : Niveau composante rouge compris entre 0 et 256.
+exp-num-3 : Niveau composante verte compris entre 0 et 256.
+exp-num-4 : Niveau composante bleue compris entre 0 et 256.
+
+Exemple
+10 HGR
+20 SETCOLOR 100,255,0,0
+30 COLOR 100
+40 PLOT 10,10 TO 790,590
+Après avoir modifié la couleur 100 de la palette graphique, ce programme trace un segment de droite du point (10,10) au point (790,590) eu rouge.
+
+Action
+L’instruction SETCOLOR permet de redéfinir une couleur de la palette graphique.
+* exp-num-1 est la couleur logique correspondant à l’entrée de la palette graphique à modifier. Si celle-ci est négative ou supérieure à 255, une erreur 74 est signalée.
+* exp-num-2, exp-num-3 et exp-num-4 définissent les niveaux des composantes rouge, verte et bleue à ranger dans la palette graphique. Si celles-ci sont négatives ou supérieures à 255, une erreur 74 est signalée.
+
+L’instruction SETCOLOR agit sur la fenêtre graphique si l’instruction TEXT n’a pas été exécutée après l’une des instructions GR et HGR. Elle agit sur la fenêtre texte si, ni l’instruction GR, ni l’instruction HGR, n’ont été exécutées depuis le lancement de SBASIC, l’exécution d’une commande RUN, NEW ou CLEAR. La modification de la palette graphique s’applique immédiatement à tous les points affichés dans la fenêtre graphique avec la couleur logique spécifiée dans l’instruction SETCOLOR.
+
+Voir aussi : ARC, DRAW, FILL, PLOT, SYMBOL TEXT.

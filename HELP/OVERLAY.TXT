@@ -1,0 +1,6 @@
+OVERLAY exp-num
+L’instruction OVERLAY est sans effet. Elle est cependant conservée pour assurer la compatibilité avec les anciens programmes.
+exp-num : Nombre compris entre 1 et 511.
+
+Action
+Aucune. Voir le paragraphe 7.2 « L’instruction OVERLAY » pour plus de détails.

@@ -1,0 +1,31 @@
+YPEN
+Variable système contenant soit:
+* L’ordonnée du curseur dans la fenêtre SBASIC après l’exécution de l’instruction CURSOR.
+* L’ordonnée du point désigné par la souris dans la fenêtre graphique après l’exécution de l’instruction PEN.
+
+Exemple 1
+10 CURSOR
+20 IF (YPEN>= 10 AND YPEN <=21) THEN 40
+30 PRINT "Le curseur n'est pas entre les lignes 10 et 21."
+35 END
+40 PRINT "Le curseur est entre les lignes 10 et 21."
+45 END
+La ligne 10 lit la position du curseur dans la fenêtre SBASIC et affecte sa position horizontale à XPEN et sa position verticale à YPEN.
+
+Exemple 2
+10 PEN
+20 IF (YPEN>= 10 AND YPEN <=21) THEN 50
+30 PRINT "Vous n'avez pas désigné le bon objet. Recommencez"
+40 GOTO 10
+50 PRINT "Réponse correcte"
+La ligne 10 met le programme en attende de validation. Une fois la souris cliquée, la ligne 20 est exécutée. Elle vérifie que le point désigné par la souris se trouve bien à l’intérieur d’une bande verticale.
+
+Action
+YPEN est une variable système (de même que XPEN, ERR, ERL, PI ou DATE$).
+Elle donne la position du curseur sur 1’axe vertical lors du dernier appel de la fonction CURSOR.
+Elle donnant la position, dans la fenêtre graphique, de la souris sur l’axe vertical après la dernière exécution de l'instruction PEN.
+La valeur par défaut de YPEN est la hauteur maximale de la fenêtre graphique.
+
+La variable YPEN peut être utilisée dans des expressions comme toute autre variable numérique, mais elle ne peut pas figurer à gauche du signe égal (=) dans un ordre d’affectation (LET explicite ou implicite).
+
+Voir aussi : CURSOR, PEN, XPEN.

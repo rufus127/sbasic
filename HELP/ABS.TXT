@@ -1,0 +1,25 @@
+ABS(exp-num)
+Donne la valeur absolue d’une expression numérique.
+exp-num	Expression numérique quelconque.
+
+Exemple
+10 FOR X = -5 TO 5
+20 PRINT X, ABS(X)
+30 NEXT X
+A l’exécution, le programme affiche :
+-5	5
+-4	4
+-3	3
+-2	2
+-1	1
+ 0	0
+ 1	1
+ 2	2
+ 3	3
+ 4	4
+ 5	5
+
+Action
+La fonction ABS retourne la valeur absolue de exp-num.
+Si exp-num est positive, la valeur retournée est celle de exp-num ; si elle est négative, la valeur retournée est l’opposé de exp-num.
+Voir aussi : SGN.

@@ -1,0 +1,14 @@
+SPC(exp-num)
+Permet d’envoyer d’insérer des espaces lors d’une édition.
+exp-num : Nombre d’espaces compris entre 0 et 255.
+
+Exemple
+10 PRINT "DEBUT" ; SPC(10); "SUITE"
+Un espacement de dix caractères est généré après l’affichage du mot « DEBUT ».
+
+Action
+La fonction SPC ne peut être utilisée que dans un ordre PRINT. Elle permet d’insérer exp-num caractères espaces lors d’une édition.
+
+Le cas échéant, exp-num est tronquée à sa partie entière. Si celle-ci est négative ou supérieure à 255, une erreur 74 est signalée.
+
+Voir aussi : TAB.

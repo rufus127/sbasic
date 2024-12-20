@@ -1,0 +1,16 @@
+COLOR exp-num
+Sélectionne la couleur logique courante.
+exp-num : Numéro de couleur logique compris entre 0 et 255.
+
+Exemple
+10 HGR
+20 COLOR 12
+30 PLOT 100,100 TO 500,500
+La diagonale tracée entre le point de coordonnées (100,100) et le point de coordonnées (500,500) apparaît dans la couleur 12 (Rouge clair).
+
+Action
+L’instruction COLOR sélectionne la couleur logique courante, c’est-à-dire celle dans laquelle seront effectuées toutes les opérations graphiques suivantes (PLOT, CLRG, …), jusqu’à une nouvelle modification de la couleur courante.
+exp-num définit la couleur choisie dans la palette graphique. Si celle-ci est négative ou supérieure à 255, une erreur 74 est signalée. 
+Par défaut la palette graphique est la palette VGA. Elle peut être modifiée par l’instruction SETCOLOR.
+
+Voir aussi : CLRG, SETCOLOR.

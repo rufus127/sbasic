@@ -1,0 +1,25 @@
+DASH exp-num
+Précise la nature du trait des tracés dans la fenêtre graphique.
+exp-num : Nature du tracé compris entre 0 et 3.
+
+Exemple
+10 HGR
+20 COLOR 0
+30 CLRG
+40 COLOR 15
+50 DASH 1
+60 PLOT 10,10 TO 100,100
+70 DASH 2
+80 PLOT 150,150 TO 300,400
+Le segment tracé entre les points (10,10) et (100,100) apparaît sous la forme d’un trait pointillé fin, tandis que le segment (150,150) à (300,400) apparaîtra sous la forme d’un pointillé fort.
+
+Action
+L’instruction DASH permet de préciser la nature et la largeur du trait du tracé, en fonction de la valeur de exp-num.
+exp-num	Nature du trait 
+0	Trait continu
+1	Pointillé fin
+2	Pointillé fort
+3	Mixte 
+4	Trait continu avec inversion d’allumage
+Si différent de 4, exp-num est tronquée à sa partie entière modulo 3. Si celle-ci est négative ou supérieure à 255, une erreur 74 est signalée.
+La valeur définissant la nature du trait reste inchangée entre deux instructions DASH.

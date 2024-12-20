@@ -1,0 +1,25 @@
+SET exp-num, var-chaîne = exp-chaîne
+Permet de remplacer une partie d’une chaîne par une autre chaîne.
+exp-num : Expression numérique entière.
+var-chaîne : Nom d’une variable chaîne de caractères.
+exp-chaîne : Expression chaîne de caractères.
+
+Exemple
+10 I% = 4
+20 A$ = "123456789"
+30 B$ = "--"
+40 SET I%+1, A$ = B$
+50 PRINT A$
+Après l’exécution, la variable A$, dont le contenu est affiché en ligne 50, contient « 1234--789 ».
+
+Action
+L’instruction SET permet de remplacer les caractères de var-chaîne situés à partir du rang exp-num par ceux de exp-chaîne et cela jusqu’à épuisement de l’une des deux chaînes.
+Si exp-num égale 1, la substitution débute au premier caractère ; si elle est supérieure à la taille de var-chaîne, aucune opération n’est effectuée.
+
+Une erreur 75 est provoquée si exp-num est négative ou nulle.
+
+De même que les instructions LSET et RSET, SET est destinée à être utilisée avec des variables associées aux tampons d’entrée-sortie.
+
+Cette instruction, qui permet de substituer une sous-chaîne de caractères dans une autre est 3 à 5 fois plus rapide que l’opération équivalente avec les instructions standard.
+
+Voir aussi : LSET, RSET.

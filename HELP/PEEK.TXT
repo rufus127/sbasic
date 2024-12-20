@@ -1,0 +1,14 @@
+PEEK(exp-num)
+Retourne le contenu d’un octet de la mémoire.
+exp-num	Adresse mémoire.
+
+Exemple
+10 A = PEEK (HEX("24"))
+Après l’exécution de cette ligne la variable réelle A contient la valeur de l’octet d’adresse hexadécimale 24.
+
+Action
+La fonction PEEK renvoie le contenu de l’octet d’adresse exp-num.
+La valeur retournée est supérieure ou égale à 0, et inférieure ou égale à 255.
+Si exp-num est négative ou supérieure à 2147483647, une erreur 75 est signalée.
+
+Voir aussi : DPEEK, POKE, DPOKE.

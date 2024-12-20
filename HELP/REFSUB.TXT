@@ -1,0 +1,9 @@
+REFSUB
+Affiche ou imprime la liste des sous-programmes et des étiquettes contenus dans le programme présent en mémoire.
+
+Exemple 1
+REFSUB
+La liste des sous-programmes (SUB) et des étiquettes (LABEL) est affichée.
+
+Action
+L’utilitaire REFSUB permet d’afficher ou d’imprimer la liste des sous-programmes (SUB) et des étiquettes (LABEL) apparaissant dans le programme présent en mémoire.

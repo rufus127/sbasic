@@ -1,0 +1,27 @@
+RESUME { [num-ligne] | [NEXT] }
+Reprend le déroulement normal du programme après le traitement d’une erreur.
+num-ligne : Numéro de la ligne où le programme doit reprendre.
+NEXT : Reprise à l’instruction qui suit celle qui a provoqué l’erreur.
+
+Exemple
+10 ON ERROR GOTO 100
+20 INPUT A
+30 INPUT B
+40 PRINT A; "divisé par "; B; "est égal à "; A/B
+50 PRINT
+60 GOTO 20
+99 REM *** GESTION D'ERREUR ***
+100 PRINT "erreur ";ERR
+110 RESUME 20
+Si une erreur survient lors de l’exécution du programme (saisie de données alphabétiques, division par 0, etc.), celui-ci est dérouté à la ligne 100. Après l’affichage d’un message signalant l’erreur, l’instruction RESUME de la ligne 110 provoque la poursuite de l’exécution à la ligne 20.
+
+Action
+L’instruction RESUME est utilisée pour reprendre le déroulement normal du programme à la fin d’une procédure de gestion d’erreur.
+En effet après qu’une instruction ON ERROR ait été exécutée toute erreur provoque un déroutement vers la procédure de gestion d’erreur. Si celle-ci se termine par une instruction RESUME, l’exécution peut se poursuivre normalement.
+* Si num-ligne est spécifiée, l’exécution se poursuit à la ligne correspondante
+* Si num-ligne est omise ou vaut 0, le programme se poursuit à la ligne ayant provoqué l’erreur et celle-ci est ré-exécutée entièrement.
+* Si NEXT est spécifié, le programme se poursuit à la ligne qui suit la ligne en erreur, sauf si l’erreur a été provoquée par une instruction de type INPUT sur une entrée au clavier. Dans ce cas, la ligne où s’est produite l’erreur est reprise en totalité.
+
+Lorsqu’une instruction RESUME est exécutée ailleurs que dans une routine de traitement d’erreur, une erreur 66 se produit.
+
+Voir aussi : ON ERROR GOTO, ERR, ERL.

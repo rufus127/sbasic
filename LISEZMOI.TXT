@@ -1,0 +1,17 @@
+Ce SBASIC pour Windows est le portage du SBASIC pour MS/DOS fourni avec les ordinateurs GOUPIL.
+
+Les fichiers *.BAS sont directement utilisables. Si vous avez des disquettes 5"1/4 ou 3"1/2 et pas de lecteur, contactez-nous.
+
+Sous Windows, les variables entières sont sur 32 bits et la mémoire programme et la mémoire données ne sont plus limitées à 64Ko.
+
+Paramètres optionnels de la ligne de commande:
+/D n     - spécifie la taille de la mémoire données en Mo (16 par défaut)
+/P n     - spécifie la taille de la mémoire programme en Mo (1 par défaut)
+/S n     - spécifie la taille de la mémoire symboles en Mo (1 par défaut)
+fichier  - chemin du fichier .BAS ou .BAC à charger et exécuter au lancement du SBASIC (extension .BAC par défaut)
+arg1     - premier argument
+arg2     - deuxieme argument
+...
+argn     - dernier argument
+
+Ghazi Abou Jaoudé (saab.abou-jaoude@sfr.fr) est l'auteur du SBASIC pour MS/DOS. Le portage sous Windows a été réalisé par Dominique Ezvan (dominique@ezvan.fr).

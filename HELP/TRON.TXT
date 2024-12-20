@@ -1,0 +1,30 @@
+TRON [instr-comp] ou TRACE ON
+Active la fonction trace, en exécutant optionnellement une série d’instructions à chaque ligne tracée.
+instr-comp : Instruction composée.
+
+Exemple 1
+10 REM DEBUT
+20 TRON
+30 PRINT " SUITE "
+40 GOTO 60
+50 REM *** LE PROGRAMME NE PASSE PAS ICI ***
+60 END
+A partir de la ligne 20, tous les numéros des lignes par lesquelles le programme passe seront affichés.
+
+Exemple 2
+10 TRON PRINT "A=";A;"B=";B; : C=C+1 : PRINT "Trace:";C
+20 INPUT " A ET B"; A,B
+30 A=A*2: B=B*3
+40 A=A+50: B=B+120
+50 END
+La ligne 10 active la fonction TRACE tout en indiquant une série d’instructions qui devront être exécutées à chaque fois qu’un numéro de ligne est affiché. Ceci permet de suivre l’évolution des variables A et B ; la variable C est incrémentée puis affichée à chaque exécution d’une nouvelle ligne.
+
+Action
+* L’instruction TRON permet de faire fonctionner le programme en mode trace : les numéros de ligne de chaque instruction exécutée sont affichés au fur et à mesure du déroulement du programme. L’instruction peut être utilisée soit en mode direct, avant la commande RUN, soit en mode programme.
+* Lorsqu’elle est utilisée en mode programme, l’instruction TRON peut être suivie d’une ou de plusieurs d’instructions SBASIC qui seront exécutées à chaque passage par une nouvelle ligne tant que la fonction TRACE est active. Cette possibilité constitue un puissant moyen de mise au point de programmes, en affichant, par exemple, les valeurs de variables critiques.
+
+La fonction TRACE est désactivée par l’instruction TROFF ou par la commande NEW.
+
+La notation alternative TRACE ON n’est utilisable qu’en mode direct.
+
+Voir aussi : TROFF.

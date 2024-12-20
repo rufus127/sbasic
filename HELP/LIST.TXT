@@ -1,0 +1,30 @@
+LIST {[num-ligne-1] [,num-ligne-2] | num-ligne-1,}
+Liste tout ou partie du programme présent en mémoire.
+num-ligne-1 : Première ligne à lister.
+num-ligne-2 : Dernière ligne à lister.
+
+Exemple 1
+LIST
+Liste tout le programme.
+
+Exemple 2
+LIST 10
+Liste la ligne 10.
+
+Exemple 3
+LIST 50,80
+Liste les lignes 50 à 80.
+
+Exemple 4
+LIST ,60
+Liste de la première ligne à la ligne 60.
+
+Exemple 5
+LIST 100,
+Liste de la ligne 100 à la dernière ligne.
+
+Action
+La commande LIST permet de lister tout ou partie du programme présent en mémoire.
+* Le programme est listé de la ligne num-ligne-1 à la ligne num-ligne-2.
+* La valeur par défaut de num-ligne-1 est 1 et celle de num-ligne-2 est 2147483647.
+Afin d’améliorer la visibilité du programme, les mots clé sont affichés en bleu, les variables en vert, les chaines de caractères en jaune et les commentaires en rouge.

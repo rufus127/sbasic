@@ -1,0 +1,37 @@
+SUB nom-sprog [(var-1, var-2 ...)]
+Définit un sous-programme qui peut être appelé par une instruction CALL
+nom-sprog : Nom du sous-programme.
+var-n : Paramètre formel.
+
+Exemple
+110 INPUT "Nombre d'éléments ";NE%
+120 DIM BB(NE%)
+130 FOR X% = 1 TO NE%
+140 PRINT "élément ";X%;
+150 INPUT BB(X%)
+160 NEXT X%
+170 CALL SOMME (BB(*),NE%,SOM)
+180 PRINT "La somme des ";NE%;" éléments introduits est égale à : ";SOM
+190 END
+...
+210 SUB SOMME (A(*),N%,S)
+220 S = 0
+230 FOR X% = 1 TO N%
+240 S = S + A(X%)
+250 NEXT X%
+260 RETURN
+Ce programme lit un certain nombre de valeur numérique et les range dans un tableau BB. Puis, il appelle le sous-programme SOMME en lui transmettant dans une liste de paramètres d’appel le tableau BB, le nombre de valeurs qu’il comporte (NE%) et enfin la variable (SOM) dans laquelle le résultat doit être retourné.
+Le sous-programme SOMME manipule les éléments communiqués par le programme appelant au moyen des paramètres formels A(*), N% et S représentant respectivement le tableau BB, et les variables NE% et SOM. Ces variables qui se correspondent sont de même type, mais ne portent pas nécessairement le même nom. Le sous-programme SOMME calcule la somme des N% éléments du tableau A(*) et l’affecte au paramètre formel S. L’instruction RETURN permet de reprendre le déroulement du programme appelant à la suite de l’instruction CALL. La somme calculée est alors disponible dans la variable SOM.
+
+Action
+L’instruction SUB elle permet de définir un sous-programme qui peut être appelé par une instruction CALL. Cette instruction est spécifique au SBASIC.
+* ( var-1, var-2 ...) est la liste des paramètres formels du sous-programme. Cette liste doit contenir le même nombre d’éléments que la liste de paramètres d’appels présente dans l’instruction CALL.
+* Un paramètre formel peut-être une variable, un élément de tableau ou un tableau, à l’exclusion des expressions, tableaux virtuels ou des éléments de tableaux virtuels.
+* Chaque paramètre formel correspond au paramètre d’appel de même rang dans l’instruction CALL, et doit être de même type (entier, réel ou chaîne de caractères) et de même nature (variable ou tableau). A défaut, une erreur 99 est signalée. Toutefois, il est possible de remplacer une variable par un élément d’un tableau.
+* Un paramètre formel et le paramètre d’appel correspondant ne portent pas nécessairement le même nom.
+* Un tableau, quel que soit le nombre de ses dimensions, doit être noté : nom-du-tableau(*). Il doit être dimensionné à l’intérieur du sous-programme, si et seulement si, il ne l’a pas été dans le programme appelant.
+* Un paramètre formel n’a pas d’existence réelle ; il représente, à l’intérieur du sous-programme, le paramètre d’appel auquel il correspond. Toute référence à un paramètre formel est, en fait, une référence au paramètre d’appel associé.
+
+Un sous-programme doit se terminer par une instruction RETURN qui permet de retourner au programme principal.
+
+Voir aussi : CALL, RETURN.

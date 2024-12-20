@@ -1,0 +1,11 @@
+BROFF ou BREAK OFF
+Inhibe l’arrêt d’un programme en cours d’exécution par appui sur les touches Ctrl-C.
+
+Exemple
+BROFF
+Après l’exécution de cette commande, il n’est plus possible d’arrêter l’exécution du programme au moyen de Ctrl-C.
+
+Action
+L’instruction BROFF (BREAK OFF) inhibe l’action des touches Ctrl-C : il n’est alors plus possible d’arrêter un programme en cours d’exécution en tapant Ctrl-C.
+La notation alternative BREAK OFF n’est utilisable qu’en mode commande.
+Voir aussi : BRON.

@@ -1,0 +1,56 @@
+PRINT [exp-1] [{ , | ; } exp-2] ... [{ , | ; }]
+Affiche des données dans la fenêtre SBASIC.
+exp-n : Expression chaîne ou numérique.
+, | ; : Séparateur « , » ou « ; ».
+
+Exemple
+5 PRINT CHR$(12)
+10 PRINT
+20 PRINT "QUOI"
+30 PRINT "VITESSE =";V
+40 PRINT A,B;X,Y
+50 PRINT "SOLUTION= "; H*G/3.2
+Ce programme donne quelques exemples de l’utilisation possible de l’instruction PRINT :
+* Envoi du code ASCII d’effacement de la fenêtre SBASIC (ligne 5),
+* Saut de ligne (ligne 10),
+* Affichage du mot « QUOI » (ligne 20),
+* Affichage d’une constante chaîne suivie d’une variable réelle (ligne 30),
+* Affichage de plusieurs variables, espacées (A et B, X et Y) ou collées (B et X) (ligne 40)
+* Affichage d’une constante chaîne suivie d’une expression numérique.
+
+Action
+L’instruction PRINT permet d’afficher dans la fenêtre SBASIC une suite d’éléments pouvant être des constantes, des valeurs de variables, des expressions numériques ou de chaîne de caractères.
+* Les valeurs numériques sont exprimées avec le nombre de chiffres défini par l’instruction DIGITS et sont toujours suivies d’un espace. Les valeurs positives sont précédées d’un espace, les valeurs négatives du signe moins.
+* Les chaînes de caractères ne sont précédées ni suivies d’aucun espace.
+* Lorsque la fin de la ligne physique est atteinte au cours d’un PRINT, le passage à la ligne suivante est automatiquement effectué.
+* Si la suite d’expressions se termine par une virgule ou un point virgule, le retour à la ligne n’est pas réalisé automatiquement et la prochaine instruction PRINT affichera ses données sur la même ligne. Dans le cas contraire, un saut de ligne est effectué après l’affichage des données.
+
+Les expressions à imprimer sont séparées soit par une virgule soit par un point virgule :
+* Une expression suivie d’un point-virgule ne modifie pas la position du curseur après l’affichage de la valeur de cette expression ; la valeur suivante est donc affichée immédiatement après ;
+* Une expression suivie d’une virgule provoque le saut du curseur à la position de tabulation suivante. SBASIC partage en effet chaque ligne d’édition en 5 champs de 16 caractères chacun. Ainsi, une virgule fait sauter l’affichage à la position 16, 32, 48 ou 64. A partir de la position 64, une virgule provoque un saut à la position 1 de la ligne suivante. Plusieurs virgules consécutives entraînent autant de sauts de la position d’affichage.
+
+Remarques :
+* Le mot-clé PRINT peut être remplacé par un point d’interrogation « ? ».
+* Instruction PRINT sans aucun argument provoque le passage à la ligne suivante.
+* Si exp-n est supérieur ou égale à 10127, une erreur 101 est générée.
+* Si exp-n est inférieur ou égale à 10-127, 0 est affiché.
+Voir aussi : PRINT USING, LPRINT, TAB, DIGITS.
+
+
+PRINT #exp-num [exp-1] [{ , | ; } exp-2] ... [{ , | ; }]
+Permet de diriger des données vers un fichier séquentiel.
+exp-num : Numéro de canal compris entre 1 et 12.
+exp-n : Expression chaîne ou numérique.
+, | ; : Séparateur « , » ou « ; ».
+
+Exemple
+10 OPEN NEW "PERSON" AS 1
+20 PRINT #1 "DUPONT"
+30 PRINT #1 "Jean"
+40 PRINT #1, 8715.25
+50 CLOSE 1
+Les instructions PRINT #1 des lignes 20, 30 et 40 permettent d’écrire 3 données dans le fichier séquentiel « PERSON.DAT » précédemment ouvert sur le canal 1 (ligne 10).
+
+Action
+L’instruction PRINT # permet d'écrire des données dans un fichier séquentiel ouvert sur le canal exp-num.
+Pour le reste, l’instruction PRINT # est identique à l’instruction PRINT.

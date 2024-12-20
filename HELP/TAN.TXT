@@ -1,0 +1,14 @@
+TAN(exp-num)
+Retourne la tangente d’un angle exprimé en radians.
+exp-num : Angle en radians.
+
+Exemple
+10 PRINT 1/TAN(3*PI/2)
+La valeur retournée est égale à 0, correspondant à l divisé par l’infini.
+
+Action
+La fonction TAN renvoie la tangente de exp-num.
+
+exp-num représente un angle, exprimé en radians.
+
+Voir aussi : ATN.

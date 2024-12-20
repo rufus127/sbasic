@@ -1,0 +1,11 @@
+PLAY nom fich[,exp-logique]
+Joue un fichier audio.
+nom fich : Nom du fichier audio.
+exp logique : Indicateur attente fin de jeu du fichier audio.
+
+Exemple
+10 PLAY "SON"
+Joue le fichier « SON.WAV ».
+
+Action
+L’instruction PLAY joue le fichier audio nom-fich au format WAV. Si exp-logique est vrai, l’instruction suivante sera exécutée lorsque le fichier audio aura été joué complètement. Sinon l’exécution continue immédiatement. Si nom-fich est une chaîne vide, le jeu en cours est arrêté.

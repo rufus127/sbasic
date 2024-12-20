@@ -1,0 +1,12 @@
+CLRG
+Efface la fenêtre graphique dans la couleur courante.
+
+Exemple
+10 HGR
+20 COLOR 15
+30 CLRG
+Ce programme sélectionne la couleur 15 comme couleur courante et illumine uniformément la fenêtre graphique dans cette couleur.
+
+Action
+L’instruction CLRG effectue un effacement complet de la fenêtre graphique dans la couleur courante.
+Voir aussi : COLOR.

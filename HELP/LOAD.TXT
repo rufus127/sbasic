@@ -1,0 +1,38 @@
+LOAD nom-fich [num-ligne-1] [, num-ligne-2] [, num-ligne-3]
+Charge en mémoire tout ou partie d’un programme sauvegardé sous forme texte, avec une translation optionnelle des numéros de lignes.
+nom-fich : Nom du programme à charger.
+num-ligne-1 : Numéro de la première ligne à charger.
+num-ligne-2 : Numéro de la dernière ligne à charger.
+num-ligne-3 : Translation.
+
+Exemple 1
+10 LOAD "ESSAI"
+Le programme « ESSAI.BAS » est chargé en totalité, sans modification de sa numérotation.
+
+Exemple 2
+10 LOAD "ESSAI "1000,
+Le programme « ESSAI.BAS » est chargé de la ligne 1000 à la dernière ligne, sans modification de sa numérotation.
+
+Exemple 3
+10 LOAD "ESSAI" ,1000
+Le programme « ESSAI.BAS » est chargé du début jusqu’à la ligne 1000, sans modification de sa numérotation.
+
+Exemple 4
+10 LOAD "ESSAI" 100,1000,200
+Le programme « ESSAI.BAS » est chargé de la ligne 100 à la ligne 1000, avec une translation de 200 dans la numérotation : la ligne 100 du programme porte le numéro 300, et ainsi de suite.
+
+Exemple 5
+10 LOAD "ESSAI" , , 200
+Le programme « ESSAI.BAS » est chargé en totalité, et 200 est ajouté à tous les numéros de ligne.
+
+Action
+L’instruction LOAD charge la portion du programme texte nom-fich, comprise entre num-ligne-1 et num-ligne-2, en ajoutant num-ligne-3 à chaque numéro de ligne chargée. L’extension par défaut de nom-fich est « BAS ». Le répertoire par défaut est le répertoire courant.
+* Les valeurs par défaut de chacun des 3 paramètres optionnels sont les suivantes :
+  num-ligne-1 1
+  num-ligne-2 32 767
+  num-ligne-3 0
+* Lorsqu’un paramètre présent est précédé de paramètres omis, l’emplacement de ces derniers doit être marqué par des virgules (Exemples 3 et 5).
+* En cas de conflit avec des lignes se trouvant en mémoire, ce sont les lignes du programme nom-fich qui s’imposent et prennent la place de leurs homologues déjà présentes en mémoire.
+* L’instruction LOAD s’utilise en mode programme ou en mode direct. En mode programme, une erreur 89 est signalée si une ligne à remplacer est référencée (ligne courante ou CALL, GOSUB ou FOR en cours).
+
+Voir aussi : BLOAD.

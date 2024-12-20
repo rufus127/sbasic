@@ -1,0 +1,8 @@
+NEW
+Efface le programme présent en mémoire.
+
+Action
+La commande NEW efface le programme présent en mémoire. La mémoire est alors prête à recevoir un nouveau programme.
+Cette commande n’est utilisable qu’en mode direct.
+
+Voir aussi : OPEN.

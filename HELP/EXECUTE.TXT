@@ -1,0 +1,20 @@
+EXECUTE exp-chaîne
+Permet d’exécuter une ou plusieurs instructions SBASIC contenues dans une chaîne de caractères.
+exp-chaîne : Chaîne contenant un ou plusieurs ordres SBASIC.
+
+Exemple 1
+10 INPUT LINE A$
+20 EXECUTE A$
+Si, lors de l’exécution de ces lignes, l’utilisateur tape :
+X=2 : X = 2 * X: PRINT X
+La valeur 4 s’affichera dans la fenêtre SBASIC.
+
+Exemple 2
+10 A$ = ' 100 PRINT "NOUVELLE LIGNE " '
+20 EXECUTE A$
+Après exécution de ces lignes, la ligne 100 est créée dans le programme.
+
+Action
+L’instruction EXECUTE permet d’exécuter une suite d’ordres SBASIC contenus dans exp chaîne comme s’ils étaient tapés directement au clavier. Cette instruction fait partie des particularités de SBASIC et offre un puissant moyen de génération automatique de programmes.
+* Si exp-chaîne ne commence pas par un numéro de ligne, les instructions qu’elle contient sont exécutées immédiatement ; 
+* Si exp-chaîne commence par un numéro de ligne, celle-ci est ajoutée au programme et n’est exécutée que lorsque le déroulement du programme y passe. Si la ligne existe déjà, elle est remplacée. Une erreur 89 est signalée si la ligne à remplacer est référencée (ligne courante ou CALL, GOSUB ou FOR en cours).

@@ -1,0 +1,13 @@
+SIN(exp-num)
+Retourne le sinus d’un angle exprimé en radians.
+exp-num : Angle en radians.
+
+Exemple
+10 PRINT SIN(PI/6)
+La valeur retournée est égale à 0.5, correspondant au sinus de PI/6.
+
+Action
+La fonction SIN renvoie le sinus de exp-num.
+exp-num représente un angle exprimé en radians.
+
+Voir aussi : COS.

@@ -1,0 +1,16 @@
+   10 REM Test BLOAD programme avant instruction
+ 2000 FOR I%=1 TO 10
+ 2010 DIM EL(I%)
+ 2020 FOR X% = 1 TO I%
+ 2030 EL(X%) = 100 + X%
+ 2040 NEXT X%
+ 2050 FOR J%=1 TO 3
+ 2099 REM *** Choix de la fonction ***
+ 2150 ON J% GOTO 2220, 2230, 2240
+ 2200 PRINT "Erreur ON GOTO!": STOP
+ 2205 NEXT J%: CLEAR EL(*): NEXT I%: GOTO 2250
+ 2210 REM *** Traitement de la fonction demand‚e ***
+ 2220 BLOAD "SOMME" : CALL SOMME(I%,EL(*)) : GOTO 2205
+ 2230 BLOAD "MOYEN" : CALL MOYEN(I%,EL(*)) : GOTO 2205
+ 2240 BLOAD "ECART" : CALL ECART(I%,EL(*)) : GOTO 2205
+ 2250 DELETE 1000,1999

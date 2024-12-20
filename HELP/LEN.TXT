@@ -1,0 +1,13 @@
+LEN(exp-chaîne)
+Renvoie la longueur d’une chaîne de caractères.
+exp-chaîne : Chaîne de caractères.
+
+Exemple
+10 A$="ABCDEF"
+20 PRINT LEN(A$)
+Ce programme affiche la longueur de la chaîne de caractères A$, à savoir 6.
+
+Action
+La fonction LEN renvoie le nombre de caractères contenus dans la chaîne exp-chaîne.
+* Tous les caractères sont comptés, y compris les espaces et les caractères non affichables.
+* Si exp-chaîne est vide, la valeur 0 est retournée.

@@ -1,0 +1,39 @@
+PEN [exp-num][,var-chaîne]
+Sélectionne un point dans la fenêtre graphique.
+exp-num : Option (entre 0 et 3).
+var-chaine : Variable chaîne pouvant recevoir la touche pressée. 
+
+Exemple 1
+10 HGR
+20 PEN
+30 IF (XPEN>= 10 AND XPEN <=20) AND (YPEN>=10 AND YPEN <= 20 ) THEN 60
+40 PRINT "Vous n'avez pas désigné le bon objet. Recommencez"
+50 GOTO 20
+60 PRINT "Réponse correcte"
+La ligne 20 active le curseur de la souris et met le programme en attente de validation. Une fois que l’utilisateur clique sur l’emplacement choisi ou presse une touche, la ligne 30 est exécutée et vérifie que le point de coordonnées XPEN, YPEN se trouve bien à l’intérieur d’un carré de côté 11 dont le coin inférieur droit a pour coordonnées (10,10).
+
+Exemple 2
+10 HGR
+20 COLOR 15
+30 PEN 1
+40 MOVE XPEN,YPEN
+50 PEN
+60 PLOT TO XPEN,YPEN
+70 GOTO 40
+A partir d’un premier point sélectionné, cet exemple trace le chemin de la souris.
+
+Action
+* Si exp-num n’est pas spécifiée ou est égale à 0, l’instruction PEN attend la validation de la position du curseur de la souris. Une position du curseur dans la fenêtre graphique est validée en cliquant sur un bouton de la souris ou en appuyant sur une touche du clavier. La position est sauvegardée dans les variables système XPEN et YPEN.
+* Si exp-num est égale à 1 ou 2, la position courante du curseur de la souris est sauvegardée dans les variables système XPEN et YPEN. Il n’y a pas d’attente de validation.
+* Si exp-num est égale à 3, la souris n’est pas sollicitée. Ce sont alors les coordonnées du point courant qui sont sauvegardées dans les variables système XPEN et YPEN.
+
+Lorsque var-chaîne est spécifiée, elle reçoit une chaîne d’un caractère à la fin de l’exécution de l’instruction PEN.
+Si la position du curseur a été validée en appuyant sur une touche du clavier, la chaîne contient le caractère correspondant à la touche.
+Sinon le code ASCII du caractère est le suivant :
+ASC(var-num)	Etat boutons souris
+	0	Pas de bouton pressé
+	1	Bouton gauche pressé
+	2	Bouton droit pressé
+	4	Bouton du milieu pressé
+
+Voir aussi : XPEN, YPEN.

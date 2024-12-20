@@ -1,0 +1,110 @@
+ON exp-num GOSUB adresse-1 [,adresse-2] ...
+Appelle un sous-programme en fonction de la valeur d’une expression.
+exp-num : Expression numérique entière.
+adresse-n : Numéro de ligne ou étiquette.
+
+Exemple
+10 INPUT "CHOIX (1-5)"; A%
+20 IF A%=0 THEN END ELSE IFA%>5 THEN 10
+30 ON A% GOSUB 100,110,120,130,140
+40 GOTO 10
+100 PRINT "1": RETURN
+110 PRINT "2": RETURN
+120 PRINT "3": RETURN
+130 PRINT "4": RETURN
+140 PRINT "5": RETURN
+Suivant la valeur de la variable A% saisie au clavier, le programme effectue un saut à l’un des sous-programmes des lignes 100 à 140.
+
+Action
+L’instruction ON GOSUB permet d’effectuer un saut conditionnel à un sous-programme en fonction de la valeur de exp-num.
+* Si la valeur de exp-num est n, le saut s’effectue à la enième adresse indiquée dans la liste ; l’adresse du sous-programme appelé peut être définie par un numéro de ligne ou par une étiquette.
+* Le cas échéant, exp-num est tronquée à sa partie entière. Si la valeur de celle-ci est nulle ou supérieure au nombre d’adresses spécifiées, une erreur 32 est signalée ; si l’adresse sélectionnée n’existe pas, une erreur 60 est produite.
+
+Aucune instruction ne doit suivre ON GOTO dans les lignes à instructions multiples.
+
+Voir aussi : GOSUB.
+
+
+ON exp-num GOTO adresse-1 [,adresse-2] ...
+Effectue un branchement conditionnel à une ligne du programme.
+exp-num : Expression numérique.
+adresse-n : Numéro de ligne ou étiquette.
+
+Exemple
+10 INPUT "CHOIX (1-5)"; A%
+20 IF A%=0 THEN END ELSE IFA%>5 THEN 10
+30 ON A% GOTO 100,DEUX,200,QUATRE,130,140
+40 GOTO 10
+100 PRINT "1" : END
+130 PRINT "5" : END
+140 PRINT "6" : END
+200 PRINT "3" : END
+250 LABEL DEUX : PRINT "2": END
+260 LABEL QUATRE : PRINT "4": END
+Suivant la valeur de la variable A%, saisie au clavier, le programme effectue un branchement à l’une des adresses (numéro de ligne ou étiquette), indiquées dans la liste associée à l’instruction ON A% GOTO.
+
+Action
+Cette instruction provoque un branchement à une adresse déterminée en fonction de la partie entière de exp-num.
+* La valeur de exp-num indique la position, dans la liste des adresses adresse n, de celle vers laquelle s’effectue le branchement. La liste des adresses peut comprendre aussi bien des numéros de lignes que des étiquettes.
+* Le cas échéant, exp-num est tronquée à sa partie entière. Si la valeur de celle-ci est nulle ou supérieure au nombre d’adresses indiquées, une erreur 32 se produit ; si l’adresse sélectionnée n’existe pas, une erreur 60 est signalée.
+
+Aucune instruction ne doit suivre ON GOTO dans des lignes à instructions multiples.
+
+Voir aussi : GOTO.
+
+
+ON ERROR GOTO [adresse]
+Active une procédure de gestion d’erreur.
+adresse : Numéro de ligne ou étiquette.
+
+Exemple
+10 INPUT "TAPEZ LE NOM DU FICHIER AVEC EXTENSION"; F$
+20 ON ERROR GOTO 100
+30 OPEN OLD F$ AS 1
+40 INPUT LINE#1, L$
+50 PRINT L$
+60 GOTO 40
+70 PRINT "FIN DE FICHIER"
+80 CLOSE 1
+90 END
+99 REM *** gestion des erreurs ***
+100 IF ERR = 8 THEN RESUME 70
+110 IF ERR = 4 THEN PRINT "FICHIER ABSENT": END
+120 PRINT "ERREUR: "; ERR, "LIGNE: ";ERL: RESUME 10
+Si une erreur survient lors de l’exécution de ce programme, un branchement est effectué à la ligne 100. Les lignes 100 à 120 constituent une procédure de gestion d’erreurs permettant, en fonction du type de l’erreur rencontrée (fichier absent, fin de fichier, …), d’effectuer le traitement approprié.
+
+Action
+L’instruction ON ERROR permet d’activer une procédure de gestion d’erreurs : si une erreur survient lors de l’exécution du programme, un branchement est immédiatement effectué à la ligne adresse identifiée par son numéro ou son étiquette.
+
+Si adresse est omis ou nul, le programme s’arrête lorsqu’une erreur survient et affiche le numéro de l’erreur, le numéro de la ligne et le message correspondant.
+
+Voir aussi : ERL, ERR, RESUME.
+
+
+ON INT exp [,instr-comp]
+Permet la gestion des interruptions logicielles.
+exp : expression numérique entière comprise entre 0 et7.
+instr-comp : Instruction(s) à exécuter.
+
+Exemple
+10 ON INT 7 GOTO 1000
+20 N=0
+100 PRINT "APPUYEZ SUR CTRL C POUR EMPECHER LE DEFILEMENT"
+110 N=N+1: GOTO 100
+1000 PRINT "LE MESSAGE EST APPARU";N;" FOIS"
+1010 PRINT "AVANT QUE LA TOUCHE CTRL C NE SOIT PRESSEE"
+Ce programme fait défiler en continu le même message dans la fenêtre SBASIC. tant que l’utilisateur n’appuie pas sur la touche Ctrl-C. Aussitôt que l’utilisateur appuie sur les touches Ctrl-C ou Ctrl-Break, une interruption logicielle numéro 7 est déclenchée et l’instruction GOTO 1000, placée juste derrière ON INT 7 est exécutée. Il y a donc transfert à la ligne 1000 et un message, indiquant le nombre de fois que le message « APPUYEZ SUR CTRL C TOUR EMPECHER LE DEFILEMENT » a été affiché. Enfin, l’exécution du programme s’arrête.
+
+Action
+L'instruction ON INT permet de gérer des interruptions logicielles en indiquant, pour chacune d'elles, le traitement associé.
+expr num spécifie le niveau d'interruption que l'on désire armer. Il doit, après arrondi éventuel, être compris entre 0 et 7.
+* Le niveau 0 est le niveau d'interruption engendré avant l'exécution de chaque instruction du programme. Particulièrement utile en cours de mise point, il permet d'afficher le contenu de certaines variables avant l'exécution de chaque instruction.
+* Le niveau 7 correspond à l'appui sur les touches Ctrl-C ou Ctrl-Break.
+instr-comp représente la ou les instructions qui seront exécutées lors de la réception d'une interruption du niveau spécifié.
+* Il est possible d'effectuer, au moyen d'une instruction CALL, GOSUB ou GOTO, un branchement vers une routine de traitement de l'interruption. Une telle routine doit se terminer par une instruction RETURN.
+* Lorsque instr comp comporte une instruction GOTO, celle-ci doit être la dernière car les instructions placées à sa suite ne seraient pas exécutées.
+* Si instr-comp est omise, le niveau spécifié est désarmé.
+
+Toute nouvelle instruction ON INT annule l'effet de la précédente pour un niveau d'interruption donné.
+
+Pendant le traitement d'une interruption, les autres interruptions sont masquées. Toute demande d'interruption est mémorisée mais n'est prise en compte qu’à la fin du traitement en cours. Toutefois, si le niveau 7 n'a pas fait l'objet d'une instruction ON INT, un appui sur Ctrl-C provoque l'arrêt du programme même si une interruption est en cours de traitement.

@@ -1,0 +1,18 @@
+ERR
+Variable système contenant le numéro de la dernière erreur rencontrée.
+
+Exemple
+10 ON ERROR GOTO 60
+20 PRINT " ENTREZ UNE CHAINE EXECUTABLE : "
+30 INPUT LINE L$
+40 EXECUTE L$
+50 GOTO 20
+60 IF ERR=85 THEN PRINT "CHAINE VIDE": RESUME 20 ELSE IF ERR=86 THEN PRINT "CHAINE TROP LONGUE": RESUME 20
+70 PRINT "Erreur : ";ERR, "Ligne: ";ERL
+Ce programme demande la saisie d’une chaîne de caractères contenant des instructions exécutables. Si la chaîne est vide (erreur 85) ou trop longue (erreur 86), le message correspondant est affiché puis l’exécution reprend à la ligne 20.
+
+Action
+ERR est une variable système (de même que ARGC, ARGV$, ERL, DATE$, PI, XPEN et YPEN), contenant le numéro de la dernière erreur produite.
+ERR ne peut pas figurer à gauche du signe égal « = » dans un ordre d’affectation (LET implicite ou explicite).
+
+Voir aussi : ERL, ON ERROR GOTO, RESUME.

@@ -1,0 +1,30 @@
+SYMBOL exp-num-1, exp-num-2 , exp-chaîne [, exp-num-3, exp-num-4, exp-num-5]
+Permet d’afficher des textes de taille variable dans la fenêtre graphique.
+exp-num-1 : Abscisse du point de départ.
+exp-num-2 : Ordonnée du point de départ.
+exp-chaîne : Chaîne à afficher.
+exp-num-3 : Largeur des caractères.
+exp-num-4 : Hauteur des caractères.
+exp-num-5 : Attributs.
+
+Exemple
+10 HGR
+20 COLOR 0
+30 CLRG
+40 COLOR 3
+50 SYMBOL 100,100,"ESSAT 1"
+60 SYMBOL 150,150,"ESSAI 2",4,7,3
+Le message « ESSAI 1 » est affiché à partir du point (100,100), puis « ESSAI 2 » est affiché à partir du point (150,150).
+
+Action
+L’instruction SYMBOL permet d’afficher des textes de taille variable dans la fenêtre graphique.
+* exp-num-1 et exp-num-2 sont les coordonnées du point de départ du tracé et détermines le coin inférieur gauche du premier caractère,
+* exp-chaîne contient le texte à afficher,
+* exp-num-3 et exp-num-4 représentent respectivement la largeur et la hauteur des caractères. Ces paramètres doivent être compris entre 1 et 16. Ce sont les tailles d’un point élémentaire définissant les caractères tracés dans une matrice 6x8,
+* exp-num-5 représente les attributs du texte. Sa valeur est comprise entre 0 et 3 :
+
+exp-num-5	Attributs du texte
+0		Tracé horizontal, caractères droits
+1		Tracé horizontal, caractères penchés
+2		Tracé vertical, caractères droits
+3		Tracé vertical, caractères penchés

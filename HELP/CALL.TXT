@@ -1,0 +1,54 @@
+CALL étiquette [(param-1, param-2, ...)]
+Permet d’appeler un sous-programme défini par une instruction SUB.
+étiquette : Nom du sous-programme
+param-n   : Expression, variable, élément de tableau ou tableau.
+
+Exemple
+110 INPUT "Nombre d'éléments ";NE%
+120 DIM BB(NE%)
+130 FOR X% = 1 TO NE%
+140 PRINT "élément ";X%,
+150 INPUT BB(X%)
+160 NEXT X%
+170 CALL SOMME (BB(*),NE%,SOM)
+180 PRINT "La somme des ";NE%;" éléments introduits est égale à : ";SOM
+190 END
+...
+210 SUB SOMME (A(*),N%,S)
+220 S = 0
+230 FOR X% = 1 TO N%
+240 S = S + A(X%)
+250 NEXT X%
+260 RETURN
+Ce programme fait appel au sous-programme SOMME spécifié dans l’instruction SUB. Les variables passées (BB(*), NE% et SOM) sont du même type que les paramètres formels associés à la définition du sous-programme, mais ne portent pas nécessairement le même nom.
+
+Action
+L’instruction CALL permet d’appeler un sous-programme défini au moyen d’une instruction SUB, en indiquant son nom ainsi que, le cas échéant, la liste des paramètres appel. Cette instruction est spécifique au SBASIC.
+(param-1, param-2 ...) est la liste des paramètres d’appels. Cette liste doit contenir le même nombre d’éléments que la liste de paramètres formels présente dans l’instruction SUB.
+Un paramètre d’appel peut-être une expression, une variable, un élément de tableau ou un tableau, à l’exclusion des tableaux virtuels ou des éléments de tableaux virtuels.
+Chaque paramètre d’appel correspond au paramètre formel de même rang de l’instruction SUB appelée et doit être de même type. Les paramètres d’appel (ou arguments) doivent être identiques en type (entier, réel ou chaîne de caractères), et de même nature (variable ou tableau). A défaut, une erreur 99 est signalée. Toutefois, il est possible de remplacer une variable par un élément d’un tableau.
+Un paramètre formel et le paramètre d’appel correspondant ne portent pas nécessairement le même nom.
+Voir aussi : SUB, RETURN.
+
+
+CALL #exp-num exp-chaîne (var-1, var-2, ...)
+Permet d’appeler une fonction d’une librairie ouverte par OPEN LIBRARY.
+exp-num    : Numéro de canal compris entre 1 et 32.
+exp-chaîne : Chaîne de caractères contenant le nom de la fonction.
+var-n      : Variable quelconque.
+
+Exemple
+10 OPEN LIBRARY "MaDll" AS 10
+20 CALL #10 "MaFonction"(X%)
+30 PRINT X%
+40 CLOSE 10
+Ce programme fait appel à la fonction « MaFonction » de la librairie « MaDll.DLL » L’adresse de la variable X% est attendue par la fonction. La fonction peut récupérer et/ou modifier le contenu de cette variable.
+
+Action
+L’instruction CALL# permet d’appeler une fonction d’une librairie à chargement dynamique (DLL) ouverte par OPEN LIBRARY en indiquant son nom dans une chaine de caractères ainsi que la liste des variables dont les adresses sont passées en paramètres. Cette instruction est spécifique au SBASIC.
+(var-1, var-2 ...) est la liste des variables dont les adresses sont passées en paramètre. Le type et le nombre des variables doivent correspondre à ceux attendus par la fonction.
+Une variable passée en paramètre peut-être de type entier, réel ou chaine de caractère. Cela peut être aussi un tableau ou un élément d’un tableau à l’exclusion des tableaux virtuels ou des éléments de tableaux virtuels.
+Il est important que le type de chaque variable corresponde à celui attendu par la fonction de la librairie. En effet aucune vérification n’est effectuée par SBASIC.
+Ces sont les adresses des variables qui sont passées. Cela permet à la fonction d’accéder au contenu de la variable avant l’appel et d’en modifier éventuellement le contenu.
+Si la valeur retournée par la fonction est non nulle, elle traitée par SBASIC comme un numéro d’erreur.
+Voir aussi : OPEN LIBRARY.

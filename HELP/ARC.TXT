@@ -1,0 +1,22 @@
+ARC exp-num-1, exp-num-2 [,exp-num-3] [,exp-num-4, exp-num-5]
+Trace un arc de cercle ou un cercle complet dans la fenêtre graphique.
+exp-num-1 : Abscisse du centre.
+exp-num-2 : Ordonnée du centre.
+exp-num-3 : Angle, en radians.
+exp-num-4 : Abscisse du point de départ.
+exp-num-5 : Ordonnée du point de départ.
+
+Exemple
+10 HGR
+20 COLOR 0
+30 CLRG
+40 COLOR 15
+50 ARC 200,200,PI,40,40
+60 ARC 400,400,2*PI,500,500
+La ligne 50 permet de tracer un demi-cercle ayant pour centre le point (200,200) et pour départ du tracé le point (40,40) ; la ligne suivante (60) provoque l’affichage d’un cercle complet ayant pour centre 400,400 et pour départ du tracé le point 500,500.
+
+Action
+L’instruction ARC permet de tracer dans la fenêtre graphique un arc de cercle ou un cercle complet.
+* (exp-num-1, exp-num-2) sont les coordonnées du centre. Elles peuvent être comprises entre -2147483648 et 2147483647 ; il s’agit d’un point virtuel éventuellement situé hors de 1a fenêtre graphique.
+* exp-num-3 représente l’angle de l’arc exprimé en radians. Si sa valeur est omise, si elle est supérieure à 2*PI ou inférieure à -2*PI, le cercle complet est tracé. Si l’angle est positif, le sens du tracé est le sens trigonométrique direct (c’est-à-dire le sens contraire des aiguilles d’une montre). Si l’angle est négatif le sens du tracé est le sens trigonométrique inverse.
+* (exp-num-4, exp-num-5) sont les coordonnées du point de départ du tracé. Si elles sont omises, le tracé commence au point courant.

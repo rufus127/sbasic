@@ -1,0 +1,30 @@
+CLEAR [var-1[(*)]] [,var-2[(*)]], ...
+Libère la place occupée par des variables ou des tableaux.
+var-n[(*)] : Variable ou tableau
+
+Exemple 1
+10 DIM B$(10), D(10,2): A$="CECI EST LE TITRE"
+20 FOR X%=1 TO 10
+30 INPUT B$(X%),D(X%,1),D(X%,2)
+40 NEXT X%
+50 PRINT A$
+60 FOR X%=1 TO 10
+70 PRINT B$(X%),D(X%,1),D(X%,2)
+80 NEXT X%
+90 CLEAR A$, B$(*), D(*)
+100 DIM B$(20),D(50)
+Les tableaux B$(*) et D(*) sont dimensionnés puis utilisés dans le programme avec les instructions INPUT et PRINT ; la variable A$ est également initialisée puis imprimée. Cette variable ainsi que les deux tableaux sont ensuite remis à zéro (ligne 90), ce qui permet d’affecter une nouvelle dimension aux tableaux (ligne 100).
+
+Exemple 2
+10 CLEAR
+Toutes les variables et tous les tableaux du programme sont remis à zéro.
+
+Action
+L’instruction CLEAR remet à zéro tout ou partie des variables et tableaux du programme en cours.
+Les arguments associés à l’instruction CLEAR peuvent être soit des variables soit des tableaux. Les tableaux, même s’ils possèdent plusieurs dimensions, sont référencés par leur nom auquel est accolé un seul astérisque placé entre parenthèses.
+Les variables numériques prennent la valeur zéro et les chaînes deviennent des chaînes vides. La place occupée par les variables mentionnées est libérée, mais leur nom est conservé dans la table des symboles. Les tableaux ayant fait l’objet d’un ordre CLEAR peuvent être redimensionnés.
+CLEAR sans argument remet à zéro l’ensemble des variables et tableaux du programme. Tous les fichiers sont fermés ainsi que la fenêtre graphique. Les effets des instructions WINDOW et SETCOLOR sur la fenêtre SBASIC sont annulés. Les variables XPEN et YPEN sont remises à leur valeur par défaut.
+Remarque
+Il ne faut pas faire porter une instruction CLEAR sur un argument formel de sous-programme (SUB). Le résultat serait indéterminé.
+
+Voir aussi : WINDOW, SETCOLOR, XPEN, YPEN, RETURN.

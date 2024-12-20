@@ -1,0 +1,10 @@
+SYSTEM
+Permet de quitter SBASIC.
+
+Exemple
+SYSTEM
+Dès la validation de cette commande, on quitte le SBASIC.
+
+Action
+La commande SYSTEM permet de quitter le SBASIC. Elle n’est utilisable qu’en mode direct.
+Voir aussi : EXEC, EXIT.

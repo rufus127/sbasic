@@ -1,0 +1,14 @@
+CHD chemin-rep
+Change de répertoire courant.
+chemin-rep : Chemin répertoire.
+
+Exemple 1
+10 CHD "Mes Programmes"
+Cette ligne positionne le répertoire courant sur le sous-répertoire « Mes Programmes » situé dans le répertoire courant  précédent.
+
+Exemple 2
+10 CHD "C:\SBASIC\Mes Programmes"
+Cette ligne positionne le répertoire courant sur le sous-répertoire « \SBASIC\Mes Programmes » du disque C:.
+
+Action
+L’instruction CHD positionne le répertoire courant suivant le chemin spécifié. Ce chemin peut être absolu ou relatif.

@@ -1,0 +1,13 @@
+RTRIM$(exp-chaîne)
+Retourne une chaîne de caractères épurée des blancs de queue.
+exp-chaîne : Expression chaîne de caractères.
+
+Exemple
+10 A$ = "   CECI EST UN ESSAI   "
+20 R$ = RTRIM$(A$)
+Après exécution de ces lignes, R$ contient «    CECI EST UN ESSAI »
+
+Action
+La fonction RTRIM$ renvoie le contenu de exp-chaîne débarrassé de ses espaces de queue.
+
+Voir aussi : LTRIM$.

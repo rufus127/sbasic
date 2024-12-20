@@ -1,0 +1,12 @@
+EXEC exp-chaîne
+Permet d’exécuter une ligne de commande Windows à partir de SBASIC.
+exp-chaîne : Chaîne contenant une ligne de commande.
+
+Exemple
+10 EXEC "DIR *.BAS"
+L’exécution de cette ligne fait apparaître, dans la fenêtre SBASIC, la liste des fichiers ayant l’extension « .BAS » dans le  répertoire courant.
+
+Action
+L’instruction EXEC permet d’exécuter une ligne de commande comme si elle avait été tapée directement au clavier dans une fenêtre de commande de Windows.
+
+Voir aussi : « + », SYSTEM.

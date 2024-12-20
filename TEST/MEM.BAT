@@ -1,0 +1,1 @@
+..\release\sbasic /D 401 mem.bas
